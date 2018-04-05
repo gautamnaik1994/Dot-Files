@@ -24,6 +24,25 @@ Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
+
+"""""""""""""""""""""""""""""""""Mappings""""""""""""""""""""""""""""""""""""""""""""
+let mapleader= ","
+"Open Vim file
+nmap <Leader>ev :tabedit $MYVIMRC<cr>
+nmap <Leader><space> :nohl<cr> 
+
+"Split Management
+nmap <C-J> <C-W><C-J>
+nmap <C-K> <C-W><C-K>
+nmap <C-L> <C-W><C-L>
+nmap <C-H> <C-W><C-H>
+
+"""""""""""""""""""""""""""""""""Autocommands""""""""""""""""""""""""""""""""""""""""""""
+augroup autosourcing
+	autocmd!
+	autocmd BufWritePost init.vim source %  "Automatically source file vimrc file
+augroup END
+
 """""""""""""""""""""""""""""""""Theme & Colors""""""""""""""""""""""""""""""""""""""""""""
 colorscheme OceanicNext
 let g:oceanic_next_terminal_bold = 1
@@ -70,6 +89,8 @@ set laststatus=2
 set ttimeoutlen=50 
 set autochdir
 set ff=unix
+set splitbelow
+set splitright
 
 
 

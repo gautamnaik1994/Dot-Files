@@ -16,6 +16,11 @@ Plug 'equalsraf/neovim-gui-shim'
 Plug 'townk/vim-autoclose'
 Plug 'mattn/emmet-vim'
 Plug 'prettier/vim-prettier', {'do': 'npm install','for': ['javascript', 'css', 'scss', 'json']}
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+" Plug 'vim-syntastic/syntastic'
+Plug 'w0rp/ale'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -63,8 +68,8 @@ set undolevels=1000	           "# Number of undo levels
 set backspace=indent,eol,start "# Backspace behaviour
 set laststatus=2
 set ttimeoutlen=50 
-:set autochdir
-
+set autochdir
+set ff=unix
 
 
 
@@ -120,6 +125,11 @@ let g:airline_symbols.maxlinenr = ''
 
 """""""""""""""""""""""""""""""""Emmet""""""""""""""""""""""""""""""""""""""""""""
 let g:user_emmet_mode='a'    "enable all function in all mode.
+let g:user_emmet_settings = {
+  \  'javascript.jsx' : {
+    \      'extends' : 'jsx',
+    \  },
+  \}
 
 """""""""""""""""""""""""""""""""Prettier""""""""""""""""""""""""""""""""""""""""""""
 let g:prettier#exec_cmd_path = "~/AppData/Local/nvim/bundle/vim-prettier/node_modules/.bin/prettier"
@@ -127,3 +137,8 @@ let g:prettier#exec_cmd_path = "~/AppData/Local/nvim/bundle/vim-prettier/node_mo
 let g:prettier#exec_cmd_async = 1
 let g:prettier#config#parser = 'babylon'
 " autocmd BufWritePre *.js,*.css,*.scss,*.json PrettierAsync
+
+"""""""""""""""""""""""""""""""""Ale""""""""""""""""""""""""""""""""""""""""""""
+let g:ale_sign_error = '●' " Less aggressive than the default '>>'
+let g:ale_sign_warning = '.'
+let g:ale_lint_on_enter = 0 " Less distracting when opening a new file

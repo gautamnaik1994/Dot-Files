@@ -157,7 +157,9 @@ let g:prettier#exec_cmd_path = "~/AppData/Local/nvim/bundle/vim-prettier/node_mo
 " let g:prettier#autoformat = 0
 let g:prettier#exec_cmd_async = 1
 let g:prettier#config#parser = 'babylon'
-" autocmd BufWritePre *.js,*.css,*.scss,*.json PrettierAsync
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+
 
 """""""""""""""""""""""""""""""""Ale""""""""""""""""""""""""""""""""""""""""""""
 let g:ale_sign_error = '●' " Less aggressive than the default '>>'

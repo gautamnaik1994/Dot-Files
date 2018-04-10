@@ -20,7 +20,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 " Plug 'vim-syntastic/syntastic'
 Plug 'w0rp/ale'
-Plug 'ryanoasis/vim-devicons'
+" Plug 'ryanoasis/vim-devicons'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround'
 call plug#end()
@@ -38,6 +38,18 @@ nmap <C-J> <C-W><C-J>
 nmap <C-K> <C-W><C-K>
 nmap <C-L> <C-W><C-L>
 nmap <C-H> <C-W><C-H>
+
+"Code folding
+nmap <Leader>f0 :set foldlevel=0<CR>
+nmap <Leader>f1 :set foldlevel=1<CR>
+nmap <Leader>f2 :set foldlevel=2<CR>
+nmap <Leader>f3 :set foldlevel=3<CR>
+nmap <Leader>f4 :set foldlevel=4<CR>
+nmap <Leader>f5 :set foldlevel=5<CR>
+nmap <Leader>f6 :set foldlevel=6<CR>
+nmap <Leader>f7 :set foldlevel=7<CR>
+nmap <Leader>f8 :set foldlevel=8<CR>
+nmap <Leader>f9 :set foldlevel=9<CR>
 
 """""""""""""""""""""""""""""""""Autocommands""""""""""""""""""""""""""""""""""""""""""""
 augroup autosourcing
@@ -111,9 +123,37 @@ autocmd VimEnter *
 
 
 """""""""""""""""""""""""""""""""Airline""""""""""""""""""""""""""""""""""""""""""""
-  let g:airline_theme='base16_spacemacs'
-  let g:airline#extensions#tabline#enabled = 2
-  let g:airline#extensions#tabline#fnamemod = ':t'
+
+let g:airline_theme='base16_spacemacs'
+let g:airline#extensions#tabline#enabled = 2
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+if exists("g:gui_oni")
+  if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+  endif
+ " unicode symbols
+  let g:airline_left_sep = ''
+  let g:airline_left_sep = ''
+  let g:airline_right_sep = ''
+  let g:airline_right_sep = ''
+  let g:airline_symbols.crypt = ''
+  let g:airline_symbols.linenr = ''
+  let g:airline_symbols.linenr = ''
+  let g:airline_symbols.linenr = ''
+  let g:airline_symbols.linenr = ''
+  let g:airline_symbols.maxlinenr = ''
+  let g:airline_symbols.maxlinenr = ''
+  let g:airline_symbols.branch = ''
+  let g:airline_symbols.paste = ''
+  let g:airline_symbols.paste = ''
+  let g:airline_symbols.paste = ''
+  let g:airline_symbols.spell = ''
+  let g:airline_symbols.notexists = ''
+  let g:airline_symbols.whitespace = ''
+  " powerline symbols
+
+elseif
   if !exists('g:airline_symbols')
     let g:airline_symbols = {}
   endif
@@ -144,8 +184,6 @@ autocmd VimEnter *
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = '☰'
   let g:airline_symbols.maxlinenr = ''
-if exists("g:gui_oni")
-  let g:loaded_airline = 0
 endif
 
 

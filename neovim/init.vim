@@ -9,6 +9,7 @@ call plug#begin('~/AppData/Local/nvim/bundle')
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'vim-scripts/taglist.vim'
 Plug 'mhartington/oceanic-next'
 Plug 'vim-airline/vim-airline-themes'
@@ -23,6 +24,7 @@ Plug 'w0rp/ale'
 " Plug 'ryanoasis/vim-devicons'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround'
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 
@@ -110,6 +112,7 @@ set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 
 """""""""""""""""""""""""""""""""Nerd Tree""""""""""""""""""""""""""""""""""""""""""""
 map <C-n> :NERDTreeToggle<CR>
+let NERDTreeMinimalUI=1
 autocmd vimenter * NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
@@ -121,6 +124,19 @@ autocmd VimEnter *
 \| endif
 
 
+"""""""""""""""""""""""""""""""""Nerd Tree Git""""""""""""""""""""""""""""""""""""""""""""
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
 
 """""""""""""""""""""""""""""""""Airline""""""""""""""""""""""""""""""""""""""""""""
 
@@ -212,3 +228,7 @@ let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 """""""""""""""""""""""""""""""""CtrlP""""""""""""""""""""""""""""""""""""""""""""
 
 let g:ctrlp_custom_ignore = 'node_modules\DS_Store\|git'
+
+"""""""""""""""""""""""""""""""""Indent Line""""""""""""""""""""""""""""""""""""""""""""
+let g:indentLine_char = '│'
+let g:indentLine_leadingSpaceEnabled = 1

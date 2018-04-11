@@ -9,7 +9,7 @@ export const activate = (oni: Oni.Plugin.Api) => {
   // Add input bindings here:
   //
   oni.input.bind('<c-enter>', () => console.log('Control+Enter was pressed'));
-
+   oni.input.unbind('<c-p>');
   //
   // Or remove the default bindings here by uncommenting the below line:
   //

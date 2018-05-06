@@ -9,22 +9,26 @@ call plug#begin('~/AppData/Local/nvim/bundle')
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'vim-scripts/taglist.vim'
 Plug 'mhartington/oceanic-next'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'equalsraf/neovim-gui-shim'
-Plug 'townk/vim-autoclose'
+"Plug 'townk/vim-autoclose'
 Plug 'mattn/emmet-vim'
 Plug 'prettier/vim-prettier', {'do': 'npm install','for': ['javascript', 'css', 'scss', 'json']}
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-" Plug 'vim-syntastic/syntastic'
+Plug 'vim-syntastic/syntastic'
 Plug 'w0rp/ale'
 " Plug 'ryanoasis/vim-devicons'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround'
-Plug 'Yggdroot/indentLine'
+Plug 'easymotion/vim-easymotion'
+Plug 'tmhedberg/SimpylFold'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'nvie/vim-flake8'
+Plug 'Valloric/YouCompleteMe'
+Plug 'Raimondi/delimitMate'
 call plug#end()
 
 
@@ -52,6 +56,8 @@ nmap <Leader>f6 :set foldlevel=6<CR>
 nmap <Leader>f7 :set foldlevel=7<CR>
 nmap <Leader>f8 :set foldlevel=8<CR>
 nmap <Leader>f9 :set foldlevel=9<CR>
+" Enable folding with the spacebar
+" nnoremap <space> za
 
 """""""""""""""""""""""""""""""""Autocommands""""""""""""""""""""""""""""""""""""""""""""
 augroup autosourcing
@@ -108,11 +114,26 @@ set ff=unix
 set splitbelow
 set splitright
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+" Python Specific Settings
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+let python_highlight_all=1
 
 
 """""""""""""""""""""""""""""""""Nerd Tree""""""""""""""""""""""""""""""""""""""""""""
 map <C-n> :NERDTreeToggle<CR>
-let NERDTreeMinimalUI=1
 autocmd vimenter * NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
@@ -124,19 +145,6 @@ autocmd VimEnter *
 \| endif
 
 
-"""""""""""""""""""""""""""""""""Nerd Tree Git""""""""""""""""""""""""""""""""""""""""""""
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
-    \ }
 
 """""""""""""""""""""""""""""""""Airline""""""""""""""""""""""""""""""""""""""""""""
 
@@ -169,7 +177,7 @@ if exists("g:gui_oni")
   let g:airline_symbols.whitespace = ''
   " powerline symbols
 
-elseif
+else
   if !exists('g:airline_symbols')
     let g:airline_symbols = {}
   endif
@@ -224,11 +232,30 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 let g:ale_sign_error = '●' " Less aggressive than the default '>>'
 let g:ale_sign_warning = '.'
 let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
+let g:ale_emit_conflict_warnings = 0
 
 """""""""""""""""""""""""""""""""CtrlP""""""""""""""""""""""""""""""""""""""""""""
 
 let g:ctrlp_custom_ignore = 'node_modules\DS_Store\|git'
+let g:ctrlp_cmd='CtrlP :pwd'
 
-"""""""""""""""""""""""""""""""""Indent Line""""""""""""""""""""""""""""""""""""""""""""
-let g:indentLine_char = '│'
-let g:indentLine_leadingSpaceEnabled = 1
+
+"""""""""""""""""""""""""""""""""SimplyFold""""""""""""""""""""""""""""""""""""""""""""
+let g:SimpylFold_docstring_preview=1
+
+
+"""""""""""""""""""""""""""""""""delimitMate"""""""""""""""""""""""""""""""""""""""""""
+  " delimitMate fixes
+imap <M-Left> <Plug>delimitMateC-Left
+imap <M-Right> <Plug>delimitMateC-Right
+imap <D-Left> <Plug>delimitMateHome
+imap <D-Right> <Plug>delimitMateEnd
+
+"""""""""""""""""""""""""""""""""vim-syntastic"""""""""""""""""""""""""""""""""""""""""""
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0

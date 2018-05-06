@@ -1,4 +1,4 @@
-if empty(glob('~/AppData/Local/nvim/autoload/plug.vim'))
+iif empty(glob('~/AppData/Local/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/AppData/Local/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
@@ -59,6 +59,10 @@ nmap <Leader>f9 :set foldlevel=9<CR>
 " Enable folding with the spacebar
 " nnoremap <space> za
 
+" move vertically by visual line
+nnoremap j gj
+nnoremap k gk
+
 """""""""""""""""""""""""""""""""Autocommands""""""""""""""""""""""""""""""""""""""""""""
 augroup autosourcing
 	autocmd!
@@ -84,6 +88,7 @@ set number                     " Show the line numbers on the left side.
 set formatoptions+=o           " Continue comment marker in new lines.
 "set expandtab                 " Insert spaces when TAB is pressed.
 set tabstop=2                  " Render TABs using this many spaces.
+set expandtab
 set shiftwidth=4               " Indentation amount for < and > commands.
 set nojoinspaces 
 set t_Co=256
@@ -94,6 +99,8 @@ set ignorecase                 " Include matching uppercase words with lowercase
 set smartcase                  " Include only uppercase words with uppercase search term
 set nowrap	                   "# Wrap lines
 set showbreak=+++	             "# Wrap-broken line prefix
+set cursorline         		   " highlight current line
+set showcmd             	   " show command in bottom bar
 set textwidth=100	             "# Line wrap (number of cols)
 set showmatch	                 "# Highlight matching brace
 "set spell	                   "# Enable spell-checking

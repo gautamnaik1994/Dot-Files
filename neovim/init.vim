@@ -1,4 +1,4 @@
-iif empty(glob('~/AppData/Local/nvim/autoload/plug.vim'))
+if empty(glob('~/AppData/Local/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/AppData/Local/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
@@ -18,7 +18,7 @@ Plug 'mattn/emmet-vim'
 Plug 'prettier/vim-prettier', {'do': 'npm install','for': ['javascript', 'css', 'scss', 'json']}
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
 Plug 'w0rp/ale'
 " Plug 'ryanoasis/vim-devicons'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -27,7 +27,8 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tmhedberg/SimpylFold'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'nvie/vim-flake8'
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Raimondi/delimitMate'
 call plug#end()
 
@@ -139,6 +140,12 @@ au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 let python_highlight_all=1
 
 
+"""""""""""""""""""""""""""""""""Deoplete""""""""""""""""""""""""""""""""""""""""""""
+let g:deoplete#enable_at_startup = 1
+"<TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+
 """""""""""""""""""""""""""""""""Nerd Tree""""""""""""""""""""""""""""""""""""""""""""
 map <C-n> :NERDTreeToggle<CR>
 autocmd vimenter * NERDTree
@@ -146,6 +153,7 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
+let NERDTreeMinimalUI=1
 autocmd VimEnter *
   \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \|   PlugInstall --sync | q
@@ -158,6 +166,7 @@ autocmd VimEnter *
 let g:airline_theme='base16_spacemacs'
 let g:airline#extensions#tabline#enabled = 2
 let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#ale#enabled = 1
 
 if exists("g:gui_oni")
   if !exists('g:airline_symbols')
@@ -228,28 +237,51 @@ let g:user_emmet_settings = {
 
 """""""""""""""""""""""""""""""""Prettier""""""""""""""""""""""""""""""""""""""""""""
 let g:prettier#exec_cmd_path = "~/AppData/Local/nvim/bundle/vim-prettier/node_modules/.bin/prettier"
+let g:prettier#config#print_width = 80
+
+
+let g:prettier#config#tab_width = 2
+
+let g:prettier#config#use_tabs = 'true'
+
+let g:prettier#config#semi = 'true'
+
+let g:prettier#config#single_quote = 'true'
+
+" print spaces between brackets
+" Prettier default: true
+let g:prettier#config#bracket_spacing = 'true'
+
+" put > on the last line instead of new line
+" Prettier default: false
+let g:prettier#config#jsx_bracket_same_line = 'false'
+" avoid|always
+" Prettier default: avoid
+let g:prettier#config#arrow_parens = 'always'
+" none|es5|all
+" Prettier default: none
+let g:prettier#config#trailing_comma = 'all'
 " let g:prettier#autoformat = 0
 let g:prettier#exec_cmd_async = 1
 let g:prettier#config#parser = 'babylon'
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 
-
 """""""""""""""""""""""""""""""""Ale""""""""""""""""""""""""""""""""""""""""""""
-let g:ale_sign_error = '●' " Less aggressive than the default '>>'
-let g:ale_sign_warning = '.'
+"let g:ale_sign_error = '●' " Less aggressive than the default '>>'
+"let g:ale_sign_warning = '--'
 let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 let g:ale_emit_conflict_warnings = 0
 
 """""""""""""""""""""""""""""""""CtrlP""""""""""""""""""""""""""""""""""""""""""""
 
-let g:ctrlp_custom_ignore = 'node_modules\DS_Store\|git'
-let g:ctrlp_cmd='CtrlP :pwd'
-
+"let g:ctrlp_custom_ignore = 'node_modules\DS_Store\|git'
+"let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+"let g:ctrlp_cmd='CtrlP :pwd'
 
 """""""""""""""""""""""""""""""""SimplyFold""""""""""""""""""""""""""""""""""""""""""""
 let g:SimpylFold_docstring_preview=1
-
 
 """""""""""""""""""""""""""""""""delimitMate"""""""""""""""""""""""""""""""""""""""""""
   " delimitMate fixes
@@ -259,10 +291,10 @@ imap <D-Left> <Plug>delimitMateHome
 imap <D-Right> <Plug>delimitMateEnd
 
 """""""""""""""""""""""""""""""""vim-syntastic"""""""""""""""""""""""""""""""""""""""""""
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0

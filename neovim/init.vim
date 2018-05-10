@@ -6,6 +6,7 @@ endif
 
 call plug#begin('~/AppData/Local/nvim/bundle')
 
+Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
@@ -82,6 +83,7 @@ if (has("termguicolors"))
 endif
 
 """""""""""""""""""""""""""""""""Settings""""""""""""""""""""""""""""""""""""""""""""
+set list lcs=tab:\│\ 
 syntax enable
 syntax on
 set showmatch                  " Show matching brackets.
@@ -138,6 +140,10 @@ au BufNewFile,BufRead *.py
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 let python_highlight_all=1
+
+"""""""""""""""""""""""""""""""""Indent line""""""""""""""""""""""""""""""""""""""""""""
+
+let g:indentLine_char = '│'
 
 
 """""""""""""""""""""""""""""""""Deoplete""""""""""""""""""""""""""""""""""""""""""""

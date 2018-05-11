@@ -196,7 +196,7 @@ endif
 let g:deoplete#omni#functions = {}
 let g:deoplete#omni#functions.javascript = [
   \ 'tern#Complete',
-  \ 'jspc#omni'
+   \ 'jspc#omni'
 \]
 set completeopt=longest,menuone,preview
 " let g:deoplete#sources = {}
@@ -217,12 +217,12 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 let g:UltiSnipsSnippetDirectories = ['~/AppData/Local/nvim/UltiSnips', 'UltiSnips']
 
 """""""""""""""""""""""""""""""""tern""""""""""""""""""""""""""""""""""""""""""""
-" if exists('g:plugs["tern_for_vim"]')
-"   let g:tern_show_argument_hints = 'on_hold'
-"   let g:tern_show_signature_in_pum = 1
-"   autocmd FileType javascript setlocal omnifunc=tern#Complete
-" endif
-" autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
+if exists('g:plugs["tern_for_vim"]')
+  let g:tern_show_argument_hints = 'on_hold'
+  let g:tern_show_signature_in_pum = 1
+  autocmd FileType javascript setlocal omnifunc=tern#Complete
+endif
+autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
 
 
 """""""""""""""""""""""""""""""""Nerd Tree""""""""""""""""""""""""""""""""""""""""""""
@@ -230,8 +230,8 @@ map <C-n> :NERDTreeToggle<CR>
 autocmd vimenter * NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
+" let g:NERDTreeDirArrowExpandable = '▸'
+" let g:NERDTreeDirArrowCollapsible = '▾'
 let NERDTreeMinimalUI=1
 autocmd VimEnter *
   \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))

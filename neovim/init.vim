@@ -5,7 +5,7 @@ if empty(glob('~/AppData/Local/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/AppData/Local/nvim/bundle')
-
+Plug 'tpope/vim-sensible'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
@@ -21,7 +21,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 " Plug 'vim-syntastic/syntastic'
 Plug 'w0rp/ale'
-" Plug 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
@@ -34,8 +34,8 @@ Plug 'Raimondi/delimitMate'
 Plug 'ternjs/tern_for_vim', {'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
 Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+" Plug 'honza/vim-snippets'
+Plug 'carlitux/deoplete-ternjs', {'do': 'npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 call plug#end()
 
@@ -90,6 +90,7 @@ endif
 
 """""""""""""""""""""""""""""""""Settings""""""""""""""""""""""""""""""""""""""""""""
 set list lcs=tab:\│\ 
+:filetype on
 syntax enable
 syntax on
 set showmatch                  " Show matching brackets.
@@ -133,6 +134,8 @@ set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
+" Automatically clean trailing whitespace
+autocmd BufWritePre * :%s/\s\+$//e
 " Python Specific Settings
 au BufNewFile,BufRead *.py
     \ set tabstop=4
@@ -147,6 +150,9 @@ au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 let python_highlight_all=1
 
+"""""""""""""""""""""""""""""""""vim jsx""""""""""""""""""""""""""""""""""""""""""""
+let g:jsx_ext_required = 0
+
 """""""""""""""""""""""""""""""""Indent line""""""""""""""""""""""""""""""""""""""""""""
 
 let g:indentLine_char = '│'
@@ -154,7 +160,7 @@ let g:indentLine_char = '│'
 """""""""""""""""""""""""""""""""" omnifuncs""""""""""""""""""""""""""""""""""""""""""""
 augroup omnifuncs
   autocmd!
-  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType css,scss setlocal omnifunc=csscomplete#CompleteCSS
   autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
   "autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
@@ -164,12 +170,28 @@ augroup end
 
 """""""""""""""""""""""""""""""""Deoplete""""""""""""""""""""""""""""""""""""""""""""
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#enable_ignore_case = 1
+let g:deoplete#enable_camel_case = 1
+"let g:deoplete#enable_refresh_always = 1
+" let g:deoplete#max_abbr_width = 0
+" let g:deoplete#max_menu_width = 0
+" let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
+" call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
+
+" let g:tern_request_timeout = 1
+" let g:tern_request_timeout = 6000
+" let g:tern#command = ["tern"]
+" let g:tern#arguments = ["--persistent"]
+" let g:deoplete#sources#javascript_support = 1
+
+
 if !exists('g:deoplete#omni#input_patterns')
   let g:deoplete#omni#input_patterns = {}
 endif
-"<TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-"inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" "<TAB>: completion.
+ "inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" "inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 let g:deoplete#omni#functions = {}
 let g:deoplete#omni#functions.javascript = [
@@ -177,24 +199,30 @@ let g:deoplete#omni#functions.javascript = [
   \ 'jspc#omni'
 \]
 set completeopt=longest,menuone,preview
-let g:deoplete#sources = {}
-let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs']
-let g:tern#command = ['tern']
-let g:tern#arguments = ['--persistent']
+" let g:deoplete#sources = {}
+" let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs']
+" let g:tern#command = ['tern']
+" let g:tern#arguments = ['--persistent']
+
+" let g:deoplete#sources#ternjs#filetypes = [
+"                 \ 'jsx',
+"                 \ 'javascript.jsx',
+"                 \ ]
 
 """""""""""""""""""""""""""""""""Ultisnip""""""""""""""""""""""""""""""""""""""""""""
 let g:UltiSnipsEditSplit="vertical"
 autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 let g:UltiSnipsExpandTrigger="<C-j>"
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+let g:UltiSnipsSnippetDirectories = ['~/AppData/Local/nvim/UltiSnips', 'UltiSnips']
 
 """""""""""""""""""""""""""""""""tern""""""""""""""""""""""""""""""""""""""""""""
-if exists('g:plugs["tern_for_vim"]')
-  let g:tern_show_argument_hints = 'on_hold'
-  let g:tern_show_signature_in_pum = 1
-  autocmd FileType javascript setlocal omnifunc=tern#Complete
-endif
-autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
+" if exists('g:plugs["tern_for_vim"]')
+"   let g:tern_show_argument_hints = 'on_hold'
+"   let g:tern_show_signature_in_pum = 1
+"   autocmd FileType javascript setlocal omnifunc=tern#Complete
+" endif
+" autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
 
 
 """""""""""""""""""""""""""""""""Nerd Tree""""""""""""""""""""""""""""""""""""""""""""

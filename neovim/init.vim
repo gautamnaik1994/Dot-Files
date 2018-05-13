@@ -5,13 +5,16 @@ if empty(glob('~/AppData/Local/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/AppData/Local/nvim/bundle')
-Plug 'tpope/vim-sensible'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'zchee/deoplete-jedi'
+" Plug 'tpope/vim-sensible'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-scripts/taglist.vim'
-Plug 'mhartington/oceanic-next'
+"Plug 'mhartington/oceanic-next'"
+Plug 'gautamnaik1994/oceanic-next'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'equalsraf/neovim-gui-shim'
 "Plug 'townk/vim-autoclose'
@@ -34,18 +37,28 @@ Plug 'Raimondi/delimitMate'
 Plug 'ternjs/tern_for_vim', {'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
 Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 Plug 'carlitux/deoplete-ternjs', {'do': 'npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'scrooloose/nerdcommenter'
+Plug 'morhetz/gruvbox'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'liuchengxu/space-vim-dark'
+Plug 'rakr/vim-one'
+Plug 'mhinz/vim-signify'
+"Plug 'othree/yajs.vim'
+"Plug 'othree/html5.vim'
+"Plug 'othree/es.next.syntax.vim'
+Plug 'joshdick/onedark.vim'
+Plug 'NLKNguyen/papercolor-theme'
 call plug#end()
-
 
 
 """""""""""""""""""""""""""""""""Mappings""""""""""""""""""""""""""""""""""""""""""""
 let mapleader= ","
 "Open Vim file
 nmap <Leader>ev :tabedit $MYVIMRC<cr>
-nmap <Leader><space> :nohl<cr> 
+nmap <Leader><space> :nohl<cr>
 
 "Split Management
 nmap <C-J> <C-W><C-J>
@@ -78,10 +91,29 @@ augroup autosourcing
 augroup END
 
 """""""""""""""""""""""""""""""""Theme & Colors""""""""""""""""""""""""""""""""""""""""""""
-colorscheme OceanicNext
-let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 1
+"colorscheme gruvbox
 
+"set background=dark " for the dark version
+"colorscheme OceanicNext
+
+"let g:gruvbox_contrast_dark = 'hard'
+" let g:gruvbox_improved_strings = 1
+"let g:oceanic_next_terminal_bold = 1
+"let g:oceanic_next_terminal_italic = 1"
+
+"colorscheme space-vim-dark"
+"let g:space_vim_dark_background = 233
+"color space-vim-dark"
+
+"colorscheme one
+"set background=dark " for the dark version
+"let g:one_allow_italics = 1 "
+
+colorscheme onedark
+set background=dark
+
+
+"colorscheme PaperColor
 
 """""""""""""""""""""""""""""""""Functions""""""""""""""""""""""""""""""""""""""""""""
 if (has("termguicolors"))
@@ -89,10 +121,12 @@ if (has("termguicolors"))
 endif
 
 """""""""""""""""""""""""""""""""Settings""""""""""""""""""""""""""""""""""""""""""""
-set list lcs=tab:\│\ 
+set list lcs=tab:\│\             " show vertical lines
 :filetype on
+filetype plugin on
 syntax enable
 syntax on
+filetype indent on                                " Better indentation.
 set showmatch                  " Show matching brackets.
 set number                     " Show the line numbers on the left side.
 set formatoptions+=o           " Continue comment marker in new lines.
@@ -100,7 +134,7 @@ set formatoptions+=o           " Continue comment marker in new lines.
 set tabstop=2                  " Render TABs using this many spaces.
 set expandtab
 set shiftwidth=4               " Indentation amount for < and > commands.
-set nojoinspaces 
+set nojoinspaces
 set t_Co=256
 set encoding=utf-8
 set hlsearch                   " Highlight matching search patterns
@@ -125,7 +159,7 @@ set showtabline=2	             "# Show tab bar
 set undolevels=1000	           "# Number of undo levels
 set backspace=indent,eol,start "# Backspace behaviour
 set laststatus=2
-set ttimeoutlen=50 
+set ttimeoutlen=50
 set autochdir
 set ff=unix
 set splitbelow
@@ -147,11 +181,22 @@ au BufNewFile,BufRead *.py
     \ set fileformat=unix
 
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+au BufRead,BufNewFile *.js,*.jsx,*.html syn region xmlTagName matchgroup=xmlTag start=+</+ end=+>+
 
 let python_highlight_all=1
 
+
+""""""""""""""""""""""""""""""""rainbow paretnesis""""""""""""""""""""""""""""""""""""""""""""
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
 """""""""""""""""""""""""""""""""vim jsx""""""""""""""""""""""""""""""""""""""""""""
 let g:jsx_ext_required = 0
+"highlight link xmlEndTag xmlTag
+"hi link xmlEndTag xmlTag"
+
 
 """""""""""""""""""""""""""""""""Indent line""""""""""""""""""""""""""""""""""""""""""""
 

@@ -12,9 +12,11 @@ Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
-Plug 'vim-scripts/taglist.vim'
+"Plug 'vim-scripts/taglist.vim'
+Plug 'matze/vim-move'
+"Plug 'larsbs/vim-xmll'                                            " Tweaked Vim XML syntax highlighting plugin - React close tags look a little nicer with this!
 "Plug 'mhartington/oceanic-next'"
-Plug 'gautamnaik1994/oceanic-next'
+"Plug 'gautamnaik1994/oceanic-next'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'equalsraf/neovim-gui-shim'
 "Plug 'townk/vim-autoclose'
@@ -22,6 +24,7 @@ Plug 'mattn/emmet-vim'
 Plug 'prettier/vim-prettier', {'do': 'npm install','for': ['javascript', 'css', 'scss', 'json']}
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+"Plug 'neoclide/vim-jsx-improve'
 " Plug 'vim-syntastic/syntastic'
 Plug 'w0rp/ale'
 Plug 'ryanoasis/vim-devicons'
@@ -41,16 +44,16 @@ Plug 'honza/vim-snippets'
 Plug 'carlitux/deoplete-ternjs', {'do': 'npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'scrooloose/nerdcommenter'
-Plug 'morhetz/gruvbox'
+"Plug 'morhetz/gruvbox'
 Plug 'kien/rainbow_parentheses.vim'
-Plug 'liuchengxu/space-vim-dark'
-Plug 'rakr/vim-one'
+"Plug 'liuchengxu/space-vim-dark'
+"Plug 'rakr/vim-one'
 Plug 'mhinz/vim-signify'
 "Plug 'othree/yajs.vim'
 "Plug 'othree/html5.vim'
 "Plug 'othree/es.next.syntax.vim'
 Plug 'joshdick/onedark.vim'
-Plug 'NLKNguyen/papercolor-theme'
+"Plug 'NLKNguyen/papercolor-theme'
 call plug#end()
 
 
@@ -108,9 +111,13 @@ augroup END
 "colorscheme one
 "set background=dark " for the dark version
 "let g:one_allow_italics = 1 "
+ let g:onedark_color_overrides = {
+ \ "black": {"gui": "#262626", "cterm": "235", "cterm16": "0" }
+ \}
 
 colorscheme onedark
 set background=dark
+
 
 
 "colorscheme PaperColor
@@ -181,8 +188,8 @@ au BufNewFile,BufRead *.py
     \ set fileformat=unix
 
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-au BufRead,BufNewFile syn region xmlTagName matchgroup=xmlTag start=+</+ end=+>+
-
+"au BufRead,BufNewFile syn region xmlTagName matchgroup=xmlTag start=+</+ end=+>+
+syn region xmlTagName matchgroup=xmlTag start=+</+ end=+>+
 let python_highlight_all=1
 
 

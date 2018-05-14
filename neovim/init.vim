@@ -181,7 +181,7 @@ au BufNewFile,BufRead *.py
     \ set fileformat=unix
 
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-au BufRead,BufNewFile *.js,*.jsx,*.html syn region xmlTagName matchgroup=xmlTag start=+</+ end=+>+
+au BufRead,BufNewFile syn region xmlTagName matchgroup=xmlTag start=+</+ end=+>+
 
 let python_highlight_all=1
 
@@ -396,6 +396,7 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 "let g:ale_sign_warning = '--'
 let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 let g:ale_emit_conflict_warnings = 0
+let g:ale_set_highlights = 0
 
 """""""""""""""""""""""""""""""""CtrlP""""""""""""""""""""""""""""""""""""""""""""
 

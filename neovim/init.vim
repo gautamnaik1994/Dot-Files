@@ -96,6 +96,8 @@ augroup autosourcing
 	autocmd!
 	autocmd BufWritePost init.vim source %  "Automatically source file vimrc file
 augroup END
+"Create and write file to hdd
+autocmd BufNewFile * :write
 
 """""""""""""""""""""""""""""""""Theme & Colors""""""""""""""""""""""""""""""""""""""""""""
 "colorscheme gruvbox

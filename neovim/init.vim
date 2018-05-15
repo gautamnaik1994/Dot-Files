@@ -63,6 +63,10 @@ let mapleader= ","
 nmap <Leader>ev :tabedit $MYVIMRC<cr>
 nmap <Leader><space> :nohl<cr>
 
+"Exit Inset Mode
+:inoremap jk <esc>
+:inoremap <esc> <nop>
+
 "Split Management
 nmap <C-J> <C-W><C-J>
 nmap <C-K> <C-W><C-K>
@@ -430,3 +434,7 @@ imap <D-Right> <Plug>delimitMateEnd
 " let g:syntastic_auto_loc_list = 1
 " let g:syntastic_check_on_open = 1
 " let g:syntastic_check_on_wq = 0
+"
+"
+""""""""""""""""""""""""""""""""""vim-signify""""""""""""""""""""""""""""""""""""""""""
+let g:signify_vcs_list = [ 'git' ]

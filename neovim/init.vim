@@ -60,30 +60,30 @@ call plug#end()
 """""""""""""""""""""""""""""""""Mappings""""""""""""""""""""""""""""""""""""""""""""
 let mapleader= ","
 "Open Vim file
-nmap <Leader>ev :tabedit $MYVIMRC<cr>
-nmap <Leader><space> :nohl<cr>
+nnoremap <Leader>ev :tabedit $MYVIMRC<cr>
+nnoremap <silent> <Leader><space> :nohl<cr>
 
 "Exit Inset Mode
-:inoremap jk <esc>
-:inoremap <esc> <nop>
+inoremap jk <esc>
+inoremap <esc> <nop>
 
 "Split Management
-nmap <C-J> <C-W><C-J>
-nmap <C-K> <C-W><C-K>
-nmap <C-L> <C-W><C-L>
-nmap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 "Code folding
-nmap <Leader>f0 :set foldlevel=0<CR>
-nmap <Leader>f1 :set foldlevel=1<CR>
-nmap <Leader>f2 :set foldlevel=2<CR>
-nmap <Leader>f3 :set foldlevel=3<CR>
-nmap <Leader>f4 :set foldlevel=4<CR>
-nmap <Leader>f5 :set foldlevel=5<CR>
-nmap <Leader>f6 :set foldlevel=6<CR>
-nmap <Leader>f7 :set foldlevel=7<CR>
-nmap <Leader>f8 :set foldlevel=8<CR>
-nmap <Leader>f9 :set foldlevel=9<CR>
+" nmap <Leader>f0 :set foldlevel=0<CR>
+" nmap <Leader>f1 :set foldlevel=1<CR>
+" nmap <Leader>f2 :set foldlevel=2<CR>
+" nmap <Leader>f3 :set foldlevel=3<CR>
+" nmap <Leader>f4 :set foldlevel=4<CR>
+" nmap <Leader>f5 :set foldlevel=5<CR>
+" nmap <Leader>f6 :set foldlevel=6<CR>
+" nmap <Leader>f7 :set foldlevel=7<CR>
+" nmap <Leader>f8 :set foldlevel=8<CR>
+" nmap <Leader>f9 :set foldlevel=9<CR>
 " Enable folding with the spacebar
 " nnoremap <space> za
 
@@ -183,17 +183,17 @@ set foldmethod=indent
 set foldlevel=99
 " Automatically clean trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
-" Python Specific Settings
-au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
+" " Python Specific Settings
+" au BufNewFile,BufRead *.py
+"     \ set tabstop=4
+"     \ set softtabstop=4
+"     \ set shiftwidth=4
+"     \ set textwidth=79
+"     \ set expandtab
+"     \ set autoindent
+"     \ set fileformat=unix
 
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+ au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 "au BufRead,BufNewFile syn region xmlTagName matchgroup=xmlTag start=+</+ end=+>+
 syn region xmlTagName matchgroup=xmlTag start=+</+ end=+>+
 let python_highlight_all=1

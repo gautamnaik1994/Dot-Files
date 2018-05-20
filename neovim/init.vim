@@ -8,6 +8,7 @@ call plug#begin('~/AppData/Local/nvim/bundle')
 Plug 'editorconfig/editorconfig-vim'
 Plug 'zchee/deoplete-jedi'
 " Plug 'tpope/vim-sensible'
+Plug 'myusuf3/numbers.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
@@ -178,6 +179,9 @@ set ff=unix
 set splitbelow
 set splitright
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.min.js
+set wildignore+=*/bower_components/*,*/node_modules/*
+set wildignore+=*/smarty/*,*/vendor/*,*/.git/*,*/.hg/*,*/.svn/*,*/.sass-cache/*,*/log/*,*/tmp/*,*/build/*,*/ckeditor/*,*/doc/*,*/source_maps/*,*/dist/*
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
@@ -221,7 +225,7 @@ augroup omnifuncs
   autocmd FileType css,scss setlocal omnifunc=csscomplete#CompleteCSS
   autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-  "autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 augroup end
 
@@ -257,6 +261,8 @@ let g:deoplete#omni#functions.javascript = [
    \ 'jspc#omni'
 \]
 set completeopt=longest,menuone,preview
+let g:tern#command = ["tern"]
+let g:tern#arguments = ["--persistent"]
 " let g:deoplete#sources = {}
 " let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs']
 " let g:tern#command = ['tern']
@@ -373,43 +379,60 @@ let g:user_emmet_settings = {
   \}
 
 """""""""""""""""""""""""""""""""Prettier""""""""""""""""""""""""""""""""""""""""""""
-let g:prettier#exec_cmd_path = "~/AppData/Local/nvim/bundle/vim-prettier/node_modules/.bin/prettier"
-let g:prettier#config#print_width = 80
+" let g:prettier#exec_cmd_path = "~/AppData/Local/nvim/bundle/vim-prettier/node_modules/.bin/prettier"
+" let g:prettier#config#print_width = 80
 
 
-let g:prettier#config#tab_width = 2
+" let g:prettier#config#tab_width = 2
 
-let g:prettier#config#use_tabs = 'true'
+" let g:prettier#config#use_tabs = 'true'
 
-let g:prettier#config#semi = 'true'
+" let g:prettier#config#semi = 'true'
 
-let g:prettier#config#single_quote = 'true'
+" let g:prettier#config#single_quote = 'true'
 
-" print spaces between brackets
-" Prettier default: true
-let g:prettier#config#bracket_spacing = 'true'
+" " print spaces between brackets
+" " Prettier default: true
+" let g:prettier#config#bracket_spacing = 'true'
 
-" put > on the last line instead of new line
-" Prettier default: false
-let g:prettier#config#jsx_bracket_same_line = 'false'
-" avoid|always
-" Prettier default: avoid
-let g:prettier#config#arrow_parens = 'always'
-" none|es5|all
-" Prettier default: none
-let g:prettier#config#trailing_comma = 'all'
+" " put > on the last line instead of new line
+" " Prettier default: false
+" let g:prettier#config#jsx_bracket_same_line = 'false'
+" " avoid|always
+" " Prettier default: avoid
+" let g:prettier#config#arrow_parens = 'always'
+" " none|es5|all
+" " Prettier default: none
+" let g:prettier#config#trailing_comma = 'all'
+" " let g:prettier#autoformat = 0
+" let g:prettier#exec_cmd_async = 1
+" let g:prettier#config#parser = 'babylon'
 " let g:prettier#autoformat = 0
-let g:prettier#exec_cmd_async = 1
-let g:prettier#config#parser = 'babylon'
-let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+"autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 
 """""""""""""""""""""""""""""""""Ale""""""""""""""""""""""""""""""""""""""""""""
 "let g:ale_sign_error = '●' " Less aggressive than the default '>>'
 "let g:ale_sign_warning = '--'
+" let g:ale_sign_error = '❌'
+" let g:ale_sign_warning = '⚠️'
+" Use a slightly slimmer error pointer
+"let g:ale_sign_error = '✖'
+"hi ALEErrorSign guifg=#DF8C8C
+"let g:ale_sign_warning = '⚠'
+"hi ALEWarningSign guifg=#F2C38F
+let g:ale_linters = {'javascript': ['eslint']}
 let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 let g:ale_emit_conflict_warnings = 0
 let g:ale_set_highlights = 0
+let g:ale_fix_on_save = 1
+let g:ale_javascript_prettier_use_local_config = 1
+let g:ale_fixers = {}
+let g:ale_fixers = {
+\   'javascript': ['prettier','eslint'],
+\ }
+"let g:ale_fixers['javascript.jsx'] = ['prettier_eslint']"
+
+
 
 """""""""""""""""""""""""""""""""CtrlP""""""""""""""""""""""""""""""""""""""""""""
 

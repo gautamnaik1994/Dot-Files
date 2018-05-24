@@ -7,6 +7,7 @@ endif
 call plug#begin('~/AppData/Local/nvim/bundle')
 Plug 'editorconfig/editorconfig-vim'
 Plug 'zchee/deoplete-jedi'
+Plug 'mbbill/undotree'
 " Plug 'tpope/vim-sensible'
 Plug 'myusuf3/numbers.vim'
 Plug 'Yggdroot/indentLine'

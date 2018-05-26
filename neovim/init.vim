@@ -136,6 +136,7 @@ if (has("termguicolors"))
 endif
 
 """""""""""""""""""""""""""""""""Settings""""""""""""""""""""""""""""""""""""""""""""
+let g:python3_host_prog='C:/ProgramData/Anaconda3/python.exe'
 set list lcs=tab:\│\             " show vertical lines
 :filetype on
 filetype plugin on
@@ -226,21 +227,25 @@ augroup omnifuncs
   autocmd FileType css,scss setlocal omnifunc=csscomplete#CompleteCSS
   autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
- autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 augroup end
 
 
 """""""""""""""""""""""""""""""""Deoplete""""""""""""""""""""""""""""""""""""""""""""
+
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
 let g:deoplete#enable_ignore_case = 1
 let g:deoplete#enable_camel_case = 1
+let g:deoplete#file#enable_buffer_path = 1 
+call deoplete#enable_logging('DEBUG', 'deoplete.log')
+
 "let g:deoplete#enable_refresh_always = 1
 " let g:deoplete#max_abbr_width = 0
 " let g:deoplete#max_menu_width = 0
-" let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
-" call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
+"let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
+call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
 
 " let g:tern_request_timeout = 1
 " let g:tern_request_timeout = 6000
@@ -256,23 +261,79 @@ endif
  "inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " "inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
-let g:deoplete#omni#functions = {}
+ let g:deoplete#omni#functions = {}
 let g:deoplete#omni#functions.javascript = [
   \ 'tern#Complete',
    \ 'jspc#omni'
 \]
+
+ let g:deoplete#sources = {}
+ let g:deoplete#sources['javascript.jsx'] = ['tern', 'ultisnips','around', 'buffer','omni','member','file']
+ "" let g:deoplete#sources['javascript'] = ['tern', 'ultisnips','around', 'buffer','omni','member','file']
+
+" call deoplete#custom#option('sources', {
+" 		\ 'javascript.jsx':[ 'ternjs','ultisnips',  'around', 'buffer','omni','member','file'],
+" 		\})
+
+
 set completeopt=longest,menuone,preview
 let g:tern#command = ["tern"]
 let g:tern#arguments = ["--persistent"]
-" let g:deoplete#sources = {}
-" let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs']
+ "let g:deoplete#sources = {}
+ "let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'around', 'buffer','omni','member']
+
 " let g:tern#command = ['tern']
 " let g:tern#arguments = ['--persistent']
 
-" let g:deoplete#sources#ternjs#filetypes = [
+"  let g:deoplete#sources#ternjs#filetypes = [
 "                 \ 'jsx',
 "                 \ 'javascript.jsx',
-"                 \ ]
+"                  \ ]
+" Whether to include the types of the completions in the result data. Default: 0
+let g:deoplete#sources#ternjs#types = 1
+
+" Whether to include the distance (in scopes for variables, in prototypes for 
+" properties) between the completions and the origin position in the result 
+" data. Default: 0
+let g:deoplete#sources#ternjs#depths = 1
+
+" Whether to include documentation strings (if found) in the result data.
+" Default: 0
+let g:deoplete#sources#ternjs#docs = 1
+
+
+
+" Whether to use a case-insensitive compare between the current word and 
+" potential completions. Default 0
+let g:deoplete#sources#ternjs#case_insensitive = 1
+
+" When completing a property and no completions are found, Tern will use some 
+" heuristics to try and return some properties anyway. Set this to 0 to 
+" turn that off. Default: 1
+let g:deoplete#sources#ternjs#guess = 0
+
+" Determines whether the result set will be sorted. Default: 1
+let g:deoplete#sources#ternjs#sort = 0
+
+" When disabled, only the text before the given position is considered part of 
+" the word. When enabled (the default), the whole variable name that the cursor
+" is on will be included. Default: 1
+"let g:deoplete#sources#ternjs#expand_word_forward = 0
+
+" Whether to ignore the properties of Object.prototype unless they have been 
+" spelled out by at least two characters. Default: 1
+let g:deoplete#sources#ternjs#omit_object_prototype = 0
+
+" Whether to include JavaScript keywords when completing something that is not 
+" a property. Default: 0
+let g:deoplete#sources#ternjs#include_keywords = 1
+
+" If completions should be returned when inside a literal. Default: 1
+"let g:deoplete#sources#ternjs#in_literal = 0
+
+
+
+
 
 """""""""""""""""""""""""""""""""Ultisnip""""""""""""""""""""""""""""""""""""""""""""
 let g:UltiSnipsEditSplit="vertical"
@@ -421,6 +482,7 @@ let g:user_emmet_settings = {
 "hi ALEErrorSign guifg=#DF8C8C
 "let g:ale_sign_warning = '⚠'
 "hi ALEWarningSign guifg=#F2C38F
+ "let g:ale_sign_error = '×'
 let g:ale_linters = {'javascript': ['eslint']}
 let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 let g:ale_emit_conflict_warnings = 0

@@ -1,3 +1,3 @@
 if exists('g:GuiLoaded')
-	Guifont Input:h10
+	Guifont! Input:h10
 endif

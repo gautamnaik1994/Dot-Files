@@ -1,3 +1,16 @@
+
+"   ______    ______   __    __  ________  ______   __       __        __    __   ______   ______  __    __ 
+"  /      \  /      \ /  |  /  |/        |/      \ /  \     /  |      /  \  /  | /      \ /      |/  |  /  |
+" /$$$$$$  |/$$$$$$  |$$ |  $$ |$$$$$$$$//$$$$$$  |$$  \   /$$ |      $$  \ $$ |/$$$$$$  |$$$$$$/ $$ | /$$/ 
+" $$ | _$$/ $$ |__$$ |$$ |  $$ |   $$ |  $$ |__$$ |$$$  \ /$$$ |      $$$  \$$ |$$ |__$$ |  $$ |  $$ |/$$/  
+" $$ |/    |$$    $$ |$$ |  $$ |   $$ |  $$    $$ |$$$$  /$$$$ |      $$$$  $$ |$$    $$ |  $$ |  $$  $$<   
+" $$ |$$$$ |$$$$$$$$ |$$ |  $$ |   $$ |  $$$$$$$$ |$$ $$ $$/$$ |      $$ $$ $$ |$$$$$$$$ |  $$ |  $$$$$  \  
+" $$ \__$$ |$$ |  $$ |$$ \__$$ |   $$ |  $$ |  $$ |$$ |$$$/ $$ |      $$ |$$$$ |$$ |  $$ | _$$ |_ $$ |$$  \ 
+" $$    $$/ $$ |  $$ |$$    $$/    $$ |  $$ |  $$ |$$ | $/  $$ |      $$ | $$$ |$$ |  $$ |/ $$   |$$ | $$  |
+"  $$$$$$/  $$/   $$/  $$$$$$/     $$/   $$/   $$/ $$/      $$/       $$/   $$/ $$/   $$/ $$$$$$/ $$/   $$/ 
+                                                                                                          
+                                                                                               
+
 if empty(glob('~/AppData/Local/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/AppData/Local/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -9,7 +22,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'zchee/deoplete-jedi'
 Plug 'mbbill/undotree'
 " Plug 'tpope/vim-sensible'
-Plug 'myusuf3/numbers.vim'
+"Plug 'myusuf3/numbers.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
@@ -58,40 +71,10 @@ Plug 'joshdick/onedark.vim'
 "Plug 'NLKNguyen/papercolor-theme'
 call plug#end()
 
-
-"""""""""""""""""""""""""""""""""Mappings""""""""""""""""""""""""""""""""""""""""""""
-let mapleader= ","
-"Open Vim file
-nnoremap <Leader>ev :tabedit $MYVIMRC<cr>
-nnoremap <silent> <Leader><space> :nohl<cr>
-
-"Exit Inset Mode
-inoremap jk <esc>
-inoremap <esc> <nop>
-
-"Split Management
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-"Code folding
-" nmap <Leader>f0 :set foldlevel=0<CR>
-" nmap <Leader>f1 :set foldlevel=1<CR>
-" nmap <Leader>f2 :set foldlevel=2<CR>
-" nmap <Leader>f3 :set foldlevel=3<CR>
-" nmap <Leader>f4 :set foldlevel=4<CR>
-" nmap <Leader>f5 :set foldlevel=5<CR>
-" nmap <Leader>f6 :set foldlevel=6<CR>
-" nmap <Leader>f7 :set foldlevel=7<CR>
-" nmap <Leader>f8 :set foldlevel=8<CR>
-" nmap <Leader>f9 :set foldlevel=9<CR>
-" Enable folding with the spacebar
-" nnoremap <space> za
-
-" move vertically by visual line
-nnoremap j gj
-nnoremap k gk
+""""""""""""""""""""""""""""""""""Source files from config folder"""""""""""""""""""""""""""""""""
+for f in split(glob('~/AppData/Local/nvim/config/*.vim'), '\n')
+    exe 'source' f
+endfor
 
 """""""""""""""""""""""""""""""""Autocommands""""""""""""""""""""""""""""""""""""""""""""
 augroup autosourcing
@@ -101,102 +84,17 @@ augroup END
 "Create and write file to hdd
 autocmd BufNewFile * :write
 
-"""""""""""""""""""""""""""""""""Theme & Colors""""""""""""""""""""""""""""""""""""""""""""
-"colorscheme gruvbox
 
-"set background=dark " for the dark version
-"colorscheme OceanicNext
-
-"let g:gruvbox_contrast_dark = 'hard'
-" let g:gruvbox_improved_strings = 1
-"let g:oceanic_next_terminal_bold = 1
-"let g:oceanic_next_terminal_italic = 1"
-
-"colorscheme space-vim-dark"
-"let g:space_vim_dark_background = 233
-"color space-vim-dark"
-
-"colorscheme one
-"set background=dark " for the dark version
-"let g:one_allow_italics = 1 "
- let g:onedark_color_overrides = {
- \ "black": {"gui": "#262626", "cterm": "235", "cterm16": "0" }
- \}
-
-colorscheme onedark
-set background=dark
-
-
-
-"colorscheme PaperColor
 
 """""""""""""""""""""""""""""""""Functions""""""""""""""""""""""""""""""""""""""""""""
 if (has("termguicolors"))
  set termguicolors
 endif
 
-"""""""""""""""""""""""""""""""""Settings""""""""""""""""""""""""""""""""""""""""""""
-set list lcs=tab:\│\             " show vertical lines
-:filetype on
-filetype plugin on
-syntax enable
-syntax on
-filetype indent on                                " Better indentation.
-set showmatch                  " Show matching brackets.
-set number                     " Show the line numbers on the left side.
-set formatoptions+=o           " Continue comment marker in new lines.
-"set expandtab                 " Insert spaces when TAB is pressed.
-set tabstop=2                  " Render TABs using this many spaces.
-set expandtab
-set shiftwidth=4               " Indentation amount for < and > commands.
-set nojoinspaces
-set t_Co=256
-set encoding=utf-8
-set hlsearch                   " Highlight matching search patterns
-set incsearch                  " Enable incremental search
-set ignorecase                 " Include matching uppercase words with lowercase search term
-set smartcase                  " Include only uppercase words with uppercase search term
-set nowrap	                   "# Wrap lines
-set showbreak=+++	             "# Wrap-broken line prefix
-set cursorline         		   " highlight current line
-set showcmd             	   " show command in bottom bar
-set textwidth=100	             "# Line wrap (number of cols)
-set showmatch	                 "# Highlight matching brace
-"set spell	                   "# Enable spell-checking
-set errorbells	               "# Beep or flash screen on errors
-set visualbell	               "# Use visual bell (no beeping)
-set autoindent	               "# Auto-indent new lines
-set smartindent	               "# Enable smart-indent
-set smarttab	                 "# Enable smart-tabs
-set softtabstop=2	             "# Number of spaces per Tab
-set ruler	                   "# Show row and column ruler information
-set showtabline=2	             "# Show tab bar
-set undolevels=1000	           "# Number of undo levels
-set backspace=indent,eol,start "# Backspace behaviour
-set laststatus=2
-set ttimeoutlen=50
-set autochdir
-set ff=unix
-set splitbelow
-set splitright
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
-set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.min.js
-set wildignore+=*/bower_components/*,*/node_modules/*
-set wildignore+=*/smarty/*,*/vendor/*,*/.git/*,*/.hg/*,*/.svn/*,*/.sass-cache/*,*/log/*,*/tmp/*,*/build/*,*/ckeditor/*,*/doc/*,*/source_maps/*,*/dist/*
-" Enable folding
-set foldmethod=indent
-set foldlevel=99
+
 " Automatically clean trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
-" " Python Specific Settings
-" au BufNewFile,BufRead *.py
-"     \ set tabstop=4
-"     \ set softtabstop=4
-"     \ set shiftwidth=4
-"     \ set textwidth=79
-"     \ set expandtab
-"     \ set autoindent
-"     \ set fileformat=unix
+
 
  au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 "au BufRead,BufNewFile syn region xmlTagName matchgroup=xmlTag start=+</+ end=+>+
@@ -226,53 +124,52 @@ augroup omnifuncs
   autocmd FileType css,scss setlocal omnifunc=csscomplete#CompleteCSS
   autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
- autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 augroup end
 
 
 """""""""""""""""""""""""""""""""Deoplete""""""""""""""""""""""""""""""""""""""""""""
-let g:deoplete#enable_at_startup = 1
+
+
+if has_key(g:plugs, 'deoplete.nvim')
+  let g:deoplete#enable_at_startup = 1
+  " Autocomplete from files now works from current buffer
+  let g:deoplete#file#enable_buffer_path = 1
+
 let g:deoplete#enable_smart_case = 1
 let g:deoplete#enable_ignore_case = 1
 let g:deoplete#enable_camel_case = 1
-"let g:deoplete#enable_refresh_always = 1
-" let g:deoplete#max_abbr_width = 0
-" let g:deoplete#max_menu_width = 0
-" let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
-" call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
+"call deoplete#enable_logging('DEBUG', 'deoplete.log')
 
-" let g:tern_request_timeout = 1
-" let g:tern_request_timeout = 6000
-" let g:tern#command = ["tern"]
-" let g:tern#arguments = ["--persistent"]
-" let g:deoplete#sources#javascript_support = 1
-
-
-if !exists('g:deoplete#omni#input_patterns')
-  let g:deoplete#omni#input_patterns = {}
 endif
-" "<TAB>: completion.
- "inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" "inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
-let g:deoplete#omni#functions = {}
-let g:deoplete#omni#functions.javascript = [
-  \ 'tern#Complete',
-   \ 'jspc#omni'
-\]
-set completeopt=longest,menuone,preview
-let g:tern#command = ["tern"]
-let g:tern#arguments = ["--persistent"]
-" let g:deoplete#sources = {}
-" let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs']
-" let g:tern#command = ['tern']
-" let g:tern#arguments = ['--persistent']
+if has_key(g:plugs, 'deoplete-ternjs')
+  if !exists('g:deoplete#omni#input_patterns')
+    let g:deoplete#omni#input_patterns = {}
+  endif
+  let g:deoplete#omni#functions = {}
+  let g:deoplete#sources = {}
+  let g:deoplete#sources['javascript'] = ['file', 'ultisnips', 'tern', 'buffer']
+  let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'tern', 'buffer']
+  autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
+  autocmd FileType javascript.jsx nnoremap <silent> <buffer> gb :TernDef<CR>
+endif
 
-" let g:deoplete#sources#ternjs#filetypes = [
-"                 \ 'jsx',
-"                 \ 'javascript.jsx',
-"                 \ ]
+if has_key(g:plugs, 'tern_for_vim')
+  let g:tern_request_timeout = 1
+  let g:tern_show_signature_in_pum = 1
+  let g:tern#command = ["tern"]
+  let g:tern#arguments = ["--persistent"]
+  let g:tern_show_argument_hints = 'on_hold'
+  autocmd FileType javascript set omnifunc=tern#Complete
+  autocmd FileType javascript.jsx set omnifunc=tern#Complete
+  " Helpful commands from the docs
+  nnoremap <Leader>td :TernDoc<CR>
+  nnoremap <Leader>tb :TernDocBrowse<CR>
+endif
+
+
 
 """""""""""""""""""""""""""""""""Ultisnip""""""""""""""""""""""""""""""""""""""""""""
 let g:UltiSnipsEditSplit="vertical"
@@ -281,13 +178,7 @@ let g:UltiSnipsExpandTrigger="<C-j>"
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 let g:UltiSnipsSnippetDirectories = ['~/AppData/Local/nvim/UltiSnips', 'UltiSnips']
 
-"""""""""""""""""""""""""""""""""tern""""""""""""""""""""""""""""""""""""""""""""
-if exists('g:plugs["tern_for_vim"]')
-  let g:tern_show_argument_hints = 'on_hold'
-  let g:tern_show_signature_in_pum = 1
-  autocmd FileType javascript setlocal omnifunc=tern#Complete
-endif
-autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
+
 
 
 """""""""""""""""""""""""""""""""Nerd Tree""""""""""""""""""""""""""""""""""""""""""""
@@ -421,6 +312,7 @@ let g:user_emmet_settings = {
 "hi ALEErrorSign guifg=#DF8C8C
 "let g:ale_sign_warning = '⚠'
 "hi ALEWarningSign guifg=#F2C38F
+ "let g:ale_sign_error = '×'
 let g:ale_linters = {'javascript': ['eslint']}
 let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 let g:ale_emit_conflict_warnings = 0

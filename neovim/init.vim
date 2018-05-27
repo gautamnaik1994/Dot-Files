@@ -4,6 +4,7 @@ if empty(glob('~/AppData/Local/nvim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+
 call plug#begin('~/AppData/Local/nvim/bundle')
 Plug 'editorconfig/editorconfig-vim'
 Plug 'zchee/deoplete-jedi'
@@ -246,7 +247,7 @@ let g:deoplete#enable_camel_case = 1
 "call deoplete#enable_logging('DEBUG', 'deoplete.log')
 
 endif
-
+"""""""""""""""""""""""""""""""""Deoplete Tern""""""""""""""""""""""""""""""""""""""""""""
 if has_key(g:plugs, 'deoplete-ternjs')
   if !exists('g:deoplete#omni#input_patterns')
     let g:deoplete#omni#input_patterns = {}
@@ -258,7 +259,7 @@ if has_key(g:plugs, 'deoplete-ternjs')
   autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
   autocmd FileType javascript.jsx nnoremap <silent> <buffer> gb :TernDef<CR>
 endif
-
+"""""""""""""""""""""""""""""""""Tern""""""""""""""""""""""""""""""""""""""""""""
 if has_key(g:plugs, 'tern_for_vim')
   let g:tern_request_timeout = 1
   let g:tern_show_signature_in_pum = 1

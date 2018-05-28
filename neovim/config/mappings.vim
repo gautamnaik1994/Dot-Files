@@ -1,5 +1,17 @@
 
 let mapleader= ","
+
+""""""""""""""""""""""""""""""
+" => Insert mode related
+""""""""""""""""""""""""""""""
+"Exit Inset Mode
+inoremap jk <esc>
+inoremap <esc> <nop>
+
+""""""""""""""""""""""""""""""
+" => Normal mode related
+""""""""""""""""""""""""""""""
+
 "Open Vim file
 nnoremap <Leader>ev :tabedit $MYVIMRC<cr>
 nnoremap <silent> <Leader><space> :nohl<cr>
@@ -7,18 +19,29 @@ nnoremap <silent> <Leader><space> :nohl<cr>
 " Remove the Windows ^M - when the encodings gets messed up
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
-"Exit Inset Mode
-inoremap jk <esc>
-inoremap <esc> <nop>
-
 "Insert newline by enter without entering insert mode
 nnoremap <Enter> o<ESC>
+
+"Insert newline above by shift-enter without entering insert mode
+nnoremap <S-Enter> O<ESC>
 
 "Split Management
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" Disabling the directional keys
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+
+" adjust window size with arrow keys
+noremap <right> <C-w>5>
+noremap <left> <C-w>5<
+noremap <up> <C-w>5+
+noremap <down> <C-w>5-
 
 "Code folding
 " nmap <Leader>f0 :set foldlevel=0<CR>
@@ -48,5 +71,9 @@ map <leader>pp :setlocal paste!<cr>
 " Super useful! From an idea by Michael Naumann
 vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
+
+" vnoremap <C-c> "*y
+" nnoremap <C-v> "*p
+" nnoremap <S-C-v> "*P
 
 

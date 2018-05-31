@@ -8,6 +8,8 @@ let mapleader= ","
 inoremap jk <esc>
 inoremap <esc> <nop>
 
+inoremap <C-v> <C-r>*
+
 """"""""""""""""""""""""""""""
 " => Normal mode related
 """"""""""""""""""""""""""""""

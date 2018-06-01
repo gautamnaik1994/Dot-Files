@@ -8,13 +8,13 @@
 " $$ \__$$ |$$ |  $$ |$$ \__$$ |   $$ |  $$ |  $$ |$$ |$$$/ $$ |      $$ |$$$$ |$$ |  $$ | _$$ |_ $$ |$$  \ 
 " $$    $$/ $$ |  $$ |$$    $$/    $$ |  $$ |  $$ |$$ | $/  $$ |      $$ | $$$ |$$ |  $$ |/ $$   |$$ | $$  |
 "  $$$$$$/  $$/   $$/  $$$$$$/     $$/   $$/   $$/ $$/      $$/       $$/   $$/ $$/   $$/ $$$$$$/ $$/   $$/ 
-                                                                                                          
-                                                                                               
+
+
 
 if empty(glob('~/AppData/Local/nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/AppData/Local/nvim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    silent !curl -fLo ~/AppData/Local/nvim/autoload/plug.vim --create-dirs
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin('~/AppData/Local/nvim/bundle')
@@ -78,8 +78,8 @@ endfor
 
 """""""""""""""""""""""""""""""""Autocommands""""""""""""""""""""""""""""""""""""""""""""
 augroup autosourcing
-	autocmd!
-	autocmd BufWritePost init.vim source %  "Automatically source file vimrc file
+    autocmd!
+    autocmd BufWritePost init.vim source %  "Automatically source file vimrc file
 augroup END
 "Create and write file to hdd
 autocmd BufNewFile * :write
@@ -88,7 +88,7 @@ autocmd BufNewFile * :write
 
 """""""""""""""""""""""""""""""""Functions""""""""""""""""""""""""""""""""""""""""""""
 if (has("termguicolors"))
- set termguicolors
+    set termguicolors
 endif
 
 
@@ -96,7 +96,7 @@ endif
 autocmd BufWritePre * :%s/\s\+$//e
 
 
- au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 "au BufRead,BufNewFile syn region xmlTagName matchgroup=xmlTag start=+</+ end=+>+
 syn region xmlTagName matchgroup=xmlTag start=+</+ end=+>+
 let python_highlight_all=1
@@ -120,12 +120,12 @@ let g:indentLine_char = '│'
 
 """""""""""""""""""""""""""""""""" omnifuncs""""""""""""""""""""""""""""""""""""""""""""
 augroup omnifuncs
-  autocmd!
-  autocmd FileType css,scss setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+    autocmd!
+    autocmd FileType css,scss setlocal omnifunc=csscomplete#CompleteCSS
+    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 augroup end
 
 
@@ -133,40 +133,40 @@ augroup end
 
 
 if has_key(g:plugs, 'deoplete.nvim')
-  let g:deoplete#enable_at_startup = 1
-  " Autocomplete from files now works from current buffer
-  let g:deoplete#file#enable_buffer_path = 1
-
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#enable_ignore_case = 1
-let g:deoplete#enable_camel_case = 1
-"call deoplete#enable_logging('DEBUG', 'deoplete.log')
-
+    let g:deoplete#enable_at_startup = 1
+    " Autocomplete from files now works from current buffer
+    let g:deoplete#file#enable_buffer_path = 1
+    
+    let g:deoplete#enable_smart_case = 1
+    let g:deoplete#enable_ignore_case = 1
+    let g:deoplete#enable_camel_case = 1
+    "call deoplete#enable_logging('DEBUG', 'deoplete.log')
+    
 endif
 
 if has_key(g:plugs, 'deoplete-ternjs')
-  if !exists('g:deoplete#omni#input_patterns')
-    let g:deoplete#omni#input_patterns = {}
-  endif
-  let g:deoplete#omni#functions = {}
-  let g:deoplete#sources = {}
-  let g:deoplete#sources['javascript'] = ['file', 'ultisnips', 'tern', 'buffer']
-  let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'tern', 'buffer']
-  autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
-  autocmd FileType javascript.jsx nnoremap <silent> <buffer> gb :TernDef<CR>
+    if !exists('g:deoplete#omni#input_patterns')
+        let g:deoplete#omni#input_patterns = {}
+    endif
+    let g:deoplete#omni#functions = {}
+    let g:deoplete#sources = {}
+    let g:deoplete#sources['javascript'] = ['file', 'ultisnips', 'tern', 'buffer']
+    let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'tern', 'buffer']
+    autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
+    autocmd FileType javascript.jsx nnoremap <silent> <buffer> gb :TernDef<CR>
 endif
 
 if has_key(g:plugs, 'tern_for_vim')
-  let g:tern_request_timeout = 1
-  let g:tern_show_signature_in_pum = 1
-  let g:tern#command = ["tern"]
-  let g:tern#arguments = ["--persistent"]
-  let g:tern_show_argument_hints = 'on_hold'
-  autocmd FileType javascript set omnifunc=tern#Complete
-  autocmd FileType javascript.jsx set omnifunc=tern#Complete
-  " Helpful commands from the docs
-  nnoremap <Leader>td :TernDoc<CR>
-  nnoremap <Leader>tb :TernDocBrowse<CR>
+    let g:tern_request_timeout = 1
+    let g:tern_show_signature_in_pum = 1
+    let g:tern#command = ["tern"]
+    let g:tern#arguments = ["--persistent"]
+    let g:tern_show_argument_hints = 'on_hold'
+    autocmd FileType javascript set omnifunc=tern#Complete
+    autocmd FileType javascript.jsx set omnifunc=tern#Complete
+    " Helpful commands from the docs
+    nnoremap <Leader>td :TernDoc<CR>
+    nnoremap <Leader>tb :TernDocBrowse<CR>
 endif
 
 
@@ -182,18 +182,22 @@ let g:UltiSnipsSnippetDirectories = ['~/AppData/Local/nvim/UltiSnips', 'UltiSnip
 
 
 """""""""""""""""""""""""""""""""Nerd Tree""""""""""""""""""""""""""""""""""""""""""""
+augroup nerd
+    autocmd!
+    autocmd vimenter * NERDTree
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+    autocmd VimEnter *
+                \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+                \|   PlugInstall --sync | q
+                \| endif
+augroup end
 map <C-n> :NERDTreeToggle<CR>
-autocmd vimenter * NERDTree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-" let g:NERDTreeDirArrowExpandable = '▸'
-" let g:NERDTreeDirArrowCollapsible = '▾'
 let NERDTreeMinimalUI=1
-autocmd VimEnter *
-  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \|   PlugInstall --sync | q
-\| endif
-
+"let g:NERDTreeDirArrowExpandable = '▸'⯈
+let g:NERDTreeDirArrowExpandable = '⯈'
+"let g:NERDTreeDirArrowCollapsible = '▾'⯆
+let g:NERDTreeDirArrowCollapsible = '⯆'
 
 
 """""""""""""""""""""""""""""""""Airline""""""""""""""""""""""""""""""""""""""""""""
@@ -204,71 +208,72 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#ale#enabled = 1
 
 if exists("g:gui_oni")
-  if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-  endif
- " unicode symbols
-  let g:airline_left_sep = ''
-  let g:airline_left_sep = ''
-  let g:airline_right_sep = ''
-  let g:airline_right_sep = ''
-  let g:airline_symbols.crypt = ''
-  let g:airline_symbols.linenr = ''
-  let g:airline_symbols.linenr = ''
-  let g:airline_symbols.linenr = ''
-  let g:airline_symbols.linenr = ''
-  let g:airline_symbols.maxlinenr = ''
-  let g:airline_symbols.maxlinenr = ''
-  let g:airline_symbols.branch = ''
-  let g:airline_symbols.paste = ''
-  let g:airline_symbols.paste = ''
-  let g:airline_symbols.paste = ''
-  let g:airline_symbols.spell = ''
-  let g:airline_symbols.notexists = ''
-  let g:airline_symbols.whitespace = ''
-  " powerline symbols
-
+    if !exists('g:airline_symbols')
+        let g:airline_symbols = {}
+    endif
+    " unicode symbols
+    let g:airline_left_sep = ''
+    let g:airline_left_sep = ''
+    let g:airline_right_sep = ''
+    let g:airline_right_sep = ''
+    let g:airline_symbols.crypt = ''
+    let g:airline_symbols.linenr = ''
+    let g:airline_symbols.linenr = ''
+    let g:airline_symbols.linenr = ''
+    let g:airline_symbols.linenr = ''
+    let g:airline_symbols.maxlinenr = ''
+    let g:airline_symbols.maxlinenr = ''
+    let g:airline_symbols.branch = ''
+    let g:airline_symbols.paste = ''
+    let g:airline_symbols.paste = ''
+    let g:airline_symbols.paste = ''
+    let g:airline_symbols.spell = ''
+    let g:airline_symbols.notexists = ''
+    let g:airline_symbols.whitespace = ''
+    " powerline symbols
+    
 else
-  if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-  endif
-  let g:airline_powerline_fonts = 1
-  let g:airline_left_sep = '»'
-  let g:airline_left_sep = '▶'
-  let g:airline_right_sep = '«'
-  let g:airline_right_sep = '◀'
-  let g:airline_symbols.crypt = '🔒'
-  let g:airline_symbols.linenr = '☰'
-  let g:airline_symbols.linenr = '␊'
-  let g:airline_symbols.linenr = '␤'
-  let g:airline_symbols.linenr = '¶'
-  let g:airline_symbols.maxlinenr = ''
-  let g:airline_symbols.maxlinenr = '㏑'
-  let g:airline_symbols.branch = '⎇'
-  let g:airline_symbols.paste = 'ρ'
-  let g:airline_symbols.paste = 'Þ'
-  let g:airline_symbols.paste = '∥'
-  let g:airline_symbols.spell = 'Ꞩ'
-  let g:airline_symbols.notexists = '∄'
-  let g:airline_symbols.whitespace = 'Ξ'
-  let g:airline_left_sep = ''
-  let g:airline_left_alt_sep = ''
-  let g:airline_right_sep = ''
-  let g:airline_right_alt_sep = ''
-  let g:airline_symbols.branch = ''
-  let g:airline_symbols.readonly = ''
-  let g:airline_symbols.linenr = '☰'
-  let g:airline_symbols.maxlinenr = ''
+    if !exists('g:airline_symbols')
+        let g:airline_symbols = {}
+    endif
+    let g:airline_powerline_fonts = 1
+    let g:airline_left_sep = '»'
+    let g:airline_left_sep = '▶'
+    let g:airline_right_sep = '«'
+    let g:airline_right_sep = '◀'
+    let g:airline_symbols.crypt = '🔒'
+    let g:airline_symbols.linenr = '☰'
+    let g:airline_symbols.linenr = '␊'
+    let g:airline_symbols.linenr = '␤'
+    let g:airline_symbols.linenr = '¶'
+    let g:airline_symbols.maxlinenr = ''
+    let g:airline_symbols.maxlinenr = '㏑'
+    let g:airline_symbols.branch = '⎇'
+    let g:airline_symbols.paste = 'ρ'
+    let g:airline_symbols.paste = 'Þ'
+    let g:airline_symbols.paste = '∥'
+    let g:airline_symbols.spell = 'Ꞩ'
+    let g:airline_symbols.notexists = '∄'
+    let g:airline_symbols.whitespace = 'Ξ'
+    let g:airline_left_sep = ''
+    let g:airline_left_alt_sep = ''
+    let g:airline_right_sep = ''
+    let g:airline_right_alt_sep = ''
+    let g:airline_symbols.branch = ''
+    let g:airline_symbols.readonly = ''
+    let g:airline_symbols.linenr = '☰'
+    let g:airline_symbols.maxlinenr = ''
 endif
 
 
 """""""""""""""""""""""""""""""""Emmet""""""""""""""""""""""""""""""""""""""""""""
+let g:user_emmet_leader_key='<C-Z>'
 let g:user_emmet_mode='a'    "enable all function in all mode.
 let g:user_emmet_settings = {
-  \  'javascript.jsx' : {
-    \      'extends' : 'jsx',
-    \  },
-  \}
+            \  'javascript.jsx' : {
+            \      'extends' : 'jsx',
+            \  },
+            \}
 
 """""""""""""""""""""""""""""""""Prettier""""""""""""""""""""""""""""""""""""""""""""
 " let g:prettier#exec_cmd_path = "~/AppData/Local/nvim/bundle/vim-prettier/node_modules/.bin/prettier"
@@ -312,7 +317,7 @@ let g:user_emmet_settings = {
 "hi ALEErrorSign guifg=#DF8C8C
 "let g:ale_sign_warning = '⚠'
 "hi ALEWarningSign guifg=#F2C38F
- "let g:ale_sign_error = '×'
+"let g:ale_sign_error = '×'
 let g:ale_linters = {'javascript': ['eslint']}
 let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 let g:ale_emit_conflict_warnings = 0
@@ -321,8 +326,8 @@ let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_fixers = {}
 let g:ale_fixers = {
-\   'javascript': ['prettier','eslint'],
-\ }
+            \   'javascript': ['prettier','eslint'],
+            \ }
 "let g:ale_fixers['javascript.jsx'] = ['prettier_eslint']"
 
 
@@ -338,7 +343,7 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 let g:SimpylFold_docstring_preview=1
 
 """""""""""""""""""""""""""""""""delimitMate"""""""""""""""""""""""""""""""""""""""""""
-  " delimitMate fixes
+" delimitMate fixes
 imap <M-Left> <Plug>delimitMateC-Left
 imap <M-Right> <Plug>delimitMateC-Right
 imap <D-Left> <Plug>delimitMateHome

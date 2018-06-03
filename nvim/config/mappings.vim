@@ -45,6 +45,11 @@ noremap <left> <C-w>5<
 noremap <up> <C-w>5+
 noremap <down> <C-w>5-
 
+"Add space in normal mode
+nnoremap <space> a<space><esc>
+"
+"Add before space in normal mode
+nnoremap <S-space> i<space><esc>
 "Code folding
 " nmap <Leader>f0 :set foldlevel=0<CR>
 " nmap <Leader>f1 :set foldlevel=1<CR>

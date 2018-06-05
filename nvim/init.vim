@@ -67,6 +67,7 @@ Plug 'mhinz/vim-signify'
 "Plug 'othree/yajs.vim'
 "Plug 'othree/html5.vim'
 "Plug 'othree/es.next.syntax.vim'
+Plug 'Shougo/denite.nvim'
 Plug 'joshdick/onedark.vim'
 "Plug 'NLKNguyen/papercolor-theme'
 call plug#end()

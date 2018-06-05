@@ -13,7 +13,7 @@ syntax enable
 syntax on
 filetype indent on                                " Better indentation.
 set showmatch                  " Show matching brackets.
-set number    
+set number
 set relativenumber                  " Show the line numbers on the left side.
 set formatoptions+=o           " Continue comment marker in new lines.
 "set expandtab                 " Insert spaces when TAB is pressed.

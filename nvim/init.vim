@@ -1,13 +1,13 @@
 
-"   ______    ______   __    __  ________  ______   __       __        __    __   ______   ______  __    __ 
+"   ______    ______   __    __  ________  ______   __       __        __    __   ______   ______  __    __
 "  /      \  /      \ /  |  /  |/        |/      \ /  \     /  |      /  \  /  | /      \ /      |/  |  /  |
-" /$$$$$$  |/$$$$$$  |$$ |  $$ |$$$$$$$$//$$$$$$  |$$  \   /$$ |      $$  \ $$ |/$$$$$$  |$$$$$$/ $$ | /$$/ 
-" $$ | _$$/ $$ |__$$ |$$ |  $$ |   $$ |  $$ |__$$ |$$$  \ /$$$ |      $$$  \$$ |$$ |__$$ |  $$ |  $$ |/$$/  
-" $$ |/    |$$    $$ |$$ |  $$ |   $$ |  $$    $$ |$$$$  /$$$$ |      $$$$  $$ |$$    $$ |  $$ |  $$  $$<   
-" $$ |$$$$ |$$$$$$$$ |$$ |  $$ |   $$ |  $$$$$$$$ |$$ $$ $$/$$ |      $$ $$ $$ |$$$$$$$$ |  $$ |  $$$$$  \  
-" $$ \__$$ |$$ |  $$ |$$ \__$$ |   $$ |  $$ |  $$ |$$ |$$$/ $$ |      $$ |$$$$ |$$ |  $$ | _$$ |_ $$ |$$  \ 
+" /$$$$$$  |/$$$$$$  |$$ |  $$ |$$$$$$$$//$$$$$$  |$$  \   /$$ |      $$  \ $$ |/$$$$$$  |$$$$$$/ $$ | /$$/
+" $$ | _$$/ $$ |__$$ |$$ |  $$ |   $$ |  $$ |__$$ |$$$  \ /$$$ |      $$$  \$$ |$$ |__$$ |  $$ |  $$ |/$$/
+" $$ |/    |$$    $$ |$$ |  $$ |   $$ |  $$    $$ |$$$$  /$$$$ |      $$$$  $$ |$$    $$ |  $$ |  $$  $$<
+" $$ |$$$$ |$$$$$$$$ |$$ |  $$ |   $$ |  $$$$$$$$ |$$ $$ $$/$$ |      $$ $$ $$ |$$$$$$$$ |  $$ |  $$$$$  \
+" $$ \__$$ |$$ |  $$ |$$ \__$$ |   $$ |  $$ |  $$ |$$ |$$$/ $$ |      $$ |$$$$ |$$ |  $$ | _$$ |_ $$ |$$  \
 " $$    $$/ $$ |  $$ |$$    $$/    $$ |  $$ |  $$ |$$ | $/  $$ |      $$ | $$$ |$$ |  $$ |/ $$   |$$ | $$  |
-"  $$$$$$/  $$/   $$/  $$$$$$/     $$/   $$/   $$/ $$/      $$/       $$/   $$/ $$/   $$/ $$$$$$/ $$/   $$/ 
+"  $$$$$$/  $$/   $$/  $$$$$$/     $$/   $$/   $$/ $$/      $$/       $$/   $$/ $$/   $$/ $$$$$$/ $$/   $$/
 
 
 
@@ -78,36 +78,40 @@ for f in split(glob('~/AppData/Local/nvim/config/*.vim'), '\n')
 endfor
 
 """""""""""""""""""""""""""""""""Autocommands""""""""""""""""""""""""""""""""""""""""""""
-augroup autosourcing
-    autocmd!
-    autocmd BufWritePost init.vim source %  "Automatically source file vimrc file
+augroup generalAutoCommand
+        autocmd!
 augroup END
+
+"augroup autosourcing
+    "autocmd!
+    "autocmd BufWritePost init.vim source %  "Automatically source file vimrc file
+"augroup END
 "Create and write file to hdd
-autocmd BufNewFile * :write
+autocmd generalAutoCommand BufNewFile * :write
+autocmd generalAutoCommand BufWritePost init.vim source %  "Automatically source file vimrc file
 
-
+" Automatically clean trailing whitespace
+autocmd generalAutoCommand BufWritePre * :%s/\s\+$//e
+autocmd generalAutoCommand BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 """""""""""""""""""""""""""""""""Functions""""""""""""""""""""""""""""""""""""""""""""
 if (has("termguicolors"))
     set termguicolors
 endif
 
-
-" Automatically clean trailing whitespace
-autocmd BufWritePre * :%s/\s\+$//e
-
-
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 "au BufRead,BufNewFile syn region xmlTagName matchgroup=xmlTag start=+</+ end=+>+
 syn region xmlTagName matchgroup=xmlTag start=+</+ end=+>+
 let python_highlight_all=1
 
 
 """"""""""""""""""""""""""""""""rainbow paretnesis""""""""""""""""""""""""""""""""""""""""""""
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+augroup rainboweparens
+    autocmd!
+    au VimEnter * RainbowParenthesesToggle
+    au Syntax * RainbowParenthesesLoadRound
+    au Syntax * RainbowParenthesesLoadSquare
+    au Syntax * RainbowParenthesesLoadBraces
+augroup end
 
 """""""""""""""""""""""""""""""""vim jsx""""""""""""""""""""""""""""""""""""""""""""
 let g:jsx_ext_required = 0
@@ -137,12 +141,12 @@ if has_key(g:plugs, 'deoplete.nvim')
     let g:deoplete#enable_at_startup = 1
     " Autocomplete from files now works from current buffer
     let g:deoplete#file#enable_buffer_path = 1
-    
+
     let g:deoplete#enable_smart_case = 1
     let g:deoplete#enable_ignore_case = 1
     let g:deoplete#enable_camel_case = 1
     "call deoplete#enable_logging('DEBUG', 'deoplete.log')
-    
+
 endif
 
 if has_key(g:plugs, 'deoplete-ternjs')
@@ -153,8 +157,8 @@ if has_key(g:plugs, 'deoplete-ternjs')
     let g:deoplete#sources = {}
     let g:deoplete#sources['javascript'] = ['file', 'ultisnips', 'tern', 'buffer']
     let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'tern', 'buffer']
-    autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
-    autocmd FileType javascript.jsx nnoremap <silent> <buffer> gb :TernDef<CR>
+    autocmd generalAutoCommand FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
+    autocmd generalAutoCommand FileType javascript.jsx nnoremap <silent> <buffer> gb :TernDef<CR>
 endif
 
 if has_key(g:plugs, 'tern_for_vim')
@@ -163,8 +167,8 @@ if has_key(g:plugs, 'tern_for_vim')
     let g:tern#command = ["tern"]
     let g:tern#arguments = ["--persistent"]
     let g:tern_show_argument_hints = 'on_hold'
-    autocmd FileType javascript set omnifunc=tern#Complete
-    autocmd FileType javascript.jsx set omnifunc=tern#Complete
+    autocmd generalAutoCommand FileType javascript set omnifunc=tern#Complete
+    autocmd generalAutoCommand FileType javascript.jsx set omnifunc=tern#Complete
     " Helpful commands from the docs
     nnoremap <Leader>td :TernDoc<CR>
     nnoremap <Leader>tb :TernDocBrowse<CR>
@@ -174,13 +178,10 @@ endif
 
 """""""""""""""""""""""""""""""""Ultisnip""""""""""""""""""""""""""""""""""""""""""""
 let g:UltiSnipsEditSplit="vertical"
-autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+autocmd generalAutoCommand FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 let g:UltiSnipsExpandTrigger="<C-j>"
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 let g:UltiSnipsSnippetDirectories = ['~/AppData/Local/nvim/UltiSnips', 'UltiSnips']
-
-
-
 
 """""""""""""""""""""""""""""""""Nerd Tree""""""""""""""""""""""""""""""""""""""""""""
 augroup nerd
@@ -232,7 +233,7 @@ if exists("g:gui_oni")
     let g:airline_symbols.notexists = ''
     let g:airline_symbols.whitespace = ''
     " powerline symbols
-    
+
 else
     if !exists('g:airline_symbols')
         let g:airline_symbols = {}
@@ -279,20 +280,13 @@ let g:user_emmet_settings = {
 """""""""""""""""""""""""""""""""Prettier""""""""""""""""""""""""""""""""""""""""""""
 " let g:prettier#exec_cmd_path = "~/AppData/Local/nvim/bundle/vim-prettier/node_modules/.bin/prettier"
 " let g:prettier#config#print_width = 80
-
-
 " let g:prettier#config#tab_width = 2
-
 " let g:prettier#config#use_tabs = 'true'
-
 " let g:prettier#config#semi = 'true'
-
 " let g:prettier#config#single_quote = 'true'
-
 " " print spaces between brackets
 " " Prettier default: true
 " let g:prettier#config#bracket_spacing = 'true'
-
 " " put > on the last line instead of new line
 " " Prettier default: false
 " let g:prettier#config#jsx_bracket_same_line = 'false'

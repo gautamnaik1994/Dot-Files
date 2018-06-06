@@ -20,6 +20,7 @@ endif
 call plug#begin('~/AppData/Local/nvim/bundle')
 Plug 'editorconfig/editorconfig-vim'
 Plug 'zchee/deoplete-jedi'
+Plug 'mileszs/ack.vim'
 Plug 'mbbill/undotree'
 Plug 'Shougo/denite.nvim'
 " Plug 'tpope/vim-sensible'
@@ -357,3 +358,12 @@ imap <D-Right> <Plug>delimitMateEnd
 "
 """"""""""""""""""""""""""""""""""vim-signify""""""""""""""""""""""""""""""""""""""""""
 let g:signify_vcs_list = [ 'git' ]
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Ack.Vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if executable('ag')
+      let g:ackprg = 'ag --vimgrep'
+endif
+

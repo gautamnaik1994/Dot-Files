@@ -23,10 +23,14 @@ Plug 'zchee/deoplete-jedi'
 Plug 'mileszs/ack.vim'
 Plug 'mbbill/undotree'
 Plug 'Shougo/denite.nvim'
+Plug 'OmniSharp/omnisharp-vim'
+Plug 'dimixar/deoplete-omnisharp'
 " Plug 'tpope/vim-sensible'
 "Plug 'myusuf3/numbers.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-dispatch'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
 "Plug 'vim-scripts/taglist.vim'
@@ -81,12 +85,12 @@ endfor
 
 """""""""""""""""""""""""""""""""Autocommands""""""""""""""""""""""""""""""""""""""""""""
 augroup generalAutoCommand
-        autocmd!
+    autocmd!
 augroup END
 
 "augroup autosourcing
-    "autocmd!
-    "autocmd BufWritePost init.vim source %  "Automatically source file vimrc file
+"autocmd!
+"autocmd BufWritePost init.vim source %  "Automatically source file vimrc file
 "augroup END
 "Create and write file to hdd
 autocmd generalAutoCommand BufNewFile * :write
@@ -133,6 +137,7 @@ augroup omnifuncs
     autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
     autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
     autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+    autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
 augroup end
 
 
@@ -147,7 +152,7 @@ if has_key(g:plugs, 'deoplete.nvim')
     let g:deoplete#enable_smart_case = 1
     let g:deoplete#enable_ignore_case = 1
     let g:deoplete#enable_camel_case = 1
-    "call deoplete#enable_logging('DEBUG', 'deoplete.log')
+    call deoplete#enable_logging('DEBUG', 'deoplete.log')
 
 endif
 
@@ -364,6 +369,18 @@ let g:signify_vcs_list = [ 'git' ]
 " => Ack.Vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if executable('ag')
-      let g:ackprg = 'ag --vimgrep'
+    let g:ackprg = 'ag --vimgrep'
 endif
+
+"""""""""""""""""""""""""""""""""Vim Omnisharp""""""""""""""""""""""""""""""""""""""""""""
+
+
+let g:OmniSharp_server_path = 'C:/Program Files/omnisharp-win-x64/OmniSharp.exe'
+let g:Omnisharp_stop_server = 2
+if !exists('g:deoplete#omni#input_patterns')
+    let g:deoplete#omni#input_patterns = {}
+endif
+let g:deoplete#omni#functions = {}
+let g:deoplete#sources = {}
+let g:deoplete#sources.cs = ['omni', 'file', 'buffer', 'ultisnips']
 

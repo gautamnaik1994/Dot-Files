@@ -24,7 +24,7 @@ Plug 'mileszs/ack.vim'
 Plug 'mbbill/undotree'
 Plug 'Shougo/denite.nvim'
 Plug 'OmniSharp/omnisharp-vim'
-Plug 'dimixar/deoplete-omnisharp'
+"Plug 'gautamnaik1994/deoplete-omnisharp'
 " Plug 'tpope/vim-sensible'
 "Plug 'myusuf3/numbers.vim'
 Plug 'Yggdroot/indentLine'
@@ -152,7 +152,10 @@ if has_key(g:plugs, 'deoplete.nvim')
     let g:deoplete#enable_smart_case = 1
     let g:deoplete#enable_ignore_case = 1
     let g:deoplete#enable_camel_case = 1
+    "call deoplete#enable_logging('DEBUG', 'deoplete.log')
+    let g:deoplete#enable_profile = 1
     call deoplete#enable_logging('DEBUG', 'deoplete.log')
+    call deoplete#custom#source('cs', 'debug_enabled', 1)
 
 endif
 
@@ -380,6 +383,7 @@ let g:Omnisharp_stop_server = 2
 if !exists('g:deoplete#omni#input_patterns')
     let g:deoplete#omni#input_patterns = {}
 endif
+  let g:deoplete#omni#input_patterns.cs = ['\w*']
 let g:deoplete#omni#functions = {}
 let g:deoplete#sources = {}
 let g:deoplete#sources.cs = ['omni', 'file', 'buffer', 'ultisnips']

@@ -1,4 +1,4 @@
-echom "I am C#"
+
 set completeopt=longest,menuone,preview
 
 let b:switch_custom_definitions =

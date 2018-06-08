@@ -24,8 +24,8 @@ Plug 'mileszs/ack.vim'
 Plug 'mbbill/undotree'
 Plug 'Shougo/denite.nvim'
 Plug 'OmniSharp/omnisharp-vim'
-"Plug 'gautamnaik1994/deoplete-omnisharp'
-" Plug 'tpope/vim-sensible'
+Plug 'gautamnaik1994/deoplete-omnisharp'
+"Plug 'tpope/vim-sensible'
 "Plug 'myusuf3/numbers.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'
@@ -56,7 +56,7 @@ Plug 'tmhedberg/SimpylFold'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'nvie/vim-flake8'
 " Plug 'Valloric/YouCompleteMe'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Raimondi/delimitMate'
 Plug 'ternjs/tern_for_vim', {'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
 Plug 'ervandew/supertab'
@@ -187,6 +187,7 @@ endif
 
 
 """""""""""""""""""""""""""""""""Ultisnip""""""""""""""""""""""""""""""""""""""""""""
+
 let g:UltiSnipsEditSplit="vertical"
 autocmd generalAutoCommand FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 let g:UltiSnipsExpandTrigger="<C-j>"
@@ -378,7 +379,8 @@ endif
 """""""""""""""""""""""""""""""""Vim Omnisharp""""""""""""""""""""""""""""""""""""""""""""
 
 
-let g:OmniSharp_server_path = 'C:/Program Files/omnisharp-win-x64/OmniSharp.exe'
+let g:OmniSharp_server_path = 'C:\Neovim\Dot-Files\nvim\bundle\omnisharp.http-win-x64\OmniSharp.exe'
+let g:OmniSharp_server_type = 'roslyn'
 let g:Omnisharp_stop_server = 2
 if !exists('g:deoplete#omni#input_patterns')
     let g:deoplete#omni#input_patterns = {}
@@ -386,5 +388,5 @@ endif
   let g:deoplete#omni#input_patterns.cs = ['\w*']
 let g:deoplete#omni#functions = {}
 let g:deoplete#sources = {}
-let g:deoplete#sources.cs = ['omni', 'file', 'buffer', 'ultisnips']
+let g:deoplete#sources.cs = ['omni', 'file', 'buffer', 'ultisnips','cs']
 

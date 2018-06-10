@@ -71,6 +71,14 @@ nnoremap k gk
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
 
+"Mappings to move lines"
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+
 """"""""""""""""""""""""""""""
 " => Visual mode related
 """"""""""""""""""""""""""""""
@@ -82,5 +90,7 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 " vnoremap <C-c> "*y
 " nnoremap <C-v> "*p
 " nnoremap <S-C-v> "*P
+
+
 
 

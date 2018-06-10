@@ -18,72 +18,116 @@ if empty(glob('~/AppData/Local/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/AppData/Local/nvim/bundle')
-Plug 'editorconfig/editorconfig-vim'
-Plug 'zchee/deoplete-jedi'
-Plug 'mileszs/ack.vim'
-Plug 'mbbill/undotree'
-Plug 'Shougo/denite.nvim'
-Plug 'OmniSharp/omnisharp-vim'
-Plug 'gautamnaik1994/deoplete-omnisharp'
-"Plug 'tpope/vim-sensible'
-"Plug 'myusuf3/numbers.vim'
-Plug 'Yggdroot/indentLine'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-dispatch'
-Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'vim-airline/vim-airline'
-Plug 'scrooloose/nerdtree'
-"Plug 'vim-scripts/taglist.vim'
-Plug 'matze/vim-move'
-"Plug 'larsbs/vim-xmll'                                            " Tweaked Vim XML syntax highlighting plugin - React close tags look a little nicer with this!
-"Plug 'mhartington/oceanic-next'"
-"Plug 'gautamnaik1994/oceanic-next'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'equalsraf/neovim-gui-shim'
-"Plug 'townk/vim-autoclose'
-Plug 'mattn/emmet-vim'
-Plug 'prettier/vim-prettier', {'do': 'npm install','for': ['javascript', 'css', 'scss', 'json']}
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-"Plug 'neoclide/vim-jsx-improve'
-" Plug 'vim-syntastic/syntastic'
-Plug 'w0rp/ale'
-Plug 'ryanoasis/vim-devicons'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tpope/vim-surround'
-Plug 'easymotion/vim-easymotion'
-Plug 'tmhedberg/SimpylFold'
-Plug 'vim-scripts/indentpython.vim'
-Plug 'nvie/vim-flake8'
-" Plug 'Valloric/YouCompleteMe'
- Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Raimondi/delimitMate'
-Plug 'ternjs/tern_for_vim', {'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
-Plug 'ervandew/supertab'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Autoompletion and Sources
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"Plug 'Valloric/YouCompleteMe'
 Plug 'carlitux/deoplete-ternjs', {'do': 'npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
-Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'scrooloose/nerdcommenter'
-"Plug 'morhetz/gruvbox'
-Plug 'kien/rainbow_parentheses.vim'
-"Plug 'liuchengxu/space-vim-dark'
-"Plug 'rakr/vim-one'
-Plug 'mhinz/vim-signify'
-"Plug 'othree/yajs.vim'
-"Plug 'othree/html5.vim'
+Plug 'fszymanski/deoplete-emoji'
+Plug 'gautamnaik1994/deoplete-omnisharp'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/neco-vim'
+Plug 'zchee/deoplete-jedi'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Language Plugins
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"Plug 'larsbs/vim-xmll'                                            " Tweaked Vim XML syntax highlighting plugin - React close tags look a little nicer with this!
+"Plug 'neoclide/vim-jsx-improve'
 "Plug 'othree/es.next.syntax.vim'
-Plug 'Shougo/denite.nvim'
-Plug 'joshdick/onedark.vim'
+"Plug 'othree/html5.vim'
+"Plug 'othree/yajs.vim'
+Plug 'mxw/vim-jsx'
+Plug 'nvie/vim-flake8'
+Plug 'OmniSharp/omnisharp-vim'
+Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'pangloss/vim-javascript'
+Plug 'ternjs/tern_for_vim', {'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Interface
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'mhinz/vim-signify'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'Yggdroot/indentLine'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Utilities
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"Plug 'Shougo/denite.nvim'
+"Plug 'myusuf3/numbers.vim'
+"Plug 'townk/vim-autoclose'
+"Plug 'tpope/vim-sensible'
+"Plug 'vim-scripts/taglist.vim'
+"Plug 'vim-syntastic/syntastic'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'ervandew/supertab'
+Plug 'honza/vim-snippets'
+Plug 'mattn/emmet-vim'
+"Plug 'matze/vim-move'
+Plug 'mbbill/undotree'
+Plug 'mileszs/ack.vim' "Install ack(choco install ack) and ag(choco install ag)
+Plug 'prettier/vim-prettier', {'do': 'npm install','for': ['javascript', 'css', 'scss', 'json']}
+Plug 'qwertologe/nextval.vim'
+Plug 'Raimondi/delimitMate'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'SirVer/ultisnips'
+Plug 'tmhedberg/SimpylFold'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'w0rp/ale'
+Plug 'wellle/targets.vim'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Themeing
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 "Plug 'NLKNguyen/papercolor-theme'
+"Plug 'gautamnaik1994/oceanic-next'
+"Plug 'liuchengxu/space-vim-dark'
+"Plug 'mhartington/oceanic-next'"
+"Plug 'morhetz/gruvbox'
+"Plug 'rakr/vim-one'
+Plug 'equalsraf/neovim-gui-shim'
+Plug 'joshdick/onedark.vim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'vim-airline/vim-airline-themes'
+
 call plug#end()
 
-""""""""""""""""""""""""""""""""""Source files from config folder"""""""""""""""""""""""""""""""""
+
+"Source files from config folder
 for f in split(glob('~/AppData/Local/nvim/config/*.vim'), '\n')
     exe 'source' f
 endfor
 
-"""""""""""""""""""""""""""""""""Autocommands""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Miscellaneous
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if (has("termguicolors"))
+    set termguicolors
+endif
+
+"au BufRead,BufNewFile syn region xmlTagName matchgroup=xmlTag start=+</+ end=+>+
+syn region xmlTagName matchgroup=xmlTag start=+</+ end=+>+
+let python_highlight_all=1
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Autocommands
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 augroup generalAutoCommand
     autocmd!
 augroup END
@@ -100,36 +144,9 @@ autocmd generalAutoCommand BufWritePost init.vim source %  "Automatically source
 autocmd generalAutoCommand BufWritePre * :%s/\s\+$//e
 autocmd generalAutoCommand BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
-"""""""""""""""""""""""""""""""""Functions""""""""""""""""""""""""""""""""""""""""""""
-if (has("termguicolors"))
-    set termguicolors
-endif
-
-"au BufRead,BufNewFile syn region xmlTagName matchgroup=xmlTag start=+</+ end=+>+
-syn region xmlTagName matchgroup=xmlTag start=+</+ end=+>+
-let python_highlight_all=1
-
-
-""""""""""""""""""""""""""""""""rainbow paretnesis""""""""""""""""""""""""""""""""""""""""""""
-augroup rainboweparens
-    autocmd!
-    au VimEnter * RainbowParenthesesToggle
-    au Syntax * RainbowParenthesesLoadRound
-    au Syntax * RainbowParenthesesLoadSquare
-    au Syntax * RainbowParenthesesLoadBraces
-augroup end
-
-"""""""""""""""""""""""""""""""""vim jsx""""""""""""""""""""""""""""""""""""""""""""
-let g:jsx_ext_required = 0
-"highlight link xmlEndTag xmlTag
-"hi link xmlEndTag xmlTag"
-
-
-"""""""""""""""""""""""""""""""""Indent line""""""""""""""""""""""""""""""""""""""""""""
-
-let g:indentLine_char = '│'
-
-"""""""""""""""""""""""""""""""""" omnifuncs""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Omnifuncs
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 augroup omnifuncs
     autocmd!
     autocmd FileType css,scss setlocal omnifunc=csscomplete#CompleteCSS
@@ -141,9 +158,36 @@ augroup omnifuncs
 augroup end
 
 
-"""""""""""""""""""""""""""""""""Deoplete""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => rainbow_parentheses.vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if has_key(g:plugs, 'rainbow_parentheses.vim')
+    augroup rainboweparens
+        autocmd!
+        au VimEnter * RainbowParenthesesToggle
+        au Syntax * RainbowParenthesesLoadRound
+        au Syntax * RainbowParenthesesLoadSquare
+        au Syntax * RainbowParenthesesLoadBraces
+    augroup end
+endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-jsx
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:jsx_ext_required = 0
+"highlight link xmlEndTag xmlTag
+"hi link xmlEndTag xmlTag"
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => indentLine
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:indentLine_char = '│'
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => deoplete.nvim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has_key(g:plugs, 'deoplete.nvim')
     let g:deoplete#enable_at_startup = 1
     " Autocomplete from files now works from current buffer
@@ -154,10 +198,14 @@ if has_key(g:plugs, 'deoplete.nvim')
     let g:deoplete#enable_camel_case = 1
     "call deoplete#enable_logging('DEBUG', 'deoplete.log')
     let g:deoplete#enable_profile = 1
-    call deoplete#enable_logging('DEBUG', 'deoplete.log')
-    call deoplete#custom#source('cs', 'debug_enabled', 1)
+    "call deoplete#enable_logging('DEBUG', 'deoplete.log')
+    "call deoplete#custom#source('cs', 'debug_enabled', 1)
 
 endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => deoplete-ternjs
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if has_key(g:plugs, 'deoplete-ternjs')
     if !exists('g:deoplete#omni#input_patterns')
@@ -171,6 +219,9 @@ if has_key(g:plugs, 'deoplete-ternjs')
     autocmd generalAutoCommand FileType javascript.jsx nnoremap <silent> <buffer> gb :TernDef<CR>
 endif
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => tern_for_vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has_key(g:plugs, 'tern_for_vim')
     let g:tern_request_timeout = 1
     let g:tern_show_signature_in_pum = 1
@@ -185,16 +236,18 @@ if has_key(g:plugs, 'tern_for_vim')
 endif
 
 
-
-"""""""""""""""""""""""""""""""""Ultisnip""""""""""""""""""""""""""""""""""""""""""""
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => ultisnips
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:UltiSnipsEditSplit="vertical"
 autocmd generalAutoCommand FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 let g:UltiSnipsExpandTrigger="<C-j>"
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 let g:UltiSnipsSnippetDirectories = ['~/AppData/Local/nvim/UltiSnips', 'UltiSnips']
 
-"""""""""""""""""""""""""""""""""Nerd Tree""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => nerdtree
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 augroup nerd
     autocmd!
     autocmd vimenter * NERDTree
@@ -212,74 +265,9 @@ let g:NERDTreeDirArrowExpandable = '⯈'
 "let g:NERDTreeDirArrowCollapsible = '▾'⯆
 let g:NERDTreeDirArrowCollapsible = '⯆'
 
-
-"""""""""""""""""""""""""""""""""Airline""""""""""""""""""""""""""""""""""""""""""""
-
-let g:airline_theme='base16_spacemacs'
-let g:airline#extensions#tabline#enabled = 2
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#ale#enabled = 1
-
-if exists("g:gui_oni")
-    if !exists('g:airline_symbols')
-        let g:airline_symbols = {}
-    endif
-    " unicode symbols
-    let g:airline_left_sep = ''
-    let g:airline_left_sep = ''
-    let g:airline_right_sep = ''
-    let g:airline_right_sep = ''
-    let g:airline_symbols.crypt = ''
-    let g:airline_symbols.linenr = ''
-    let g:airline_symbols.linenr = ''
-    let g:airline_symbols.linenr = ''
-    let g:airline_symbols.linenr = ''
-    let g:airline_symbols.maxlinenr = ''
-    let g:airline_symbols.maxlinenr = ''
-    let g:airline_symbols.branch = ''
-    let g:airline_symbols.paste = ''
-    let g:airline_symbols.paste = ''
-    let g:airline_symbols.paste = ''
-    let g:airline_symbols.spell = ''
-    let g:airline_symbols.notexists = ''
-    let g:airline_symbols.whitespace = ''
-    " powerline symbols
-
-else
-    if !exists('g:airline_symbols')
-        let g:airline_symbols = {}
-    endif
-    let g:airline_powerline_fonts = 1
-    let g:airline_left_sep = '»'
-    let g:airline_left_sep = '▶'
-    let g:airline_right_sep = '«'
-    let g:airline_right_sep = '◀'
-    let g:airline_symbols.crypt = '🔒'
-    let g:airline_symbols.linenr = '☰'
-    let g:airline_symbols.linenr = '␊'
-    let g:airline_symbols.linenr = '␤'
-    let g:airline_symbols.linenr = '¶'
-    let g:airline_symbols.maxlinenr = ''
-    let g:airline_symbols.maxlinenr = '㏑'
-    let g:airline_symbols.branch = '⎇'
-    let g:airline_symbols.paste = 'ρ'
-    let g:airline_symbols.paste = 'Þ'
-    let g:airline_symbols.paste = '∥'
-    let g:airline_symbols.spell = 'Ꞩ'
-    let g:airline_symbols.notexists = '∄'
-    let g:airline_symbols.whitespace = 'Ξ'
-    let g:airline_left_sep = ''
-    let g:airline_left_alt_sep = ''
-    let g:airline_right_sep = ''
-    let g:airline_right_alt_sep = ''
-    let g:airline_symbols.branch = ''
-    let g:airline_symbols.readonly = ''
-    let g:airline_symbols.linenr = '☰'
-    let g:airline_symbols.maxlinenr = ''
-endif
-
-
-"""""""""""""""""""""""""""""""""Emmet""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => emmet-vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:user_emmet_leader_key='<C-Z>'
 let g:user_emmet_mode='a'    "enable all function in all mode.
 let g:user_emmet_settings = {
@@ -288,7 +276,9 @@ let g:user_emmet_settings = {
             \  },
             \}
 
-"""""""""""""""""""""""""""""""""Prettier""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-prettier
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " let g:prettier#exec_cmd_path = "~/AppData/Local/nvim/bundle/vim-prettier/node_modules/.bin/prettier"
 " let g:prettier#config#print_width = 80
 " let g:prettier#config#tab_width = 2
@@ -313,7 +303,9 @@ let g:user_emmet_settings = {
 " let g:prettier#autoformat = 0
 "autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 
-"""""""""""""""""""""""""""""""""Ale""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Ale
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:ale_sign_error = '●' " Less aggressive than the default '>>'
 "let g:ale_sign_warning = '--'
 " let g:ale_sign_error = '❌'
@@ -338,24 +330,31 @@ let g:ale_fixers = {
 
 
 
-"""""""""""""""""""""""""""""""""CtrlP""""""""""""""""""""""""""""""""""""""""""""
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => CtrlP
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:ctrlp_custom_ignore = 'node_modules\DS_Store\|git'
 "let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 "let g:ctrlp_cmd='CtrlP :pwd'
 
-"""""""""""""""""""""""""""""""""SimplyFold""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => SimpylFold
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:SimpylFold_docstring_preview=1
 
-"""""""""""""""""""""""""""""""""delimitMate"""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => delimitMate
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " delimitMate fixes
 imap <M-Left> <Plug>delimitMateC-Left
 imap <M-Right> <Plug>delimitMateC-Right
 imap <D-Left> <Plug>delimitMateHome
 imap <D-Right> <Plug>delimitMateEnd
 
-"""""""""""""""""""""""""""""""""vim-syntastic"""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => syntastic
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 " set statusline+=%*
@@ -363,30 +362,37 @@ imap <D-Right> <Plug>delimitMateEnd
 " let g:syntastic_auto_loc_list = 1
 " let g:syntastic_check_on_open = 1
 " let g:syntastic_check_on_wq = 0
-"
-"
-""""""""""""""""""""""""""""""""""vim-signify""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-signify
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:signify_vcs_list = [ 'git' ]
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ack.Vim
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
 
-"""""""""""""""""""""""""""""""""Vim Omnisharp""""""""""""""""""""""""""""""""""""""""""""
-
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-omnisharp
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:OmniSharp_server_path = 'C:\Neovim\Dot-Files\nvim\bundle\omnisharp.http-win-x64\OmniSharp.exe'
 let g:OmniSharp_server_type = 'roslyn'
 let g:Omnisharp_stop_server = 2
 if !exists('g:deoplete#omni#input_patterns')
     let g:deoplete#omni#input_patterns = {}
 endif
-  let g:deoplete#omni#input_patterns.cs = ['\w*']
+let g:deoplete#omni#input_patterns.cs = ['\.\w*']
 let g:deoplete#omni#functions = {}
 let g:deoplete#sources = {}
 let g:deoplete#sources.cs = ['omni', 'file', 'buffer', 'ultisnips','cs']
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Supertab
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
 

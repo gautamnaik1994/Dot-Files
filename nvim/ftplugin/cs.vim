@@ -13,11 +13,12 @@ let b:switch_custom_definitions =
     \   [  'Debug.LogWarning(', 'Debug.LogWarningFormat(' ]
 \ ]
 set errorformat=\ %#%f(%l\\\,%c):\ error\ CS%n:\ %m
+
+nnoremap <leader>cd :OmniSharpGotoDefinition<cr>
+
 " Omnisharp mappings
 augroup omnisharp_commands
     autocmd!
-
-
     " Synchronous build (blocks Vim)
     "autocmd FileType cs nnoremap <F5> :wa!<cr>:OmniSharpBuild<cr>
     " Builds can also run asynchronously with vim-dispatch installed
@@ -25,10 +26,11 @@ augroup omnisharp_commands
     "autocmd BufEnter,TextChanged,InsertLeave *.cs Neomake
 
     " Automatically add new cs files to the nearest project on save
-    autocmd BufWritePost *.cs call OmniSharp#AddToProject()
+    "autocmd BufWritePost *.cs call OmniSharp#AddToProject()
+    autocmd BufWritePost <buffer> call OmniSharp#AddToProject()
 
     "show type information automatically when the cursor stops moving
-    autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
+    autocmd CursorHold <buffer> call OmniSharp#TypeLookupWithoutDocumentation()
 
     "The following commands are contextual, based on the current cursor position.
 

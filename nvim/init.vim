@@ -264,6 +264,7 @@ let NERDTreeMinimalUI=1
 let g:NERDTreeDirArrowExpandable = '⯈'
 "let g:NERDTreeDirArrowCollapsible = '▾'⯆
 let g:NERDTreeDirArrowCollapsible = '⯆'
+let NERDTreeIgnore = ['\.meta$']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => emmet-vim
@@ -376,9 +377,10 @@ if executable('ag')
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vim-omnisharp
+" => omnisharp-vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:OmniSharp_server_path = 'C:\Neovim\Dot-Files\nvim\bundle\omnisharp.http-win-x64\OmniSharp.exe'
+if has_key(g:plugs, 'omnisharp-vim')
+let g:OmniSharp_server_path = 'C:\Program Files\omnisharp.http-win-x64\OmniSharp.exe'
 let g:OmniSharp_server_type = 'roslyn'
 let g:Omnisharp_stop_server = 2
 if !exists('g:deoplete#omni#input_patterns')
@@ -388,6 +390,7 @@ let g:deoplete#omni#input_patterns.cs = ['\.\w*']
 let g:deoplete#omni#functions = {}
 let g:deoplete#sources = {}
 let g:deoplete#sources.cs = ['omni', 'file', 'buffer', 'ultisnips','cs']
+endif
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

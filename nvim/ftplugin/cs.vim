@@ -14,7 +14,22 @@ let b:switch_custom_definitions =
 \ ]
 set errorformat=\ %#%f(%l\\\,%c):\ error\ CS%n:\ %m
 
+
+
+
 nnoremap <leader>cd :OmniSharpGotoDefinition<cr>
+
+    " Add syntax highlighting for types and interfaces
+    nnoremap <Leader>th :OmniSharpHighlightTypes<CR>
+
+    nnoremap <Leader>cf :OmniSharpCodeFormat<CR>
+
+    " Rename with dialog
+    nnoremap <Leader>nm :OmniSharpRename<CR>
+    nnoremap <F2> :OmniSharpRename<CR>
+    " Rename without dialog - with cursor on the symbol to rename: `:Rename newname`
+    command! -nargs=1 Rename :call OmniSharp#RenameTo("<args>")
+
 
 " Omnisharp mappings
 augroup omnisharp_commands
@@ -28,6 +43,10 @@ augroup omnisharp_commands
     " Automatically add new cs files to the nearest project on save
     "autocmd BufWritePost *.cs call OmniSharp#AddToProject()
     autocmd BufWritePost <buffer> call OmniSharp#AddToProject()
+
+    autocmd BufWritePre <buffer> OmniSharpCodeFormat
+
+    autocmd BufEnter,TextChanged,InsertLeave <buffer> SyntasticCheck
 
     "show type information automatically when the cursor stops moving
     autocmd CursorHold <buffer> call OmniSharp#TypeLookupWithoutDocumentation()
@@ -78,4 +97,26 @@ augroup omnisharp_commands
     "autocmd FileType cs nnoremap <C-J> :OmniSharpNavigateDown<cr>
 
 
+
 augroup END
+
+
+"Code Actions Available flag
+
+ set updatetime=500
+
+sign define OmniSharpCodeActions text=💡
+
+augroup OSCountCodeActions
+  autocmd!
+  autocmd FileType cs set signcolumn=yes
+  autocmd CursorHold *.cs call OSCountCodeActions()
+augroup END
+
+function! OSCountCodeActions() abort
+  if OmniSharp#CountCodeActions({-> execute('sign unplace 99')})
+    let l = getpos('.')[1]
+    let f = expand('%:p')
+    execute ':sign place 99 line='.l.' name=OmniSharpCodeActions file='.f
+  endif
+endfunction

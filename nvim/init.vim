@@ -46,6 +46,7 @@ Plug 'OmniSharp/omnisharp-vim'
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'pangloss/vim-javascript'
 Plug 'ternjs/tern_for_vim', {'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
+Plug 'OrangeT/vim-csharp',{'for':['cs']}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Interface
@@ -57,6 +58,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'Yggdroot/indentLine'
+Plug 'majutsushi/tagbar'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Utilities
@@ -67,7 +69,6 @@ Plug 'Yggdroot/indentLine'
 "Plug 'townk/vim-autoclose'
 "Plug 'tpope/vim-sensible'
 "Plug 'vim-scripts/taglist.vim'
-"Plug 'vim-syntastic/syntastic'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
@@ -87,8 +88,9 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/indentpython.vim'
-Plug 'w0rp/ale'
 Plug 'wellle/targets.vim'
+Plug 'w0rp/ale'
+Plug 'vim-syntastic/syntastic', {'for':['cs']}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Themeing
@@ -356,13 +358,17 @@ imap <D-Right> <Plug>delimitMateEnd
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => syntastic
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_cs_checkers = ['code_checker']
+let g:syntastic_warning_symbol = 'WW'
+let g:syntastic_error_symbol = 'EE'
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-signify
@@ -380,7 +386,7 @@ endif
 " => omnisharp-vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has_key(g:plugs, 'omnisharp-vim')
-let g:OmniSharp_server_path = 'C:\Program Files\omnisharp.http-win-x64\OmniSharp.exe'
+let g:OmniSharp_server_path = 'C:\Neovim\omnisharp-roslyn\artifacts\publish\OmniSharp.Http.Driver\win7-x64\OmniSharp.exe'
 let g:OmniSharp_server_type = 'roslyn'
 let g:Omnisharp_stop_server = 2
 if !exists('g:deoplete#omni#input_patterns')
@@ -390,6 +396,8 @@ let g:deoplete#omni#input_patterns.cs = ['\.\w*']
 let g:deoplete#omni#functions = {}
 let g:deoplete#sources = {}
 let g:deoplete#sources.cs = ['omni', 'file', 'buffer', 'ultisnips','cs']
+let g:OmniSharp_selector_ui = 'ctrlp'  " Use ctrlp.vim
+let g:OmniSharp_use_random_port = 1
 endif
 
 

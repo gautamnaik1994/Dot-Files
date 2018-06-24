@@ -92,5 +92,13 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 " nnoremap <S-C-v> "*P
 
 
-
+" use F5 to toggle the line number counting method
+function! g:ToggleNuMode()
+  if &nu == 1
+     set rnu
+  else
+     set nu
+  endif
+endfunction
+nnoremap <silent><F5> :call g:ToggleNuMode()<cr>
 

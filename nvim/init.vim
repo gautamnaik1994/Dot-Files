@@ -89,7 +89,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'wellle/targets.vim'
-Plug 'w0rp/ale'
+Plug 'w0rp/ale',{ 'for': ['javascript', 'javascript.jsx', 'python'] }
 Plug 'vim-syntastic/syntastic', {'for':['cs']}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -266,7 +266,7 @@ let NERDTreeMinimalUI=1
 let g:NERDTreeDirArrowExpandable = '⯈'
 "let g:NERDTreeDirArrowCollapsible = '▾'⯆
 let g:NERDTreeDirArrowCollapsible = '⯆'
-let NERDTreeIgnore = ['\.meta$']
+let NERDTreeIgnore = ['\.meta$','\.asset$','\.csproj$','\.cache$','\.apk$']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => emmet-vim
@@ -338,7 +338,7 @@ let g:ale_fixers = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:ctrlp_custom_ignore = 'node_modules\DS_Store\|git'
 "let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|\.meta$\|\.asset$\|\.cache$\|\.mat$'
 "let g:ctrlp_cmd='CtrlP :pwd'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -366,8 +366,8 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_cs_checkers = ['code_checker']
-let g:syntastic_warning_symbol = 'WW'
-let g:syntastic_error_symbol = 'EE'
+let g:syntastic_warning_symbol = '--'
+let g:syntastic_error_symbol = '●'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -47,6 +47,10 @@ Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'pangloss/vim-javascript'
 Plug 'ternjs/tern_for_vim', {'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
 Plug 'OrangeT/vim-csharp',{'for':['cs']}
+" Plug 'tikhomirov/vim-glsl'
+" Plug 'beyondmarc/hlsl.vim'
+" Plug 'vim-scripts/cg.vim'
+Plug 'gautamnaik1994/ShaderHighLight'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Interface

@@ -51,6 +51,7 @@ Plug 'OrangeT/vim-csharp',{'for':['cs']}
 " Plug 'beyondmarc/hlsl.vim'
 " Plug 'vim-scripts/cg.vim'
 Plug 'gautamnaik1994/ShaderHighLight'
+Plug 'posva/vim-vue'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Interface
@@ -82,7 +83,7 @@ Plug 'mattn/emmet-vim'
 "Plug 'matze/vim-move'
 Plug 'mbbill/undotree'
 Plug 'mileszs/ack.vim' "Install ack(choco install ack) and ag(choco install ag)
-Plug 'prettier/vim-prettier', {'do': 'npm install','for': ['javascript', 'css', 'scss', 'json']}
+Plug 'prettier/vim-prettier', {'do': 'npm install','for': ['javascript', 'css', 'scss', 'json','vue']}
 Plug 'qwertologe/nextval.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}

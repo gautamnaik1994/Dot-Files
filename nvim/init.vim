@@ -308,8 +308,9 @@ let g:user_emmet_settings = {
 " " let g:prettier#autoformat = 0
 " let g:prettier#exec_cmd_async = 1
 " let g:prettier#config#parser = 'babylon'
-" let g:prettier#autoformat = 0
-"autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+ let g:prettier#autoformat = 0
+autocmd generalAutoCommand BufWritePre *.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+"autocmd generalAutoCommand BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ale

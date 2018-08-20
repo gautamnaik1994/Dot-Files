@@ -8,3 +8,10 @@ snippet wspan "wrap visual selection with <span>"
 	${0:${VISUAL: }}
 </div>
 endsnippet
+
+snippet wtag "wrap visual selection with <tag>"
+<$1 class="$2">
+	${0:${VISUAL: }}
+</$1>
+endsnippet
+

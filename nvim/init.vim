@@ -26,7 +26,7 @@ call plug#begin('~/AppData/Local/nvim/bundle')
 "Plug 'Valloric/YouCompleteMe'
 Plug 'carlitux/deoplete-ternjs', {'do': 'npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
 Plug 'fszymanski/deoplete-emoji'
-Plug 'gautamnaik1994/deoplete-omnisharp'
+"Plug 'gautamnaik1994/deoplete-omnisharp'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neco-vim'
 Plug 'zchee/deoplete-jedi'
@@ -95,7 +95,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'wellle/targets.vim'
-Plug 'w0rp/ale',{ 'for': ['javascript', 'javascript.jsx', 'python'] }
+Plug 'w0rp/ale',{ 'for': ['javascript', 'javascript.jsx', 'python','cs'] }
 Plug 'vim-syntastic/syntastic', {'for':['cs']}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -208,6 +208,9 @@ if has_key(g:plugs, 'deoplete.nvim')
     let g:deoplete#enable_profile = 1
     "call deoplete#enable_logging('DEBUG', 'deoplete.log')
     "call deoplete#custom#source('cs', 'debug_enabled', 1)
+     call deoplete#custom#option('sources', {
+    \ 'cs': ['omnisharp'],
+    \ })
 
 endif
 
@@ -326,7 +329,11 @@ autocmd generalAutoCommand BufWritePre *.css,*.less,*.scss,*.json,*.graphql,*.md
 "let g:ale_sign_warning = '⚠'
 "hi ALEWarningSign guifg=#F2C38F
 "let g:ale_sign_error = '×'
-let g:ale_linters = {'javascript': ['eslint']}
+let g:ale_linters = {
+\ 'cs': ['OmniSharp'],
+\ 'javascript': ['eslint']
+\}
+" let g:ale_linters = {'javascript': ['eslint']}
 let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 let g:ale_emit_conflict_warnings = 0
 let g:ale_set_highlights = 0
@@ -365,16 +372,16 @@ imap <D-Right> <Plug>delimitMateEnd
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => syntastic
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_cs_checkers = ['code_checker']
-let g:syntastic_warning_symbol = '--'
-let g:syntastic_error_symbol = '●'
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_cs_checkers = ['code_checker']
+" let g:syntastic_warning_symbol = '--'
+" let g:syntastic_error_symbol = '●'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

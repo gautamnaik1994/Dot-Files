@@ -42,11 +42,13 @@ augroup omnisharp_commands
 
     " Automatically add new cs files to the nearest project on save
     "autocmd BufWritePost *.cs call OmniSharp#AddToProject()
-    autocmd BufWritePost <buffer> call OmniSharp#AddToProject()
+    "autocmd BufWritePost <buffer> call OmniSharp#AddToProject()
 
     autocmd BufWritePre <buffer> OmniSharpCodeFormat
+    " Show type information automatically when the cursor stops moving
+    autocmd CursorHold <buffer> call OmniSharp#TypeLookupWithoutDocumentation()
 
-    autocmd BufEnter,TextChanged,InsertLeave <buffer> SyntasticCheck
+    "autocmd BufEnter,TextChanged,InsertLeave <buffer> SyntasticCheck
 
     "show type information automatically when the cursor stops moving
     autocmd CursorHold <buffer> call OmniSharp#TypeLookupWithoutDocumentation()

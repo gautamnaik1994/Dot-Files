@@ -37,6 +37,11 @@ name = () => {
 
 }
 endsnippet
+snippet wtag "wrap visual selection with tag"
+<$1 className="$2">
+	${0:${VISUAL: }}
+</$1>
+endsnippet
 snippet wdiv "wrap visual selection with <div>"
 <div className="$1">
 	${0:${VISUAL: }}

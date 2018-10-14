@@ -97,6 +97,7 @@ Plug 'vim-scripts/indentpython.vim'
 Plug 'wellle/targets.vim'
 Plug 'w0rp/ale',{ 'for': ['javascript', 'javascript.jsx', 'python','cs'] }
 Plug 'vim-syntastic/syntastic', {'for':['cs']}
+Plug 'jlanzarotta/bufexplorer'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Themeing

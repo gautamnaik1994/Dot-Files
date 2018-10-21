@@ -62,3 +62,5 @@ function! RenameFile()
     endif
 endfunction
 map <leader>rf :call RenameFile()<cr>
+
+command -nargs=+ Se execute 'vimgrep /' . [<f-args>][0] . '/ **/*.' . [<f-args>][1]

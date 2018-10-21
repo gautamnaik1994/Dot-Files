@@ -36,6 +36,7 @@ nnoremap <C-H> <C-W><C-H>
 "Open Previous File
 "set <F6>=<C-v><F6>
 "nnoremap <Leader>/ e#<CR>
+nnoremap <C-6> :e#<CR>
 
 " Disabling the directional keys
 map <up> <nop>

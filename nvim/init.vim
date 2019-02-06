@@ -52,6 +52,7 @@ Plug 'OrangeT/vim-csharp',{'for':['cs']}
 " Plug 'vim-scripts/cg.vim'
 Plug 'gautamnaik1994/ShaderHighLight'
 Plug 'posva/vim-vue'
+Plug 'othree/xml.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Interface

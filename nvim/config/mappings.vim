@@ -69,6 +69,11 @@ nnoremap <S-space> i<space><esc>
 " Enable folding with the spacebar
 " nnoremap <space> za
 
+"mapping to change tabs
+nnoremap <silent> <Leader>[ :bp<CR>
+nnoremap <silent> <Leader>] :bn<CR>
+
+
 " move vertically by visual line
 nnoremap j gj
 nnoremap k gk
@@ -106,4 +111,5 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 "   endif
 " endfunction
 " nnoremap <silent><F5> :call g:ToggleNuMode()<cr>
+
 

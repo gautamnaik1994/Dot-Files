@@ -45,8 +45,6 @@ augroup omnisharp_commands
     "autocmd BufWritePost <buffer> call OmniSharp#AddToProject()
 
     autocmd BufWritePre <buffer> OmniSharpCodeFormat
-    " Show type information automatically when the cursor stops moving
-    autocmd CursorHold <buffer> call OmniSharp#TypeLookupWithoutDocumentation()
 
     "autocmd BufEnter,TextChanged,InsertLeave <buffer> SyntasticCheck
 

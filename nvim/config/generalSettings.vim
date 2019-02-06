@@ -1,5 +1,5 @@
-let g:python3_host_prog='C:/ProgramData/Anaconda3/python.exe'
-let g:python_host_prog='C:/ProgramData/Anaconda2/python.exe'
+let g:python3_host_prog='C:/ProgramData/Anaconda3/python'
+let g:python_host_prog='C:/ProgramData/Anaconda2/python'
 " Set to auto read when a file is changed from the outside
 set autoread
 " Use awesome features

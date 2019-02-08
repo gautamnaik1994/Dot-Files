@@ -4,15 +4,19 @@ let mapleader= ","
 """"""""""""""""""""""""""""""
 " => Insert mode related
 """"""""""""""""""""""""""""""
-"Exit Inset Mode
+"Exit Insert Mode
 inoremap jk <esc>
 inoremap <esc> <nop>
 
 inoremap <C-v> <C-r>*
 
+"save file
+inoremap <leader>s <C-c>:w<CR>
 """"""""""""""""""""""""""""""
 " => Normal mode related
 """"""""""""""""""""""""""""""
+"save file
+nnoremap <leader>s :w<CR> 
 
 "Open Vim file
 nnoremap <Leader>ev :tabedit $MYVIMRC<cr>

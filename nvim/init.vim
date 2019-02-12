@@ -30,6 +30,7 @@ Plug 'fszymanski/deoplete-emoji'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neco-vim'
 Plug 'zchee/deoplete-jedi'
+Plug 'tbodt/deoplete-tabnine', { 'do': 'powershell.exe .\install.ps1' }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Language Plugins

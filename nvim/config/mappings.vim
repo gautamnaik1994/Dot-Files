@@ -4,15 +4,19 @@ let mapleader= ","
 """"""""""""""""""""""""""""""
 " => Insert mode related
 """"""""""""""""""""""""""""""
-"Exit Inset Mode
+"Exit Insert Mode
 inoremap jk <esc>
 inoremap <esc> <nop>
 
 inoremap <C-v> <C-r>*
 
+"save file
+inoremap <leader>s <C-c>:w<CR>
 """"""""""""""""""""""""""""""
 " => Normal mode related
 """"""""""""""""""""""""""""""
+"save file
+nnoremap <leader>s :w<CR> 
 
 "Open Vim file
 nnoremap <Leader>ev :tabedit $MYVIMRC<cr>
@@ -69,6 +73,11 @@ nnoremap <S-space> i<space><esc>
 " Enable folding with the spacebar
 " nnoremap <space> za
 
+"mapping to change tabs
+nnoremap <silent> <Leader>[ :bp<CR>
+nnoremap <silent> <Leader>] :bn<CR>
+
+
 " move vertically by visual line
 nnoremap j gj
 nnoremap k gk
@@ -86,6 +95,38 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 
 "Delete Empty Lines
 ":g/^$/d
+
+
+" gcw        - capitalize word (from cursor position to end of word)
+" gcW        - capitalize WORD (from cursor position to end of WORD)
+" gciw       - capitalize inner word (from start to end)
+" gciW       - capitalize inner WORD (from start to end)
+" gcis       - capitalize inner sentence
+" gc$        - capitalize until end of line (from cursor postition)
+" gcgc       - capitalize whole line (from start to end)
+" gcc        - capitalize whole line
+" {Visual}gc - capitalize highlighted text
+" if (&tildeop)
+"   nmap gcw guw~l
+"   nmap gcW guW~l
+"   nmap gciw guiw~l
+"   nmap gciW guiW~l
+"   nmap gcis guis~l
+"   nmap gc$ gu$~l
+"   nmap gcgc guu~l
+"   nmap gcc guu~l
+"   vmap gc gu~l
+" else
+"   nmap gcw guw~h
+"   nmap gcW guW~h
+"   nmap gciw guiw~h
+"   nmap gciW guiW~h
+"   nmap gcis guis~h
+"   nmap gc$ gu$~h
+"   nmap gcgc guu~h
+"   nmap gcc guu~h
+"   vmap gc gu~h
+" endif
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
@@ -109,4 +150,5 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 "   endif
 " endfunction
 " nnoremap <silent><F5> :call g:ToggleNuMode()<cr>
+
 

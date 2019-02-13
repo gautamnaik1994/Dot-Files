@@ -29,7 +29,7 @@ Plug 'fszymanski/deoplete-emoji'
 "Plug 'gautamnaik1994/deoplete-omnisharp'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neco-vim'
-Plug 'zchee/deoplete-jedi'
+Plug 'zchee/deoplete-jedi',{ 'for': [ 'python'] }
 Plug 'tbodt/deoplete-tabnine', { 'do': 'powershell.exe .\install.ps1' }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -42,8 +42,9 @@ Plug 'tbodt/deoplete-tabnine', { 'do': 'powershell.exe .\install.ps1' }
 "Plug 'othree/html5.vim'
 "Plug 'othree/yajs.vim'
 Plug 'mxw/vim-jsx'
-Plug 'nvie/vim-flake8'
-Plug 'OmniSharp/omnisharp-vim'
+"Plug 'chemzqm/vim-jsx-improve'
+Plug 'nvie/vim-flake8',{ 'for': [ 'python'] }
+Plug 'OmniSharp/omnisharp-vim',{'for':['cs']}
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'pangloss/vim-javascript'
 Plug 'ternjs/tern_for_vim', {'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
@@ -52,7 +53,7 @@ Plug 'OrangeT/vim-csharp',{'for':['cs']}
 " Plug 'beyondmarc/hlsl.vim'
 " Plug 'vim-scripts/cg.vim'
 Plug 'gautamnaik1994/ShaderHighLight'
-Plug 'posva/vim-vue'
+Plug 'posva/vim-vue',{ 'for': ['vue'] }
 Plug 'othree/xml.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -91,7 +92,7 @@ Plug 'qwertologe/nextval.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'SirVer/ultisnips'
-Plug 'tmhedberg/SimpylFold'
+Plug 'tmhedberg/SimpylFold',{ 'for': [ 'python'] }
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -101,6 +102,8 @@ Plug 'w0rp/ale',{ 'for': ['javascript', 'javascript.jsx', 'python','cs'] }
 Plug 'vim-syntastic/syntastic', {'for':['cs']}
 Plug 'jlanzarotta/bufexplorer'
 Plug 'vim-scripts/cream-capitalization'
+Plug 'andymass/vim-matchup'
+"Plug 'justinmk/vim-sneak'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Themeing
@@ -111,7 +114,7 @@ Plug 'vim-scripts/cream-capitalization'
 "Plug 'liuchengxu/space-vim-dark'
 "Plug 'mhartington/oceanic-next'"
 "Plug 'morhetz/gruvbox'
-"Plug 'rakr/vim-one'
+Plug 'rakr/vim-one'
 Plug 'equalsraf/neovim-gui-shim'
 Plug 'joshdick/onedark.vim'
 Plug 'ryanoasis/vim-devicons'
@@ -433,3 +436,14 @@ nnoremap <F6> :NumbersToggle<CR>
 " => NrrwRgn
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:nrrw_rgn_vert = 1
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-matchup
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" augroup matchup_matchparen_highlight
+"   autocmd!
+"   autocmd ColorScheme * hi MatchParen ctermfg=yellow guifg=yellow cterm=none gui=none
+" augroup END
+hi MatchParen ctermfg=yellow guifg=yellow cterm=italic gui=italic
+highlight Comment cterm=italic gui=italic

@@ -72,7 +72,7 @@ Plug 'chrisbra/NrrwRgn'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Utilities
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+Plug 'airblade/vim-rooter'
 "Plug 'Shougo/denite.nvim'
 Plug 'myusuf3/numbers.vim'
 "Plug 'townk/vim-autoclose'
@@ -445,5 +445,5 @@ let g:nrrw_rgn_vert = 1
 "   autocmd!
 "   autocmd ColorScheme * hi MatchParen ctermfg=yellow guifg=yellow cterm=none gui=none
 " augroup END
-hi MatchParen ctermfg=yellow guifg=yellow cterm=italic gui=italic
+hi MatchParen ctermfg=yellow guifg=yellow cterm=bold gui=bold guibg=none ctermbg=none
 highlight Comment cterm=italic gui=italic

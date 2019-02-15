@@ -55,6 +55,7 @@ Plug 'OrangeT/vim-csharp',{'for':['cs']}
 Plug 'gautamnaik1994/ShaderHighLight'
 Plug 'posva/vim-vue',{ 'for': ['vue'] }
 Plug 'othree/xml.vim'
+Plug 'moll/vim-node'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Interface
@@ -68,6 +69,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'Yggdroot/indentLine'
 Plug 'majutsushi/tagbar'
 Plug 'chrisbra/NrrwRgn'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Utilities
@@ -235,6 +237,22 @@ if has_key(g:plugs, 'deoplete-ternjs')
     let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'tern', 'buffer']
     autocmd generalAutoCommand FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
     autocmd generalAutoCommand FileType javascript.jsx nnoremap <silent> <buffer> gb :TernDef<CR>
+    " Whether to include the types of the completions in the result data. Default: 0
+    let g:deoplete#sources#ternjs#types = 1
+    " Whether to include the distance (in scopes for variables, in prototypes for 
+" properties) between the completions and the origin position in the result 
+" data. Default: 0
+let g:deoplete#sources#ternjs#depths = 1
+" Whether to include documentation strings (if found) in the result data.
+" Default: 0
+let g:deoplete#sources#ternjs#docs = 1
+" Whether to include JavaScript keywords when completing something that is not 
+" a property. Default: 0
+let g:deoplete#sources#ternjs#include_keywords = 1
+" Whether to use a case-insensitive compare between the current word and 
+" potential completions. Default 0
+let g:deoplete#sources#ternjs#case_insensitive = 1
+
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -245,7 +263,8 @@ if has_key(g:plugs, 'tern_for_vim')
     let g:tern_show_signature_in_pum = 1
     let g:tern#command = ["tern"]
     let g:tern#arguments = ["--persistent"]
-    "let g:tern_show_argument_hints = 'on_hold'
+    let g:tern#arguments = [" — persistent"]
+    let g:tern_show_argument_hints = 'on_hold'
     autocmd generalAutoCommand FileType javascript set omnifunc=tern#Complete
     autocmd generalAutoCommand FileType javascript.jsx set omnifunc=tern#Complete
     " Helpful commands from the docs
@@ -447,3 +466,14 @@ let g:nrrw_rgn_vert = 1
 " augroup END
 hi MatchParen ctermfg=yellow guifg=yellow cterm=bold gui=bold guibg=none ctermbg=none
 highlight Comment cterm=italic gui=italic
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-node
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Want <C-w>f to open the file under the cursor in a new vertical split?
+"<C-w>f by default opens it in a horizontal split. To have it open vertically, drop this in your vimrc:"
+autocmd User Node
+  \ if &filetype == "javascript" |
+  \   nmap <buffer> <C-w>f <Plug>NodeVSplitGotoFile |
+  \   nmap <buffer> <C-w><C-f> <Plug>NodeVSplitGotoFile |
+  \ endif

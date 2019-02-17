@@ -49,7 +49,7 @@ augroup omnisharp_commands
     "autocmd BufEnter,TextChanged,InsertLeave <buffer> SyntasticCheck
 
     "show type information automatically when the cursor stops moving
-    autocmd CursorHold <buffer> call OmniSharp#TypeLookupWithoutDocumentation()
+    "autocmd CursorHold <buffer> call OmniSharp#TypeLookupWithoutDocumentation()
 
     "The following commands are contextual, based on the current cursor position.
 

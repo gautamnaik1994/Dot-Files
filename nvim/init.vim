@@ -101,7 +101,7 @@ Plug 'tpope/vim-surround'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'wellle/targets.vim'
 Plug 'w0rp/ale',{ 'for': ['javascript', 'javascript.jsx', 'python','cs'] }
-Plug 'vim-syntastic/syntastic', {'for':['cs']}
+"Plug 'vim-syntastic/syntastic', {'for':['cs']}
 Plug 'jlanzarotta/bufexplorer'
 Plug 'vim-scripts/cream-capitalization'
 Plug 'andymass/vim-matchup'
@@ -239,17 +239,17 @@ if has_key(g:plugs, 'deoplete-ternjs')
     autocmd generalAutoCommand FileType javascript.jsx nnoremap <silent> <buffer> gb :TernDef<CR>
     " Whether to include the types of the completions in the result data. Default: 0
     let g:deoplete#sources#ternjs#types = 1
-    " Whether to include the distance (in scopes for variables, in prototypes for 
-" properties) between the completions and the origin position in the result 
+    " Whether to include the distance (in scopes for variables, in prototypes for
+" properties) between the completions and the origin position in the result
 " data. Default: 0
 let g:deoplete#sources#ternjs#depths = 1
 " Whether to include documentation strings (if found) in the result data.
 " Default: 0
 let g:deoplete#sources#ternjs#docs = 1
-" Whether to include JavaScript keywords when completing something that is not 
+" Whether to include JavaScript keywords when completing something that is not
 " a property. Default: 0
 let g:deoplete#sources#ternjs#include_keywords = 1
-" Whether to use a case-insensitive compare between the current word and 
+" Whether to use a case-insensitive compare between the current word and
 " potential completions. Default 0
 let g:deoplete#sources#ternjs#case_insensitive = 1
 
@@ -432,7 +432,8 @@ let g:Omnisharp_stop_server = 2
 if !exists('g:deoplete#omni#input_patterns')
     let g:deoplete#omni#input_patterns = {}
 endif
-let g:deoplete#omni#input_patterns.cs = ['\.\w*']
+"let g:deoplete#omni#input_patterns.cs = ['\.\w*']
+let g:deoplete#omni#input_patterns.cs = ['\w*']
 let g:deoplete#omni#functions = {}
 let g:deoplete#sources = {}
 let g:deoplete#sources.cs = ['omni', 'file', 'buffer', 'ultisnips','cs']
@@ -444,7 +445,11 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Supertab
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:SuperTabDefaultCompletionType = "<c-n>"
+"let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabDefaultCompletionType = 'context'
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+let g:SuperTabDefaultCompletionTypeDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-n>"]
+let g:SuperTabClosePreviewOnPopupClose = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Number

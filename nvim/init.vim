@@ -433,7 +433,7 @@ if !exists('g:deoplete#omni#input_patterns')
     let g:deoplete#omni#input_patterns = {}
 endif
 "let g:deoplete#omni#input_patterns.cs = ['\.\w*']
-let g:deoplete#omni#input_patterns.cs = ['\w*']
+let g:deoplete#omni#input_patterns.cs = ['\w+']
 let g:deoplete#omni#functions = {}
 let g:deoplete#sources = {}
 let g:deoplete#sources.cs = ['omni', 'file', 'buffer', 'ultisnips','cs']

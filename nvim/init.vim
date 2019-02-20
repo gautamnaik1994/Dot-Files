@@ -25,10 +25,10 @@ call plug#begin('~/AppData/Local/nvim/bundle')
 
 "Plug 'Valloric/YouCompleteMe'
 Plug 'carlitux/deoplete-ternjs', {'do': 'npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
-Plug 'fszymanski/deoplete-emoji'
+"Plug 'fszymanski/deoplete-emoji'
 "Plug 'gautamnaik1994/deoplete-omnisharp'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/neco-vim'
+"Plug 'Shougo/neco-vim'
 Plug 'zchee/deoplete-jedi',{ 'for': [ 'python'] }
 Plug 'tbodt/deoplete-tabnine', { 'do': 'powershell.exe .\install.ps1' }
 
@@ -41,7 +41,7 @@ Plug 'tbodt/deoplete-tabnine', { 'do': 'powershell.exe .\install.ps1' }
 "Plug 'othree/es.next.syntax.vim'
 "Plug 'othree/html5.vim'
 "Plug 'othree/yajs.vim'
-Plug 'mxw/vim-jsx'
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 "Plug 'chemzqm/vim-jsx-improve'
 Plug 'nvie/vim-flake8',{ 'for': [ 'python'] }
 Plug 'OmniSharp/omnisharp-vim',{'for':['cs']}
@@ -55,7 +55,7 @@ Plug 'OrangeT/vim-csharp',{'for':['cs']}
 Plug 'gautamnaik1994/ShaderHighLight'
 Plug 'posva/vim-vue',{ 'for': ['vue'] }
 Plug 'othree/xml.vim'
-Plug 'moll/vim-node'
+Plug 'moll/vim-node', { 'for': ['javascript', 'javascript.jsx'] }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Interface

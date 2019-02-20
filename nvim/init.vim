@@ -46,7 +46,7 @@ Plug 'mxw/vim-jsx'
 Plug 'nvie/vim-flake8',{ 'for': [ 'python'] }
 Plug 'OmniSharp/omnisharp-vim',{'for':['cs']}
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'ternjs/tern_for_vim', {'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
 Plug 'OrangeT/vim-csharp',{'for':['cs']}
 " Plug 'tikhomirov/vim-glsl'
@@ -69,7 +69,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'Yggdroot/indentLine'
 Plug 'majutsushi/tagbar'
 Plug 'chrisbra/NrrwRgn'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'machakann/vim-highlightedyank'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Utilities
@@ -98,7 +99,7 @@ Plug 'tmhedberg/SimpylFold',{ 'for': [ 'python'] }
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'vim-scripts/indentpython.vim'
+Plug 'vim-scripts/indentpython.vim',{ 'for': [ 'python'] }
 Plug 'wellle/targets.vim'
 Plug 'w0rp/ale',{ 'for': ['javascript', 'javascript.jsx', 'python','cs'] }
 "Plug 'vim-syntastic/syntastic', {'for':['cs']}
@@ -115,7 +116,7 @@ Plug 'andymass/vim-matchup'
 "Plug 'gautamnaik1994/oceanic-next'
 "Plug 'liuchengxu/space-vim-dark'
 "Plug 'mhartington/oceanic-next'"
-Plug 'morhetz/gruvbox'
+"Plug 'morhetz/gruvbox'
 Plug 'rakr/vim-one'
 Plug 'equalsraf/neovim-gui-shim'
 Plug 'joshdick/onedark.vim'

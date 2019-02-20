@@ -11,7 +11,8 @@ set list lcs=tab:\│\             " show vertical lines
 filetype plugin on
 syntax enable
 syntax on
-filetype indent on                                " Better indentation.
+filetype indent on               " Better indentation.
+set inccommand=nosplit                               
 set showmatch                  " Show matching brackets.
 set number
 set relativenumber                  " Show the line numbers on the left side.

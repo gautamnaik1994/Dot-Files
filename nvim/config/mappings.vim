@@ -26,7 +26,7 @@ nnoremap <silent> <Leader><space> :nohl<cr>
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 "Insert newline by enter without entering insert mode
-nnoremap <Enter> o<ESC>
+nnoremap <C-Enter> o<ESC>
 
 "Insert newline above by shift-enter without entering insert mode
 nnoremap <S-Enter> O<ESC>

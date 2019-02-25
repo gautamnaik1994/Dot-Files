@@ -106,6 +106,7 @@ Plug 'w0rp/ale',{ 'for': ['javascript', 'javascript.jsx', 'python','cs'] }
 Plug 'jlanzarotta/bufexplorer'
 Plug 'vim-scripts/cream-capitalization'
 Plug 'andymass/vim-matchup'
+Plug 'tpope/vim-repeat'
 "Plug 'justinmk/vim-sneak'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

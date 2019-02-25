@@ -1,5 +1,5 @@
 
-colorscheme gruvbox
+"colorscheme gruvbox
 
 "set background=dark " for the dark version
 "colorscheme OceanicNext

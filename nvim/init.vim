@@ -23,73 +23,77 @@ call plug#begin('~/AppData/Local/nvim/bundle')
 " => Autocompletion and Sources
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"Plug 'Valloric/YouCompleteMe'
-Plug 'carlitux/deoplete-ternjs', {'do': 'npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
 "Plug 'fszymanski/deoplete-emoji'
 "Plug 'gautamnaik1994/deoplete-omnisharp'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "Plug 'Shougo/neco-vim'
-Plug 'zchee/deoplete-jedi',{ 'for': [ 'python'] }
+"Plug 'Valloric/YouCompleteMe'
+Plug 'carlitux/deoplete-ternjs', {'do': 'npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tbodt/deoplete-tabnine', { 'do': 'powershell.exe .\install.ps1' }
+Plug 'zchee/deoplete-jedi',{ 'for': [ 'python'] }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Language Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Plug 'beyondmarc/hlsl.vim'
+" Plug 'tikhomirov/vim-glsl'
+" Plug 'vim-scripts/cg.vim'
+"Plug 'chemzqm/vim-jsx-improve'
 "Plug 'larsbs/vim-xmll'                                            " Tweaked Vim XML syntax highlighting plugin - React close tags look a little nicer with this!
 "Plug 'neoclide/vim-jsx-improve'
 "Plug 'othree/es.next.syntax.vim'
 "Plug 'othree/html5.vim'
 "Plug 'othree/yajs.vim'
+Plug 'gautamnaik1994/ShaderHighLight'
+Plug 'moll/vim-node', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
-"Plug 'chemzqm/vim-jsx-improve'
 Plug 'nvie/vim-flake8',{ 'for': [ 'python'] }
 Plug 'OmniSharp/omnisharp-vim',{'for':['cs']}
-Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'ternjs/tern_for_vim', {'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
 Plug 'OrangeT/vim-csharp',{'for':['cs']}
-" Plug 'tikhomirov/vim-glsl'
-" Plug 'beyondmarc/hlsl.vim'
-" Plug 'vim-scripts/cg.vim'
-Plug 'gautamnaik1994/ShaderHighLight'
-Plug 'posva/vim-vue',{ 'for': ['vue'] }
+Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/xml.vim'
-Plug 'moll/vim-node', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'posva/vim-vue',{ 'for': ['vue'] }
+Plug 'ternjs/tern_for_vim', {'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Interface
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'chrisbra/NrrwRgn'
 Plug 'kien/rainbow_parentheses.vim'
+Plug 'machakann/vim-highlightedyank'
+Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-signify'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'Yggdroot/indentLine'
-Plug 'majutsushi/tagbar'
-Plug 'chrisbra/NrrwRgn'
-"Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'machakann/vim-highlightedyank'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Utilities
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'airblade/vim-rooter'
+"Plug 'justinmk/vim-sneak'
+"Plug 'matze/vim-move'
 "Plug 'Shougo/denite.nvim'
-Plug 'myusuf3/numbers.vim'
 "Plug 'townk/vim-autoclose'
 "Plug 'tpope/vim-sensible'
 "Plug 'vim-scripts/taglist.vim'
+"Plug 'vim-syntastic/syntastic', {'for':['cs']}
+Plug 'airblade/vim-rooter'
+Plug 'andymass/vim-matchup'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ervandew/supertab'
 Plug 'honza/vim-snippets'
+Plug 'jlanzarotta/bufexplorer'
 Plug 'mattn/emmet-vim'
-"Plug 'matze/vim-move'
 Plug 'mbbill/undotree'
 Plug 'mileszs/ack.vim' "Install ack(choco install ack) and ag(choco install ag)
+Plug 'myusuf3/numbers.vim'
 Plug 'prettier/vim-prettier', {'do': 'npm install','for': ['javascript', 'css', 'scss', 'json','vue']}
 Plug 'qwertologe/nextval.vim'
 Plug 'Raimondi/delimitMate'
@@ -98,29 +102,25 @@ Plug 'SirVer/ultisnips'
 Plug 'tmhedberg/SimpylFold',{ 'for': [ 'python'] }
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'vim-scripts/indentpython.vim',{ 'for': [ 'python'] }
-Plug 'wellle/targets.vim'
-Plug 'w0rp/ale',{ 'for': ['javascript', 'javascript.jsx', 'python','cs'] }
-"Plug 'vim-syntastic/syntastic', {'for':['cs']}
-Plug 'jlanzarotta/bufexplorer'
-Plug 'vim-scripts/cream-capitalization'
-Plug 'andymass/vim-matchup'
 Plug 'tpope/vim-repeat'
-"Plug 'justinmk/vim-sneak'
+Plug 'tpope/vim-surround'
+Plug 'vim-scripts/cream-capitalization'
+Plug 'vim-scripts/indentpython.vim',{ 'for': [ 'python'] }
+Plug 'w0rp/ale',{ 'for': ['javascript', 'javascript.jsx', 'python','cs'] }
+Plug 'wellle/targets.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Themeing
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"Plug 'NLKNguyen/papercolor-theme'
 "Plug 'gautamnaik1994/oceanic-next'
 "Plug 'liuchengxu/space-vim-dark'
 "Plug 'mhartington/oceanic-next'"
 "Plug 'morhetz/gruvbox'
-Plug 'rakr/vim-one'
+"Plug 'NLKNguyen/papercolor-theme'
 Plug 'equalsraf/neovim-gui-shim'
 Plug 'joshdick/onedark.vim'
+Plug 'rakr/vim-one'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -168,12 +168,12 @@ autocmd generalAutoCommand BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhites
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 augroup omnifuncs
     autocmd!
+    autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
     autocmd FileType css,scss setlocal omnifunc=csscomplete#CompleteCSS
     autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
     autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
     autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
     autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-    autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
 augroup end
 
 
@@ -242,18 +242,18 @@ if has_key(g:plugs, 'deoplete-ternjs')
     " Whether to include the types of the completions in the result data. Default: 0
     let g:deoplete#sources#ternjs#types = 1
     " Whether to include the distance (in scopes for variables, in prototypes for
-" properties) between the completions and the origin position in the result
-" data. Default: 0
-let g:deoplete#sources#ternjs#depths = 1
-" Whether to include documentation strings (if found) in the result data.
-" Default: 0
-let g:deoplete#sources#ternjs#docs = 1
-" Whether to include JavaScript keywords when completing something that is not
-" a property. Default: 0
-let g:deoplete#sources#ternjs#include_keywords = 1
-" Whether to use a case-insensitive compare between the current word and
-" potential completions. Default 0
-let g:deoplete#sources#ternjs#case_insensitive = 1
+    " properties) between the completions and the origin position in the result
+    " data. Default: 0
+    let g:deoplete#sources#ternjs#depths = 1
+    " Whether to include documentation strings (if found) in the result data.
+    " Default: 0
+    let g:deoplete#sources#ternjs#docs = 1
+    " Whether to include JavaScript keywords when completing something that is not
+    " a property. Default: 0
+    let g:deoplete#sources#ternjs#include_keywords = 1
+    " Whether to use a case-insensitive compare between the current word and
+    " potential completions. Default 0
+    let g:deoplete#sources#ternjs#case_insensitive = 1
 
 endif
 

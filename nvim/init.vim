@@ -169,7 +169,9 @@ autocmd generalAutoCommand BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhites
 augroup omnifuncs
     autocmd!
     autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
-    autocmd FileType css,scss setlocal omnifunc=csscomplete#CompleteCSS
+    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+    autocmd FileType scss setlocal omnifunc=csscomplete#CompleteCSS
+    autocmd FileType sass setlocal omnifunc=csscomplete#CompleteCSS
     autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
     autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
     autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
@@ -321,7 +323,7 @@ let g:user_emmet_settings = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " let g:prettier#exec_cmd_path = "~/AppData/Local/nvim/bundle/vim-prettier/node_modules/.bin/prettier"
 " let g:prettier#config#print_width = 80
-" let g:prettier#config#tab_width = 2
+ "let g:prettier#config#tab_width = 2
 " let g:prettier#config#use_tabs = 'true'
 " let g:prettier#config#semi = 'true'
 " let g:prettier#config#single_quote = 'true'

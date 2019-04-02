@@ -161,7 +161,9 @@ autocmd generalAutoCommand BufWritePost init.vim source %  "Automatically source
 
 " Automatically clean trailing whitespace
 autocmd generalAutoCommand BufWritePre * :%s/\s\+$//e
-autocmd generalAutoCommand BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+"autocmd generalAutoCommand BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+autocmd generalAutoCommand BufNewFile,BufRead *.scss set ft=scss.css
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Omnifuncs

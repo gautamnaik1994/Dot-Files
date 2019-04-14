@@ -131,6 +131,8 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 """"""""""""""""""""""""""""""
 " => Visual mode related
 """"""""""""""""""""""""""""""
+" make . to work with visually selected lines
+vnoremap . :normal.<CR>
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
 vnoremap <silent> * :call VisualSelection('f')<CR>

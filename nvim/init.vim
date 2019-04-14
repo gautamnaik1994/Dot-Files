@@ -30,7 +30,7 @@ call plug#begin('~/AppData/Local/nvim/bundle')
 Plug 'carlitux/deoplete-ternjs', {'do': 'npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tbodt/deoplete-tabnine', { 'do': 'powershell.exe .\install.ps1' }
-Plug 'zchee/deoplete-jedi',{ 'for': [ 'python'] }
+Plug 'deoplete-plugins/deoplete-jedi',{ 'for': [ 'python'] }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Language Plugins
@@ -71,6 +71,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'Yggdroot/indentLine'
+Plug 'vim-scripts/indentpython.vim',{ 'for': [ 'python'] }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Utilities

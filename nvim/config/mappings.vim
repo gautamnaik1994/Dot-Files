@@ -16,7 +16,7 @@ inoremap <leader>s <C-c>:w<CR>
 " => Normal mode related
 """"""""""""""""""""""""""""""
 "save file
-nnoremap <leader>s :w<CR> 
+nnoremap <leader>s :w<CR>
 
 "Open Vim file
 nnoremap <Leader>ev :tabedit $MYVIMRC<cr>
@@ -143,6 +143,10 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 " nnoremap <S-C-v> "*P
 
 
+"Mapping to cycle buffers
+map <C-K> :bprev<CR>
+map <C-J> :bnext<CR>
+
 " use F5 to toggle the line number counting method
 " function! g:ToggleNuMode()
 "   if &nu == 1
@@ -197,21 +201,21 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 " inoremap (,<tab> (),
 " inoremap [,<tab> [],
 " inoremap {,<tab> {},
-" "autoclose 2 lines below and position cursor in the middle 
+" "autoclose 2 lines below and position cursor in the middle
 " inoremap '<CR> '<CR>'<ESC>O
 " inoremap `<CR> `<CR>`<ESC>O
 " inoremap "<CR> "<CR>"<ESC>O
 " inoremap (<CR> (<CR>)<ESC>O
 " inoremap [<CR> [<CR>]<ESC>O
 " inoremap {<CR> {<CR>}<ESC>O
-" "autoclose 2 lines below adding ; and position cursor in the middle 
+" "autoclose 2 lines below adding ; and position cursor in the middle
 " inoremap ';<CR> '<CR>';<ESC>O
 " inoremap `;<CR> `<CR>`;<ESC>O
 " inoremap ";<CR> "<CR>";<ESC>O
 " inoremap (;<CR> (<CR>);<ESC>O
 " inoremap [;<CR> [<CR>];<ESC>O
 " inoremap {;<CR> {<CR>};<ESC>O
-" "autoclose 2 lines below adding , and position cursor in the middle 
+" "autoclose 2 lines below adding , and position cursor in the middle
 " inoremap ',<CR> '<CR>',<ESC>O
 " inoremap `,<CR> `<CR>`,<ESC>O
 " inoremap ",<CR> "<CR>",<ESC>O

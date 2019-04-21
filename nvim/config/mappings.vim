@@ -74,8 +74,8 @@ nnoremap <S-space> i<space><esc>
 " nnoremap <space> za
 
 "mapping to change tabs
-nnoremap <silent> <Leader>[ :bp<CR>
-nnoremap <silent> <Leader>] :bn<CR>
+map <Leader>[ :bp<CR>
+map <Leader>] :bn<CR>
 
 
 " move vertically by visual line
@@ -144,8 +144,8 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 
 
 "Mapping to cycle buffers
-map <C-K> :bprev<CR>
-map <C-J> :bnext<CR>
+"map <C-K> :bprev<CR>
+"map <C-J> :bnext<CR>
 
 " use F5 to toggle the line number counting method
 " function! g:ToggleNuMode()

@@ -72,6 +72,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'Yggdroot/indentLine'
 Plug 'vim-scripts/indentpython.vim',{ 'for': [ 'python'] }
+Plug 'ncm2/float-preview.nvim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Utilities
@@ -109,6 +110,7 @@ Plug 'vim-scripts/cream-capitalization'
 Plug 'vim-scripts/indentpython.vim',{ 'for': [ 'python'] }
 Plug 'w0rp/ale',{ 'for': ['javascript', 'javascript.jsx', 'python','cs'] }
 Plug 'wellle/targets.vim'
+Plug 'meain/vim-package-info', { 'do': 'npm install' }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Themeing
@@ -375,7 +377,9 @@ let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_fixers = {}
 let g:ale_fixers = {
             \   'javascript': ['prettier','eslint'],
+            \   'python': ['autopep8']
             \ }
+let g:ale_python_autopep8_options = '--aggressive'
 "let g:ale_fixers['javascript.jsx'] = ['prettier_eslint']"
 
 
@@ -496,3 +500,11 @@ autocmd User Node
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap s <Plug>(easymotion-s2)
 nmap t <Plug>(easymotion-t2)
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Floating preview
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:float_preview#docked = 0
+

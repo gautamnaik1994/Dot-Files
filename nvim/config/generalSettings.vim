@@ -12,7 +12,7 @@ filetype plugin on
 syntax enable
 syntax on
 filetype indent on               " Better indentation.
-set inccommand=nosplit                               
+set inccommand=nosplit
 set showmatch                  " Show matching brackets.
 set number
 set relativenumber                  " Show the line numbers on the left side.
@@ -69,6 +69,9 @@ set novisualbell
 set noeb vb t_vb=
 set t_vb=
 set tm=500
+
+:set wildoptions=pum
+:set pumblend=20
 
 " For regular expressions turn magic on
 set magic

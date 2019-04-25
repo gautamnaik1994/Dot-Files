@@ -65,17 +65,28 @@ map <leader>rf :call RenameFile()<cr>
 
 command -nargs=+ Se execute 'vimgrep /' . [<f-args>][0] . '/ **/*.' . [<f-args>][1]
 
-" function! Tabbufn() 
-" let s:tab_count = tabpagenr('$') 
-" if s:tab_count <= 1 :bn 
-" else :tabnext 
-" endif 
-" endfunction 
-" function! Tabbufp() 
-" let s:tab_count = tabpagenr('$') 
-" if s:tab_count <= 1 :bp 
-" else :tabprev 
-" endif 
-" endfunction 
-" nnoremap <silent> <Leader>[ :call Tabbufp()<CR> 
+" Compare current buffer with the actual (saved) file on disk
+function s:DiffWithSaved()
+  let l:filetype = &filetype
+  diffthis
+  vnew | read # | normal! ggdd
+  diffthis
+  setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile readonly nomodifiable
+  let &filetype = l:filetype
+endfunction
+command DiffWithSaved call s:DiffWithSaved()
+
+" function! Tabbufn()
+" let s:tab_count = tabpagenr('$')
+" if s:tab_count <= 1 :bn
+" else :tabnext
+" endif
+" endfunction
+" function! Tabbufp()
+" let s:tab_count = tabpagenr('$')
+" if s:tab_count <= 1 :bp
+" else :tabprev
+" endif
+" endfunction
+" nnoremap <silent> <Leader>[ :call Tabbufp()<CR>
 " nnoremap <silent> <Leader>] :call Tabbufn()<CR>

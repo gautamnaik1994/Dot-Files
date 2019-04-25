@@ -6,6 +6,8 @@ set autoread
 set nocompatible " be iMproved
 " create missing dirs
 nnoremap <leader>md :!mkdir -p %:p:h<cr>
+" allow moving cursor just after the last chraracter of the line
+set virtualedit=onemore
 set list lcs=tab:\│\             " show vertical lines
 :filetype on
 filetype plugin on
@@ -82,3 +84,11 @@ if has("gui_running")
     set t_Co=256
     set guitablabel=%M\ %t
 endif
+
+set mouse=a
+" <RightMouse> pops up a context menu
+" <S-LeftMouse> extends a visual selection
+set mousemodel=popup
+
+" open diffs in vertical splits by default
+set diffopt+=vertical

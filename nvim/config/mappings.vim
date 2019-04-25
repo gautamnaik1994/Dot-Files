@@ -54,6 +54,10 @@ noremap <left> <C-w>5<
 noremap <up> <C-w>5+
 noremap <down> <C-w>5-
 
+  " stay in the Visual mode when using shift commands
+xnoremap < <gv
+xnoremap > >gv
+
 "Add space in normal mode
 nnoremap <space> a<space><esc>
 "
@@ -72,6 +76,12 @@ nnoremap <S-space> i<space><esc>
 " nmap <Leader>f9 :set foldlevel=9<CR>
 " Enable folding with the spacebar
 " nnoremap <space> za
+
+" buffer navigation {{{
+noremap <silent> <Tab> :bnext<CR>
+noremap <silent> <S-Tab> :bprev<CR>
+noremap <silent> gb :buffer #<CR>
+" }}}
 
 "mapping to change tabs
 map <Leader>[ :bp<CR>
@@ -141,7 +151,6 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 " vnoremap <C-c> "*y
 " nnoremap <C-v> "*p
 " nnoremap <S-C-v> "*P
-
 
 "Mapping to cycle buffers
 "map <C-K> :bprev<CR>

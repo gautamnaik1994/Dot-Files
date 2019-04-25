@@ -106,6 +106,8 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 "Delete Empty Lines
 ":g/^$/d
 
+" arguably one of the most useful mappings
+nnoremap <silent><expr> <CR> &buftype is# '' ? ":update\<CR>" : "\<CR>"
 
 " gcw        - capitalize word (from cursor position to end of word)
 " gcW        - capitalize WORD (from cursor position to end of WORD)

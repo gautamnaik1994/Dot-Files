@@ -111,6 +111,7 @@ Plug 'vim-scripts/indentpython.vim',{ 'for': [ 'python'] }
 Plug 'w0rp/ale',{ 'for': ['javascript', 'javascript.jsx', 'python','cs'] }
 Plug 'wellle/targets.vim'
 Plug 'meain/vim-package-info', { 'do': 'npm install' }
+Plug 'yuttie/comfortable-motion.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Themeing

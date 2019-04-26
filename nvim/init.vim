@@ -27,10 +27,11 @@ call plug#begin('~/AppData/Local/nvim/bundle')
 "Plug 'gautamnaik1994/deoplete-omnisharp'
 "Plug 'Shougo/neco-vim'
 "Plug 'Valloric/YouCompleteMe'
-Plug 'carlitux/deoplete-ternjs', {'do': 'npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'tbodt/deoplete-tabnine', { 'do': 'powershell.exe .\install.ps1' }
-Plug 'deoplete-plugins/deoplete-jedi',{ 'for': [ 'python'] }
+"Plug 'carlitux/deoplete-ternjs', {'do': 'npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'tbodt/deoplete-tabnine', { 'do': 'powershell.exe .\install.ps1' }
+"Plug 'deoplete-plugins/deoplete-jedi',{ 'for': [ 'python'] }
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Language Plugins
@@ -55,7 +56,7 @@ Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/xml.vim'
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'posva/vim-vue',{ 'for': ['vue'] }
-Plug 'ternjs/tern_for_vim', {'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
+"Plug 'ternjs/tern_for_vim', {'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Interface
@@ -89,7 +90,7 @@ Plug 'andymass/vim-matchup'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'ervandew/supertab'
+"Plug 'ervandew/supertab'
 Plug 'honza/vim-snippets'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'mattn/emmet-vim'
@@ -287,9 +288,9 @@ endif
 " => ultisnips
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:UltiSnipsEditSplit="vertical"
-autocmd generalAutoCommand FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+"autocmd generalAutoCommand FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 let g:UltiSnipsExpandTrigger="<C-j>"
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 let g:UltiSnipsSnippetDirectories = ['~/AppData/Local/nvim/UltiSnips', 'UltiSnips']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

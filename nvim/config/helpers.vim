@@ -66,7 +66,7 @@ map <leader>rf :call RenameFile()<cr>
 command -nargs=+ Se execute 'vimgrep /' . [<f-args>][0] . '/ **/*.' . [<f-args>][1]
 
 " Compare current buffer with the actual (saved) file on disk
-function s:DiffWithSaved()
+function! s:DiffWithSaved()
   let l:filetype = &filetype
   diffthis
   vnew | read # | normal! ggdd
@@ -78,7 +78,7 @@ command DiffWithSaved call s:DiffWithSaved()
 
 " Reveal {{{
 " Reveal file in the system file explorer
-function s:Reveal(path)
+function! s:Reveal(path)
   if has('macunix')
     " only macOS has functionality to really 'reveal' a file, that is, to open
     " its parent directory in Finder and select this file
@@ -95,7 +95,7 @@ command Reveal call s:Reveal(expand('%'))
 
 " Open {{{
 " opens file with a system program
-function s:Open(path)
+function! s:Open(path)
 	" HACK: 2nd parameter of this function is called 'remote', it tells
 	" whether to open a remote (1) or local (0) file. However, it doesn't work
 	" as expected in this context, because it uses the 'gf' command if it's

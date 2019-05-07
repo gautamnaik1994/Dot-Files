@@ -56,6 +56,7 @@ Plug 'othree/xml.vim'
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'posva/vim-vue',{ 'for': ['vue'] }
 Plug 'ternjs/tern_for_vim', {'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
+Plug 'vim-python/python-syntax'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Interface
@@ -106,12 +107,13 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'vim-scripts/cream-capitalization'
+"Plug 'vim-scripts/cream-capitalization'
 Plug 'vim-scripts/indentpython.vim',{ 'for': [ 'python'] }
 Plug 'w0rp/ale',{ 'for': ['javascript', 'javascript.jsx', 'python','cs'] }
 Plug 'wellle/targets.vim'
 Plug 'meain/vim-package-info', { 'do': 'npm install' }
 Plug 'yuttie/comfortable-motion.vim'
+Plug 'rhysd/git-messenger.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Themeing

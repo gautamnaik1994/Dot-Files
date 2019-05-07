@@ -15,14 +15,16 @@
 "let g:space_vim_dark_background = 233
 "color space-vim-dark"
 
-colorscheme one
-"set background=dark " for the dark version
-let g:one_allow_italics = 1 "
- let g:onedark_color_overrides = {
- \ "black": {"gui": "#262626", "cterm": "235", "cterm16": "0" }
- \}
-
 "colorscheme one
+"set background=dark " for the dark version
+" let g:one_allow_italics = 1 "
+"  let g:onedark_color_overrides = {
+"  \ "black": {"gui": "#262626", "cterm": "235", "cterm16": "0" }
+"  \}
+
+let g:onedark_terminal_italics=1
+
+colorscheme onedark
 set background=dark
 
 

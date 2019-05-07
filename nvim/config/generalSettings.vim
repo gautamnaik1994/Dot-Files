@@ -45,7 +45,7 @@ set showmatch	                 "# Highlight matching brace
 set errorbells	               "# Beep or flash screen on errors
 set visualbell	               "# Use visual bell (no beeping)
 set autoindent	               "# Auto-indent new lines
-set smartindent	               "# Enable smart-indent
+set smartindent	               "# Enable smart-indent.
 set smarttab	                 "# Enable smart-tabs
 set softtabstop=2	             "# Number of spaces per Tab
 set ruler	                   "# Show row and column ruler information

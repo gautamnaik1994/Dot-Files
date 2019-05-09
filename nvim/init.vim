@@ -130,6 +130,14 @@ Plug 'rakr/vim-one'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline-themes'
 
+
+Plug 'neoclide/coc.nvim'
+Plug 'neoclide/coc-python'
+Plug 'neoclide/coc-sources'
+Plug 'neoclide/coc-json'
+
+"Plug 'neoclide/coc-tsserver'
+
 call plug#end()
 
 
@@ -184,6 +192,7 @@ augroup omnifuncs
     autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
     autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
     autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+    autocmd FileType json syntax match Comment +\/\/.\+$+
 augroup end
 
 

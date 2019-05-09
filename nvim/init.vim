@@ -27,10 +27,10 @@ call plug#begin('~/AppData/Local/nvim/bundle')
 "Plug 'gautamnaik1994/deoplete-omnisharp'
 "Plug 'Shougo/neco-vim'
 "Plug 'Valloric/YouCompleteMe'
-Plug 'carlitux/deoplete-ternjs', {'do': 'npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'tbodt/deoplete-tabnine', { 'do': 'powershell.exe .\install.ps1' }
-Plug 'deoplete-plugins/deoplete-jedi',{ 'for': [ 'python'] }
+"Plug 'carlitux/deoplete-ternjs', {'do': 'npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'tbodt/deoplete-tabnine', { 'do': 'powershell.exe .\install.ps1' }
+"Plug 'deoplete-plugins/deoplete-jedi',{ 'for': [ 'python'] }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Language Plugins
@@ -90,7 +90,7 @@ Plug 'andymass/vim-matchup'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'ervandew/supertab'
+"Plug 'ervandew/supertab'
 Plug 'honza/vim-snippets'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'mattn/emmet-vim'
@@ -101,7 +101,7 @@ Plug 'prettier/vim-prettier', {'do': 'npm install','for': ['javascript', 'css', 
 Plug 'qwertologe/nextval.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'SirVer/ultisnips'
+"Plug 'SirVer/ultisnips'
 Plug 'tmhedberg/SimpylFold',{ 'for': [ 'python'] }
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
@@ -109,7 +109,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 "Plug 'vim-scripts/cream-capitalization'
 Plug 'vim-scripts/indentpython.vim',{ 'for': [ 'python'] }
-Plug 'w0rp/ale',{ 'for': ['javascript', 'javascript.jsx', 'python','cs'] }
+"Plug 'w0rp/ale',{ 'for': ['javascript', 'javascript.jsx', 'python','cs'] }
 Plug 'wellle/targets.vim'
 Plug 'meain/vim-package-info', { 'do': 'npm install' }
 Plug 'yuttie/comfortable-motion.vim'
@@ -288,11 +288,13 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => ultisnips
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:UltiSnipsEditSplit="vertical"
-autocmd generalAutoCommand FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-let g:UltiSnipsExpandTrigger="<C-j>"
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-let g:UltiSnipsSnippetDirectories = ['~/AppData/Local/nvim/UltiSnips', 'UltiSnips']
+if has_key(g:plugs, 'ultisnips')
+    let g:UltiSnipsEditSplit="vertical"
+    autocmd generalAutoCommand FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+    let g:UltiSnipsExpandTrigger="<C-j>"
+    inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+    let g:UltiSnipsSnippetDirectories = ['~/AppData/Local/nvim/UltiSnips', 'UltiSnips']
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => nerdtree
@@ -357,33 +359,35 @@ autocmd generalAutoCommand BufWritePre *.css,*.less,*.scss,*.json,*.graphql,*.md
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ale
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:ale_sign_error = '●' " Less aggressive than the default '>>'
-"let g:ale_sign_warning = '--'
-" let g:ale_sign_error = '❌'
-" let g:ale_sign_warning = '⚠️'
-" Use a slightly slimmer error pointer
-"let g:ale_sign_error = '✖'
-"hi ALEErrorSign guifg=#DF8C8C
-"let g:ale_sign_warning = '⚠'
-"hi ALEWarningSign guifg=#F2C38F
-"let g:ale_sign_error = '×'
-let g:ale_linters = {
-\ 'cs': ['OmniSharp'],
-\ 'javascript': ['eslint']
-\}
-" let g:ale_linters = {'javascript': ['eslint']}
-let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
-let g:ale_emit_conflict_warnings = 0
-let g:ale_set_highlights = 0
-let g:ale_fix_on_save = 1
-let g:ale_javascript_prettier_use_local_config = 1
-let g:ale_fixers = {}
-let g:ale_fixers = {
-            \   'javascript': ['prettier','eslint'],
-            \   'python': ['autopep8']
-            \ }
-let g:ale_python_autopep8_options = '--aggressive'
-"let g:ale_fixers['javascript.jsx'] = ['prettier_eslint']"
+if has_key(g:plugs, 'ale')
+    "let g:ale_sign_error = '●' " Less aggressive than the default '>>'
+    "let g:ale_sign_warning = '--'
+    " let g:ale_sign_error = '❌'
+    " let g:ale_sign_warning = '⚠️'
+    " Use a slightly slimmer error pointer
+    "let g:ale_sign_error = '✖'
+    "hi ALEErrorSign guifg=#DF8C8C
+    "let g:ale_sign_warning = '⚠'
+    "hi ALEWarningSign guifg=#F2C38F
+    "let g:ale_sign_error = '×'
+    let g:ale_linters = {
+    \ 'cs': ['OmniSharp'],
+    \ 'javascript': ['eslint']
+    \}
+    " let g:ale_linters = {'javascript': ['eslint']}
+    let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
+    let g:ale_emit_conflict_warnings = 0
+    let g:ale_set_highlights = 0
+    let g:ale_fix_on_save = 1
+    let g:ale_javascript_prettier_use_local_config = 1
+    let g:ale_fixers = {}
+    let g:ale_fixers = {
+                \   'javascript': ['prettier','eslint'],
+                \   'python': ['autopep8']
+                \ }
+    let g:ale_python_autopep8_options = '--aggressive'
+    "let g:ale_fixers['javascript.jsx'] = ['prettier_eslint']"
+endif
 
 
 
@@ -459,11 +463,13 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Supertab
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:SuperTabDefaultCompletionType = "<c-n>"
-let g:SuperTabDefaultCompletionType = 'context'
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
-let g:SuperTabDefaultCompletionTypeDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-n>"]
-let g:SuperTabClosePreviewOnPopupClose = 1
+if has_key(g:plugs, 'supertab')
+    "let g:SuperTabDefaultCompletionType = "<c-n>"
+    let g:SuperTabDefaultCompletionType = 'context'
+    let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+    let g:SuperTabDefaultCompletionTypeDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-n>"]
+    let g:SuperTabClosePreviewOnPopupClose = 1
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Number

@@ -133,7 +133,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'neoclide/coc.nvim'
 Plug 'neoclide/coc-python'
-Plug 'neoclide/coc-sources'
+"Plug 'neoclide/coc-sources'
 Plug 'neoclide/coc-json'
 
 "Plug 'neoclide/coc-tsserver'

@@ -1,4 +1,4 @@
 {
   // my variable
-  "foo": "bar"
+  "suggest.triggerAfterInsertEnter": true
 }

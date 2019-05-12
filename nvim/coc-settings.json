@@ -1,4 +1,4 @@
 {
-  // my variable
-  "suggest.triggerAfterInsertEnter": true
+  "suggest.triggerAfterInsertEnter": true,
+  "coc.preferences.echodocSupport": true
 }

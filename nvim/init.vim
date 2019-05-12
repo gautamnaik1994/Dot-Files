@@ -131,12 +131,13 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline-themes'
 
 
-Plug 'neoclide/coc.nvim'
-Plug 'neoclide/coc-python'
-"Plug 'neoclide/coc-sources'
-Plug 'neoclide/coc-json'
+Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
+Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-sources', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
 
-"Plug 'neoclide/coc-tsserver'
+"Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+Plug 'Shougo/echodoc.vim'
 
 call plug#end()
 

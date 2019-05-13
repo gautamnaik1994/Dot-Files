@@ -36,9 +36,9 @@ call plug#begin('~/AppData/Local/nvim/bundle')
 " => Language Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Plug 'beyondmarc/hlsl.vim'
-" Plug 'tikhomirov/vim-glsl'
-" Plug 'vim-scripts/cg.vim'
+"Plug 'beyondmarc/hlsl.vim'
+"Plug 'tikhomirov/vim-glsl'
+"Plug 'vim-scripts/cg.vim'
 "Plug 'chemzqm/vim-jsx-improve'
 "Plug 'larsbs/vim-xmll'                                            " Tweaked Vim XML syntax highlighting plugin - React close tags look a little nicer with this!
 "Plug 'neoclide/vim-jsx-improve'
@@ -51,12 +51,12 @@ Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'nvie/vim-flake8',{ 'for': [ 'python'] }
 Plug 'OmniSharp/omnisharp-vim',{'for':['cs']}
 Plug 'OrangeT/vim-csharp',{'for':['cs']}
-Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+"Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/xml.vim'
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'posva/vim-vue',{ 'for': ['vue'] }
-Plug 'ternjs/tern_for_vim', {'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
-Plug 'vim-python/python-syntax'
+"Plug 'ternjs/tern_for_vim', {'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
+"Plug 'vim-python/python-syntax'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Interface
@@ -101,7 +101,7 @@ Plug 'prettier/vim-prettier', {'do': 'npm install','for': ['javascript', 'css', 
 Plug 'qwertologe/nextval.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-"Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 Plug 'tmhedberg/SimpylFold',{ 'for': [ 'python'] }
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
@@ -114,6 +114,7 @@ Plug 'wellle/targets.vim'
 Plug 'meain/vim-package-info', { 'do': 'npm install' }
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'rhysd/git-messenger.vim'
+Plug 'Shougo/echodoc.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Themeing
@@ -130,14 +131,18 @@ Plug 'rakr/vim-one'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline-themes'
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => COC plugins
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
 Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-sources', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
-
-"Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-Plug 'Shougo/echodoc.vim'
+Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
 
 call plug#end()
 
@@ -186,9 +191,9 @@ autocmd generalAutoCommand BufNewFile,BufRead *.scss set ft=scss.css
 augroup omnifuncs
     autocmd!
     autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
-    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-    autocmd FileType scss setlocal omnifunc=csscomplete#CompleteCSS
-    autocmd FileType sass setlocal omnifunc=csscomplete#CompleteCSS
+    "autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+    "autocmd FileType scss setlocal omnifunc=csscomplete#CompleteCSS
+    "autocmd FileType sass setlocal omnifunc=csscomplete#CompleteCSS
     autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
     autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
     "autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
@@ -300,9 +305,9 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has_key(g:plugs, 'ultisnips')
     let g:UltiSnipsEditSplit="vertical"
-    autocmd generalAutoCommand FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+    "autocmd generalAutoCommand FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
     let g:UltiSnipsExpandTrigger="<C-j>"
-    inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+    "inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
     let g:UltiSnipsSnippetDirectories = ['~/AppData/Local/nvim/UltiSnips', 'UltiSnips']
 endif
 

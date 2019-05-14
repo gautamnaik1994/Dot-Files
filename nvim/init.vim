@@ -48,7 +48,7 @@ call plug#begin('~/AppData/Local/nvim/bundle')
 Plug 'gautamnaik1994/ShaderHighLight'
 Plug 'moll/vim-node', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'nvie/vim-flake8',{ 'for': [ 'python'] }
+"Plug 'nvie/vim-flake8',{ 'for': [ 'python'] }
 Plug 'OmniSharp/omnisharp-vim',{'for':['cs']}
 Plug 'OrangeT/vim-csharp',{'for':['cs']}
 "Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
@@ -97,7 +97,7 @@ Plug 'mattn/emmet-vim'
 Plug 'mbbill/undotree'
 Plug 'mileszs/ack.vim' "Install ack(choco install ack) and ag(choco install ag)
 Plug 'myusuf3/numbers.vim'
-Plug 'prettier/vim-prettier', {'do': 'npm install','for': ['javascript', 'css', 'scss', 'json','vue']}
+"Plug 'prettier/vim-prettier', {'do': 'npm install','for': ['javascript', 'css', 'scss', 'json','vue']}
 Plug 'qwertologe/nextval.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
@@ -143,6 +143,8 @@ Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
 
 call plug#end()
 
@@ -191,9 +193,9 @@ autocmd generalAutoCommand BufNewFile,BufRead *.scss set ft=scss.css
 augroup omnifuncs
     autocmd!
     autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
-    "autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-    "autocmd FileType scss setlocal omnifunc=csscomplete#CompleteCSS
-    "autocmd FileType sass setlocal omnifunc=csscomplete#CompleteCSS
+    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+    autocmd FileType scss setlocal omnifunc=csscomplete#CompleteCSS
+    autocmd FileType sass setlocal omnifunc=csscomplete#CompleteCSS
     autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
     autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
     "autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
@@ -346,6 +348,7 @@ let g:user_emmet_settings = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-prettier
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has_key(g:plugs, 'vim-prettier')
 " let g:prettier#exec_cmd_path = "~/AppData/Local/nvim/bundle/vim-prettier/node_modules/.bin/prettier"
 " let g:prettier#config#print_width = 80
  "let g:prettier#config#tab_width = 2
@@ -367,9 +370,10 @@ let g:user_emmet_settings = {
 " " let g:prettier#autoformat = 0
 " let g:prettier#exec_cmd_async = 1
 " let g:prettier#config#parser = 'babylon'
- let g:prettier#autoformat = 0
+let g:prettier#autoformat = 0
 autocmd generalAutoCommand BufWritePre *.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 "autocmd generalAutoCommand BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ale

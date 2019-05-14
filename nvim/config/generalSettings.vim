@@ -1,9 +1,9 @@
 let g:python3_host_prog='C:/ProgramData/Anaconda3/python'
 let g:python_host_prog='C:/ProgramData/Anaconda2/python'
 
-if !exists(g:python_host_prog)
-    let g:python_host_prog='C:/ProgramData/Miniconda2/python'
-endif
+" if !exists(g:python_host_prog)
+"     let g:python_host_prog='C:/ProgramData/Miniconda2/python'
+" endif
 
 " Set to auto read when a file is changed from the outside
 set autoread

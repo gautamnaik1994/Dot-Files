@@ -1,5 +1,10 @@
 {
   "suggest.triggerAfterInsertEnter": true,
   "coc.preferences.echodocSupport": true,
-    "suggest.echodocSupport": true
+  "suggest.echodocSupport": true,
+  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact","scss","css"],
+  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact"],
+  "diagnostic.errorSign": "•",
+  "diagnostic.warningSign": "•",
+    "diagnostic.infoSign": "•"
 }

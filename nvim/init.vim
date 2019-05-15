@@ -10,7 +10,7 @@
 "  $$$$$$/  $$/   $$/  $$$$$$/     $$/   $$/   $$/ $$/      $$/       $$/   $$/ $$/   $$/ $$$$$$/ $$/   $$/
 
 
-
+set encoding=utf-8
 if empty(glob('~/AppData/Local/nvim/autoload/plug.vim'))
     silent !curl -fLo ~/AppData/Local/nvim/autoload/plug.vim --create-dirs
                 \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -149,7 +149,13 @@ Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 "Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
 
 call plug#end()
+set enc=utf-8
+set fileencoding=utf-8
+set fileencodings=ucs-bom,utf8,prc
+"set guifont=Monaco:h11
+set guifontwide=NSimsun:h12
 
+let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
 
 "Source files from config folder
 for f in split(glob('~/AppData/Local/nvim/config/*.vim'), '\n')

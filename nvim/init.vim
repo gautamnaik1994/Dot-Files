@@ -65,7 +65,7 @@ Plug 'posva/vim-vue',{ 'for': ['vue'] }
 "Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'chrisbra/NrrwRgn'
 Plug 'kien/rainbow_parentheses.vim'
-Plug 'machakann/vim-highlightedyank'
+"Plug 'machakann/vim-highlightedyank'
 "Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-signify'
 Plug 'scrooloose/nerdcommenter'
@@ -136,7 +136,8 @@ Plug 'vim-airline/vim-airline-themes'
 " => COC plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
+" Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 "Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
 "Plug 'neoclide/coc-sources', {'do': 'yarn install --frozen-lockfile'}
 "Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
@@ -188,6 +189,8 @@ autocmd generalAutoCommand BufWritePre * :%s/\s\+$//e
 
 autocmd generalAutoCommand BufNewFile,BufRead *.scss set ft=scss.css
 
+autocmd generalAutoCommand Filetype json let g:indentLine_setConceal = 0
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Omnifuncs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -230,7 +233,7 @@ let g:jsx_ext_required = 0
 " => indentLine
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:indentLine_char = '│'
-
+let g:vim_json_syntax_conceal = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => deoplete.nvim

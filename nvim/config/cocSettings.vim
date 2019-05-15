@@ -1,4 +1,6 @@
-let $NVIM_COC_LOG_LEVEL = 'debug'
+"let $NVIM_COC_LOG_LEVEL = 'debug'
+
+let g:coc_global_extensions = [ 'coc-stylelint','coc-yank','coc-emoji', 'coc-eslint', 'coc-prettier', 'coc-tsserver', 'coc-css', 'coc-json', 'coc-python','coc-snippets' ,'coc-emmet','coc-html'] 
 " if hidden is not set, TextEdit might fail.
 set hidden
 
@@ -145,3 +147,6 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+"activate coc-yank"
+nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>

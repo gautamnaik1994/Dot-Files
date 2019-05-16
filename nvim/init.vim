@@ -75,6 +75,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'vim-scripts/indentpython.vim',{ 'for': [ 'python'] }
 Plug 'ncm2/float-preview.nvim'
 Plug 'liuchengxu/vista.vim'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Utilities

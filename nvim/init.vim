@@ -156,6 +156,10 @@ set fileencodings=ucs-bom,utf8,prc
 set guifontwide=NSimsun:h12
 
 let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
+" after a re-source, fix syntax matching issues (concealing brackets):
+if exists('g:loaded_webdevicons')
+  call webdevicons#refresh()
+endif
 
 "Source files from config folder
 for f in split(glob('~/AppData/Local/nvim/config/*.vim'), '\n')

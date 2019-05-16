@@ -96,3 +96,5 @@ set mousemodel=popup
 
 " open diffs in vertical splits by default
 set diffopt+=vertical
+
+set linespace=3

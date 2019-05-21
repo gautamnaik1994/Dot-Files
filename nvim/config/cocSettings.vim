@@ -71,6 +71,8 @@ nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
 augroup mygroup
   autocmd!
   " Setup formatexpr specified filetype(s).

@@ -8,6 +8,8 @@ let g:airline#extensions#tabline#enabled = 2
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#ale#enabled = 1
 
+"let g:airline_left_sep = "\uE0C0"
+
 if exists("g:gui_oni")
     " if !exists('g:airline_symbols')
     "     let g:airline_symbols = {}

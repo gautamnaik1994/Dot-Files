@@ -1,6 +1,7 @@
 "let $NVIM_COC_LOG_LEVEL = 'debug'
 
-let g:coc_global_extensions = [ 'coc-stylelint','coc-yank','coc-emoji', 'coc-eslint', 'coc-prettier', 'coc-tsserver', 'coc-css', 'coc-json', 'coc-python','coc-snippets' ,'coc-emmet','coc-html'] 
+
+let g:coc_global_extensions = [ 'coc-stylelint','coc-yank','coc-emoji', 'coc-eslint', 'coc-prettier', 'coc-tsserver', 'coc-css', 'coc-json', 'coc-python','coc-snippets' ,'coc-emmet','coc-html']
 " if hidden is not set, TextEdit might fail.
 set hidden
 
@@ -11,8 +12,8 @@ set nowritebackup
 " Better display for messages
 set cmdheight=2
 
-" Smaller updatetime for CursorHold & CursorHoldI
-set updatetime=300
+"Smaller updatetime for CursorHold & CursorHoldI
+" set updatetime=300
 
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
@@ -23,14 +24,14 @@ set signcolumn=yes
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 " Use <c-space> to trigger completion.
@@ -54,11 +55,11 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
 endfunction
 
 " Highlight symbol under cursor on CursorHold
@@ -74,11 +75,11 @@ nmap <leader>f  <Plug>(coc-format-selected)
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+    autocmd!
+    " Setup formatexpr specified filetype(s).
+    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+    " Update signature help on jump placeholder
+    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
@@ -96,44 +97,42 @@ command! -nargs=0 Format :call CocAction('format')
 " Use `:Fold` to fold current buffer
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
-	" use error & warning count of diagnostics form coc.nvim
-	let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
-	let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
+" use error & warning count of diagnostics form coc.nvim
+let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
+let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
 
-	" create a part for server status.
-	function! GetServerStatus()
-	  return get(g:, 'coc_status', '')
-	endfunction
-	call airline#parts#define_function('coc', 'GetServerStatus')
-	function! AirlineInit()
-	  let g:airline_section_a = airline#section#create(['coc'])
-	endfunction
-	autocmd User AirlineAfterInit call AirlineInit()
+" create a part for server status.
+function! GetServerStatus()
+    return get(g:, 'coc_status', '')
+endfunction
+call airline#parts#define_function('coc', 'GetServerStatus')
+function! AirlineInit()
+    let g:airline_section_a = airline#section#create(['coc'])
+endfunction
+autocmd User AirlineAfterInit call AirlineInit()
 
-	" exclude overwrite statusline of list filetype
-	let g:airline_exclude_filetypes = ["list"]
+" exclude overwrite statusline of list filetype
+let g:airline_exclude_filetypes = ["list"]
 
 "Change error symbol:
 
-	let airline#extensions#coc#error_symbol = 'Error:'
+let airline#extensions#coc#error_symbol = 'Error:'
 
 "Change warning symbol:
 
-	let airline#extensions#coc#warning_symbol = 'Warning:'
+let airline#extensions#coc#warning_symbol = 'Warning:'
 
 "Change error format:
-
-	let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
+let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
 
 "Change warning format:
-
-	let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
-
+let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
 
 
 
-" Using CocList
-" Show all diagnostics
+
+"Using CocList
+"Show all diagnostics
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions
 nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>

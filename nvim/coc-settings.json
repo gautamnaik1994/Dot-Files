@@ -7,6 +7,7 @@
   "diagnostic.errorSign": "•",
   "diagnostic.warningSign": "•",
   "diagnostic.infoSign": "•",
+  "prettier.eslintIntegration": true,
     // "signature.target":"echo",
     // "coc.preferences.hoverTarget": "echo",
 }

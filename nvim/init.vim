@@ -57,6 +57,7 @@ Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'posva/vim-vue',{ 'for': ['vue'] }
 "Plug 'ternjs/tern_for_vim', {'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
 "Plug 'vim-python/python-syntax'
+Plug 'jparise/vim-graphql'
 
 " Plug 'mhartington/nvim-typescript', { 'do': ':UpdateRemotePlugins', 'for': ['typescript', 'typescript.tsx']}
 " Plug 'leafgarland/typescript-vim', {'for': ['typescript', 'typescript.tsx']}

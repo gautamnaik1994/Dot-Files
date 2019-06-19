@@ -9,6 +9,19 @@
   "diagnostic.infoSign": "•",
   "prettier.eslintIntegration": true,
   "snippets.extends": {"typescriptreact":["javascript"],"typescript":["javascript"],"javascriptreact":["javascript"]},
+  "eslint.autoFixOnSave": true,
+  "eslint.autoFix": true,
+  "suggest.snippetIndicator": "★",
+  "javascript.validate.enable": false,
+  "codeLens.enable": true,
+  "diagnostic.virtualText": true,
+  "tsserver.enableJavascript": true,
+
+  // "git.enableGutters": true,
+  // "git.addGlameToBufferVar": true,
+  // "git.addGlameToVirtualText": true,
+  // "git.virtualTextPrefix": " ❯❯❯ ",
+
     // "signature.target":"echo",
     // "coc.preferences.hoverTarget": "echo",
 }

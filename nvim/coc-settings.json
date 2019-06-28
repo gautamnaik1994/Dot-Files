@@ -14,7 +14,7 @@
   "suggest.snippetIndicator": "★",
   "javascript.validate.enable": false,
   "codeLens.enable": true,
-  "diagnostic.virtualText": true,
+  //"diagnostic.virtualText": true,
   "tsserver.enableJavascript": true,
 
   // "git.enableGutters": true,

@@ -1,7 +1,7 @@
 "let $NVIM_COC_LOG_LEVEL = 'debug'
 
 
-let g:coc_global_extensions = [ 'coc-stylelint','coc-yank','coc-emoji', 'coc-eslint', 'coc-prettier', 'coc-tsserver', 'coc-tslint-plugin','coc-css', 'coc-json', 'coc-python','coc-snippets' ,'coc-emmet','coc-html']
+let g:coc_global_extensions = ['coc-tabnine', 'coc-stylelint','coc-yank','coc-emoji', 'coc-eslint', 'coc-prettier', 'coc-tsserver', 'coc-tslint-plugin','coc-css', 'coc-json', 'coc-python','coc-snippets' ,'coc-emmet','coc-html']
 " if hidden is not set, TextEdit might fail.
 set hidden
 

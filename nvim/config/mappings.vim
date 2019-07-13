@@ -6,10 +6,28 @@ let mapleader= ","
 """"""""""""""""""""""""""""""
 "Exit Insert Mode
 inoremap jk <esc>
-inoremap <esc> <nop>
+"inoremap <esc> <nop>
 
 inoremap <C-v> <C-r>*
 
+"CC change what is on the right of the cursor
+" SS change the whole line
+" DD delete the current line (end in normal mode)
+" UU undo
+inoremap CC <Esc>C
+inoremap SS <Esc>S
+inoremap DD <Esc>dd
+inoremap UU <Esc>u
+
+" II go to just before the first non-blank text of the line
+" AA go to the end of the line
+" OO start editing on a new line above the current line
+inoremap II <Esc>I
+inoremap AA <Esc>A
+inoremap OO <Esc>O
+
+
+"use <c-e> and <c-y> to type below and above text
 "save file
 inoremap <leader>s <C-c>:w<CR>
 """"""""""""""""""""""""""""""

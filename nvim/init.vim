@@ -10,7 +10,7 @@
 "  $$$$$$/  $$/   $$/  $$$$$$/     $$/   $$/   $$/ $$/      $$/       $$/   $$/ $$/   $$/ $$$$$$/ $$/   $$/
 
 
-
+set encoding=utf-8
 if empty(glob('~/AppData/Local/nvim/autoload/plug.vim'))
     silent !curl -fLo ~/AppData/Local/nvim/autoload/plug.vim --create-dirs
                 \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -27,18 +27,18 @@ call plug#begin('~/AppData/Local/nvim/bundle')
 "Plug 'gautamnaik1994/deoplete-omnisharp'
 "Plug 'Shougo/neco-vim'
 "Plug 'Valloric/YouCompleteMe'
-Plug 'carlitux/deoplete-ternjs', {'do': 'npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'tbodt/deoplete-tabnine', { 'do': 'powershell.exe .\install.ps1' }
-Plug 'deoplete-plugins/deoplete-jedi',{ 'for': [ 'python'] }
+"Plug 'carlitux/deoplete-ternjs', {'do': 'npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'tbodt/deoplete-tabnine', { 'do': 'powershell.exe .\install.ps1' }
+"Plug 'deoplete-plugins/deoplete-jedi',{ 'for': [ 'python'] }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Language Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Plug 'beyondmarc/hlsl.vim'
-" Plug 'tikhomirov/vim-glsl'
-" Plug 'vim-scripts/cg.vim'
+"Plug 'beyondmarc/hlsl.vim'
+"Plug 'tikhomirov/vim-glsl'
+"Plug 'vim-scripts/cg.vim'
 "Plug 'chemzqm/vim-jsx-improve'
 "Plug 'larsbs/vim-xmll'                                            " Tweaked Vim XML syntax highlighting plugin - React close tags look a little nicer with this!
 "Plug 'neoclide/vim-jsx-improve'
@@ -48,15 +48,21 @@ Plug 'deoplete-plugins/deoplete-jedi',{ 'for': [ 'python'] }
 Plug 'gautamnaik1994/ShaderHighLight'
 Plug 'moll/vim-node', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'nvie/vim-flake8',{ 'for': [ 'python'] }
+"Plug 'nvie/vim-flake8',{ 'for': [ 'python'] }
 Plug 'OmniSharp/omnisharp-vim',{'for':['cs']}
 Plug 'OrangeT/vim-csharp',{'for':['cs']}
-Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+"Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/xml.vim'
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'posva/vim-vue',{ 'for': ['vue'] }
-Plug 'ternjs/tern_for_vim', {'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
-Plug 'vim-python/python-syntax'
+"Plug 'ternjs/tern_for_vim', {'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
+"Plug 'vim-python/python-syntax'
+Plug 'jparise/vim-graphql'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+" Plug 'mhartington/nvim-typescript', { 'do': ':UpdateRemotePlugins', 'for': ['typescript', 'typescript.tsx']}
+" Plug 'leafgarland/typescript-vim', {'for': ['typescript', 'typescript.tsx']}
+" Plug 'ianks/vim-tsx', { 'for': 'typescript.tsx' }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Interface
@@ -65,8 +71,8 @@ Plug 'vim-python/python-syntax'
 "Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'chrisbra/NrrwRgn'
 Plug 'kien/rainbow_parentheses.vim'
-Plug 'machakann/vim-highlightedyank'
-Plug 'majutsushi/tagbar'
+"Plug 'machakann/vim-highlightedyank'
+"Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-signify'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
@@ -75,6 +81,8 @@ Plug 'Yggdroot/indentLine'
 Plug 'vim-scripts/indentpython.vim',{ 'for': [ 'python'] }
 Plug 'ncm2/float-preview.nvim'
 Plug 'Shougo/echodoc.vim'
+Plug 'liuchengxu/vista.vim'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Utilities
@@ -91,14 +99,14 @@ Plug 'andymass/vim-matchup'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'ervandew/supertab'
+"Plug 'ervandew/supertab'
 Plug 'honza/vim-snippets'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'mattn/emmet-vim'
 Plug 'mbbill/undotree'
 Plug 'mileszs/ack.vim' "Install ack(choco install ack) and ag(choco install ag)
 Plug 'myusuf3/numbers.vim'
-Plug 'prettier/vim-prettier', {'do': 'npm install','for': ['javascript', 'css', 'scss', 'json','vue']}
+"Plug 'prettier/vim-prettier', {'do': 'npm install','for': ['javascript', 'css', 'scss', 'json','vue']}
 Plug 'qwertologe/nextval.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
@@ -110,11 +118,12 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 "Plug 'vim-scripts/cream-capitalization'
 Plug 'vim-scripts/indentpython.vim',{ 'for': [ 'python'] }
-Plug 'w0rp/ale',{ 'for': ['javascript', 'javascript.jsx', 'python','cs'] }
+"Plug 'w0rp/ale',{ 'for': ['javascript', 'javascript.jsx', 'python','cs'] }
 Plug 'wellle/targets.vim'
 Plug 'meain/vim-package-info', { 'do': 'npm install' }
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'rhysd/git-messenger.vim'
+Plug 'Shougo/echodoc.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Themeing
@@ -131,8 +140,41 @@ Plug 'rakr/vim-one'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline-themes'
 
-call plug#end()
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Entertainment
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'johngrib/vim-game-code-break'
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => COC plugins
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+"Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+"Plug 'neoclide/coc-sources', {'do': 'yarn install --frozen-lockfile'}
+"Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+"Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
+"Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+"Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
+"Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
+"Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
+"Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
+
+call plug#end()
+set enc=utf-8
+set fileencoding=utf-8
+set fileencodings=ucs-bom,utf8,prc
+"set guifont=Monaco:h11
+set guifontwide=NSimsun:h12
+
+let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
+" after a re-source, fix syntax matching issues (concealing brackets):
+if exists('g:loaded_webdevicons')
+  call webdevicons#refresh()
+endif
 
 "Source files from config folder
 for f in split(glob('~/AppData/Local/nvim/config/*.vim'), '\n')
@@ -172,6 +214,8 @@ autocmd generalAutoCommand BufWritePre * :%s/\s\+$//e
 
 autocmd generalAutoCommand BufNewFile,BufRead *.scss set ft=scss.css
 
+autocmd generalAutoCommand Filetype json let g:indentLine_setConceal = 0
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Omnifuncs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -183,8 +227,9 @@ augroup omnifuncs
     autocmd FileType sass setlocal omnifunc=csscomplete#CompleteCSS
     autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
     autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+    "autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
     autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+    autocmd FileType json syntax match Comment +\/\/.\+$+
 augroup end
 
 
@@ -213,7 +258,7 @@ let g:jsx_ext_required = 0
 " => indentLine
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:indentLine_char = '│'
-
+let g:vim_json_syntax_conceal = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => deoplete.nvim
@@ -289,11 +334,13 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => ultisnips
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:UltiSnipsEditSplit="vertical"
-autocmd generalAutoCommand FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-let g:UltiSnipsExpandTrigger="<C-j>"
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-let g:UltiSnipsSnippetDirectories = ['~/AppData/Local/nvim/UltiSnips', 'UltiSnips']
+if has_key(g:plugs, 'ultisnips')
+    let g:UltiSnipsEditSplit="vertical"
+    "autocmd generalAutoCommand FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+    let g:UltiSnipsExpandTrigger="<C-j>"
+    "inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+    let g:UltiSnipsSnippetDirectories = ['~/AppData/Local/nvim/UltiSnips', 'UltiSnips']
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => nerdtree
@@ -330,6 +377,7 @@ let g:user_emmet_settings = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-prettier
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has_key(g:plugs, 'vim-prettier')
 " let g:prettier#exec_cmd_path = "~/AppData/Local/nvim/bundle/vim-prettier/node_modules/.bin/prettier"
 " let g:prettier#config#print_width = 80
  "let g:prettier#config#tab_width = 2
@@ -351,40 +399,43 @@ let g:user_emmet_settings = {
 " " let g:prettier#autoformat = 0
 " let g:prettier#exec_cmd_async = 1
 " let g:prettier#config#parser = 'babylon'
- let g:prettier#autoformat = 0
+let g:prettier#autoformat = 0
 autocmd generalAutoCommand BufWritePre *.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 "autocmd generalAutoCommand BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ale
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:ale_sign_error = '●' " Less aggressive than the default '>>'
-"let g:ale_sign_warning = '--'
-" let g:ale_sign_error = '❌'
-" let g:ale_sign_warning = '⚠️'
-" Use a slightly slimmer error pointer
-"let g:ale_sign_error = '✖'
-"hi ALEErrorSign guifg=#DF8C8C
-"let g:ale_sign_warning = '⚠'
-"hi ALEWarningSign guifg=#F2C38F
-"let g:ale_sign_error = '×'
-let g:ale_linters = {
-\ 'cs': ['OmniSharp'],
-\ 'javascript': ['eslint']
-\}
-" let g:ale_linters = {'javascript': ['eslint']}
-let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
-let g:ale_emit_conflict_warnings = 0
-let g:ale_set_highlights = 0
-let g:ale_fix_on_save = 1
-let g:ale_javascript_prettier_use_local_config = 1
-let g:ale_fixers = {}
-let g:ale_fixers = {
-            \   'javascript': ['prettier','eslint'],
-            \   'python': ['autopep8']
-            \ }
-let g:ale_python_autopep8_options = '--aggressive'
-"let g:ale_fixers['javascript.jsx'] = ['prettier_eslint']"
+if has_key(g:plugs, 'ale')
+    "let g:ale_sign_error = '●' " Less aggressive than the default '>>'
+    "let g:ale_sign_warning = '--'
+    " let g:ale_sign_error = '❌'
+    " let g:ale_sign_warning = '⚠️'
+    " Use a slightly slimmer error pointer
+    "let g:ale_sign_error = '✖'
+    "hi ALEErrorSign guifg=#DF8C8C
+    "let g:ale_sign_warning = '⚠'
+    "hi ALEWarningSign guifg=#F2C38F
+    "let g:ale_sign_error = '×'
+    let g:ale_linters = {
+    \ 'cs': ['OmniSharp'],
+    \ 'javascript': ['eslint']
+    \}
+    " let g:ale_linters = {'javascript': ['eslint']}
+    let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
+    let g:ale_emit_conflict_warnings = 0
+    let g:ale_set_highlights = 0
+    let g:ale_fix_on_save = 1
+    let g:ale_javascript_prettier_use_local_config = 1
+    let g:ale_fixers = {}
+    let g:ale_fixers = {
+                \   'javascript': ['prettier','eslint'],
+                \   'python': ['autopep8']
+                \ }
+    let g:ale_python_autopep8_options = '--aggressive'
+    "let g:ale_fixers['javascript.jsx'] = ['prettier_eslint']"
+endif
 
 
 
@@ -393,7 +444,7 @@ let g:ale_python_autopep8_options = '--aggressive'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:ctrlp_custom_ignore = 'node_modules\DS_Store\|git'
 "let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|\.meta$\|\.asset$\|\.cache$\|\.mat$'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|public\|git\|\.meta$\|\.asset$\|\.cache$\|\.mat$\|\.png$\|\.jpg$\|\.jpeg$'
 "let g:ctrlp_cmd='CtrlP :pwd'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -460,11 +511,13 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Supertab
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:SuperTabDefaultCompletionType = "<c-n>"
-let g:SuperTabDefaultCompletionType = 'context'
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
-let g:SuperTabDefaultCompletionTypeDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-n>"]
-let g:SuperTabClosePreviewOnPopupClose = 1
+if has_key(g:plugs, 'supertab')
+    "let g:SuperTabDefaultCompletionType = "<c-n>"
+    let g:SuperTabDefaultCompletionType = 'context'
+    let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+    let g:SuperTabDefaultCompletionTypeDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-n>"]
+    let g:SuperTabClosePreviewOnPopupClose = 1
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Number
@@ -521,3 +574,27 @@ let g:float_preview#docked = 0
 set cmdheight=2
 set noshowmode
 let g:echodoc_enable_at_startup = 1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Vista
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:vista_default_executive = 'ctags'
+let g:vista#renderer#enable_icon = 1
+
+let g:vista_executive_for = {
+  \ 'javascript': 'coc',
+  \ 'typescript': 'coc',
+  \ 'javascript.jsx': 'coc',
+  \ 'typescript.tsx': 'coc',
+  \ 'python': 'coc',
+  \ }
+
+" Ensure you have installed some decent font to show these pretty symbols, then you can enable icon for the kind.
+let g:vista#renderer#enable_icon = 1
+
+" The default icons can't be suitable for all the filetypes, you can extend it as you wish.
+let g:vista#renderer#icons = {
+\   "function": "\uf794",
+\   "variable": "\uf71b",
+\  }
+
+let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]

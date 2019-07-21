@@ -124,6 +124,7 @@ Plug 'meain/vim-package-info', { 'do': 'npm install' }
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'rhysd/git-messenger.vim'
 Plug 'Shougo/echodoc.vim'
+Plug 'kamykn/spelunker.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Themeing
@@ -139,6 +140,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'rakr/vim-one'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'arcticicestudio/nord-vim'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

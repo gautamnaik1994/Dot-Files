@@ -1,7 +1,7 @@
 "let $NVIM_COC_LOG_LEVEL = 'debug'
 
 
-let g:coc_global_extensions = ['coc-tabnine', 'coc-stylelint','coc-yank','coc-emoji', 'coc-eslint', 'coc-prettier', 'coc-tsserver', 'coc-tslint-plugin','coc-css', 'coc-json', 'coc-python','coc-snippets' ,'coc-emmet','coc-html']
+let g:coc_global_extensions = ['coc-tabnine', 'coc-stylelint','coc-emoji', 'coc-eslint', 'coc-prettier', 'coc-tsserver', 'coc-tslint-plugin','coc-css', 'coc-json', 'coc-python','coc-snippets' ,'coc-emmet','coc-html']
 " if hidden is not set, TextEdit might fail.
 set hidden
 
@@ -13,7 +13,7 @@ set nowritebackup
 set cmdheight=2
 
 "Smaller updatetime for CursorHold & CursorHoldI
-" set updatetime=300
+set updatetime=300
 
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
@@ -95,7 +95,10 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 command! -nargs=0 Format :call CocAction('format')
 
 " Use `:Fold` to fold current buffer
-command! -nargs=? Fold :call CocAction('fold', <f-args>)
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 " use error & warning count of diagnostics form coc.nvim
 let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
@@ -131,8 +134,8 @@ let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
 
 
 
-"Using CocList
-"Show all diagnostics
+" Using CocList
+" Show all diagnostics
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions
 nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>

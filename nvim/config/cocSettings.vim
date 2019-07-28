@@ -154,3 +154,6 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 "activate coc-yank"
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
+
+"Prettier Format
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')

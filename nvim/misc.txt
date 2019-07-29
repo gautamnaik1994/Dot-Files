@@ -25,3 +25,6 @@ Insert mode
 &lt;CTRL-s&gt;&lt;CTRL-s&gt; - in insert mode, add a new line + surrounding + indent
 &lt;CTRL-g&gt;s - same as &lt;CTRL-s&gt;
 &lt;CTRL-g&gt;S - same as &lt;CTRL-s&gt;&lt;CTRL-s&gt;
+
+reselecting previously selected text (i use this to fix botched selections):
+gv

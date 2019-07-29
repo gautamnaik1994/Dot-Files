@@ -33,6 +33,9 @@ inoremap <leader>s <C-c>:w<CR>
 """"""""""""""""""""""""""""""
 " => Normal mode related
 """"""""""""""""""""""""""""""
+"reselecting previously yanked text
+nnoremap gb `[v`] 
+
 "save file
 nnoremap <leader>s :w<CR>
 

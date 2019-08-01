@@ -25,3 +25,11 @@ Insert mode
 &lt;CTRL-s&gt;&lt;CTRL-s&gt; - in insert mode, add a new line + surrounding + indent
 &lt;CTRL-g&gt;s - same as &lt;CTRL-s&gt;
 &lt;CTRL-g&gt;S - same as &lt;CTRL-s&gt;&lt;CTRL-s&gt;
+
+Folding
+zc — close the fold (where your cursor is positioned)
+zM —close all folds on current buffer
+zo — open the fold (where your cursor is positioned)
+zR — open all folds on current buffer
+zj — cursor is moved to next fold
+zk — cursor is moved to previous fold

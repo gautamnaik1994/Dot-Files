@@ -360,10 +360,10 @@ augroup nerd
 augroup end
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeMinimalUI=1
-"let g:NERDTreeDirArrowExpandable = '▸'⯈
-let g:NERDTreeDirArrowExpandable = '⯈'
-"let g:NERDTreeDirArrowCollapsible = '▾'⯆
-let g:NERDTreeDirArrowCollapsible = '⯆'
+let g:NERDTreeDirArrowExpandable = '▸'
+"let g:NERDTreeDirArrowExpandable = '⯈'
+let g:NERDTreeDirArrowCollapsible = '▾'
+"let g:NERDTreeDirArrowCollapsible = '⯆'
 let NERDTreeIgnore = ['\.meta$','\.asset$','\.csproj$','\.cache$','\.apk$']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

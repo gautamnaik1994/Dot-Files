@@ -33,3 +33,7 @@ zo — open the fold (where your cursor is positioned)
 zR — open all folds on current buffer
 zj — cursor is moved to next fold
 zk — cursor is moved to previous fold
+
+reselecting previously selected text (i use this to fix botched selections):
+gv
+

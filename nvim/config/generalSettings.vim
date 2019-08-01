@@ -3,7 +3,7 @@ let g:python_host_prog='C:/ProgramData/Miniconda2/python'
 " if !exists(g:python_host_prog)
 "     let g:python_host_prog='C:/ProgramData/Miniconda2/python'
 " endif
-
+set path+=**
 " Set to auto read when a file is changed from the outside
 set autoread
 " Use awesome features

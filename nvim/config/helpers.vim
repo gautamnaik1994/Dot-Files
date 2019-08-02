@@ -126,3 +126,10 @@ command Open call s:Open(expand('%'))
 " endfunction
 " nnoremap <silent> <Leader>[ :call Tabbufp()<CR>
 " nnoremap <silent> <Leader>] :call Tabbufn()<CR>
+
+":g/^$/d
+command! DeleteEmptyLines execute "normal! :g/^$/d<cr>"
+
+command! SmartDeleteEmptyLines execute "normal! :g/^$/,/./-j<cr>"
+"https://stackoverflow.com/questions/3032030/how-does-g-j-reduce-multiple-blank-lines-to-a-single-blank-work-in-vi
+"https://vim.fandom.com/wiki/Remove_unwanted_empty_lines"

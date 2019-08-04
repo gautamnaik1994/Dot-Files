@@ -75,6 +75,7 @@ set novisualbell
 set noeb vb t_vb=
 set t_vb=
 set tm=500
+set iskeyword+=- "To make vim treat dash separated words as a word text-object
 
 :set wildoptions=pum
 :set pumblend=20

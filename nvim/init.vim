@@ -106,6 +106,7 @@ Plug 'jlanzarotta/bufexplorer'
 Plug 'mattn/emmet-vim'
 Plug 'mbbill/undotree'
 Plug 'mileszs/ack.vim' "Install ack(choco install ack) and ag(choco install ag)
+Plug 'jremmen/vim-ripgrep' "Install ripgrep (choco install ripgrep)
 Plug 'myusuf3/numbers.vim'
 "Plug 'prettier/vim-prettier', {'do': 'npm install','for': ['javascript', 'css', 'scss', 'json','vue']}
 Plug 'qwertologe/nextval.vim'

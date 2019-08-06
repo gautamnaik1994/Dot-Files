@@ -609,3 +609,4 @@ let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:netrw_altv=1 "open split to right
 let g:netrw_liststyle=3 "Tree view
+let g:netrw_dirhistmax = 0

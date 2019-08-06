@@ -34,7 +34,7 @@ inoremap <leader>s <C-c>:w<CR>
 " => Normal mode related
 """"""""""""""""""""""""""""""
 "reselecting previously yanked text
-nnoremap gb `[v`] 
+nnoremap gb `[v`]
 
 "save file
 nnoremap <leader>s :w<CR>
@@ -74,6 +74,9 @@ noremap <right> <C-w>5>
 noremap <left> <C-w>5<
 noremap <up> <C-w>5+
 noremap <down> <C-w>5-
+
+"Copy Line without whitespace
+nnoremap <Leader>y ^y$
 
   " stay in the Visual mode when using shift commands
 xnoremap < <gv

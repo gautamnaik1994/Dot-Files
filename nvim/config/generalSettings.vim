@@ -99,3 +99,7 @@ set mousemodel=popup
 set diffopt+=vertical
 
 set linespace=4
+
+if has('nvim-0.3.2') || has("patch-8.1.0360")
+    set diffopt=filler,vertical,internal,algorithm:histogram,indent-heuristic
+endif

@@ -133,3 +133,15 @@ command! DeleteEmptyLines execute "normal! :g/^$/d<cr>"
 command! SmartDeleteEmptyLines execute "normal! :g/^$/,/./-j<cr>"
 "https://stackoverflow.com/questions/3032030/how-does-g-j-reduce-multiple-blank-lines-to-a-single-blank-work-in-vi
 "https://vim.fandom.com/wiki/Remove_unwanted_empty_lines"
+
+function! s:UpdateDateFunction()
+    execute "normal gg"
+    execute "/date"
+    execute "normal f'di'"
+    "execute ":pu=strftime('%Y-%m-%d ')"
+    execute 'normal "=strftime('%Y-%m-%d ')'
+    execute 'normal "=P'
+endfunction
+
+"command! UpdateDate execute "normal gg/date<cr>f'di':pu=strftime('%Y-%m-%d ')<cr>"
+command! UpdateDate call s:UpdateDateFunction()

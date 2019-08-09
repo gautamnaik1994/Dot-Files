@@ -2,3 +2,5 @@
 
 :iabbrev conatainer   container
 :iabbrev flot    float
+
+:iab <expr> dts strftime("%c")

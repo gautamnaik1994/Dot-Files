@@ -135,12 +135,18 @@ command! SmartDeleteEmptyLines execute "normal! :g/^$/,/./-j<cr>"
 "https://vim.fandom.com/wiki/Remove_unwanted_empty_lines"
 
 function! s:UpdateDateFunction()
+    execute "normal mz"
     execute "normal gg"
     execute "/date"
     execute "normal f'di'"
-    "execute ":pu=strftime('%Y-%m-%d ')"
-    execute 'normal "=strftime('%Y-%m-%d ')'
-    execute 'normal "=P'
+    execute ":pu=strftime('%Y-%m-%d')"
+    execute "normal kJF'x$pF x"
+    execute "normal `z"
+    "execute ":s/^M//ge"
+    "execute "?\s"
+    "execute "normal x"
+    "execute 'normal "=strftime('%Y-%m-%d ')'
+    "execute 'normal "=P'
 endfunction
 
 "command! UpdateDate execute "normal gg/date<cr>f'di':pu=strftime('%Y-%m-%d ')<cr>"

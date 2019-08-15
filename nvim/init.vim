@@ -220,6 +220,8 @@ autocmd generalAutoCommand BufNewFile,BufRead *.scss set ft=scss.css
 
 autocmd generalAutoCommand Filetype json let g:indentLine_setConceal = 0
 
+autocmd generalAutoCommand BufRead,BufNewFile *.md setlocal textwidth=80
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Omnifuncs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

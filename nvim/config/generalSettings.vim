@@ -104,4 +104,4 @@ if has('nvim-0.3.2') || has("patch-8.1.0360")
     set diffopt=filler,vertical,internal,algorithm:histogram,indent-heuristic
 endif
 
-let g:markdown_fenced_languages = ['html', 'python', 'bash=sh','javascript','viml=vim','csharp=cs']
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh','javascript','viml=vim','csharp=cs','css','scss']

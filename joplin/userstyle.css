@@ -1,0 +1,23 @@
+#rendered-md pre{
+    border-left: 5px solid rgb(56, 255, 100);;
+    padding-left: 10px!important;
+}
+
+code, pre {
+    font-family: 'FuraCode NF',Input,'Consolas NF',Consolas,monospace;
+    font-size: 14px;
+}
+
+:not(pre) > code {
+    color: rgb(56, 255, 100);
+    padding: 2px 8px;
+    background: rgb(64, 64, 64);
+}
+
+p{
+    /* font-family: Merriweather, serif;
+    text-align: left;
+    font-size: 16px;
+    line-height: 1.58;
+    letter-spacing: -0.003em; */
+}

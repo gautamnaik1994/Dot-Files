@@ -45,7 +45,7 @@ call plug#begin('~/AppData/Local/nvim/bundle')
 "Plug 'othree/es.next.syntax.vim'
 "Plug 'othree/html5.vim'
 "Plug 'othree/yajs.vim'
-Plug 'gautamnaik1994/ShaderHighLight'
+"Plug 'gautamnaik1994/ShaderHighLight'
 Plug 'moll/vim-node', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 "Plug 'nvie/vim-flake8',{ 'for': [ 'python'] }
@@ -83,7 +83,7 @@ Plug 'ncm2/float-preview.nvim'
 Plug 'Shougo/echodoc.vim'
 Plug 'liuchengxu/vista.vim'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'rbong/vim-flog'
+"Plug 'rbong/vim-flog'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Utilities
@@ -122,7 +122,7 @@ Plug 'tpope/vim-surround'
 Plug 'vim-scripts/indentpython.vim',{ 'for': [ 'python'] }
 "Plug 'w0rp/ale',{ 'for': ['javascript', 'javascript.jsx', 'python','cs'] }
 Plug 'wellle/targets.vim'
-Plug 'meain/vim-package-info', { 'do': 'npm install' }
+"Plug 'meain/vim-package-info', { 'do': 'npm install' }
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'rhysd/git-messenger.vim'
 Plug 'Shougo/echodoc.vim'

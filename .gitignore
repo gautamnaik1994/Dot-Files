@@ -3,3 +3,5 @@ nvim/bundle
 nvim/rplugin.vim
 rplugin.vim
 /rplugin.vim
+nvim/NERD_tree*
+nvim/.netrwhist

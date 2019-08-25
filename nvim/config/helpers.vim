@@ -134,7 +134,9 @@ command! SmartDeleteEmptyLines execute "normal! :g/^$/,/./-j<cr>"
 "https://stackoverflow.com/questions/3032030/how-does-g-j-reduce-multiple-blank-lines-to-a-single-blank-work-in-vi
 "https://vim.fandom.com/wiki/Remove_unwanted_empty_lines"
 
-function! s:UpdateDateFunction()
+"Following function will find /date word and append current date to it.
+"This function is very specific for my blog .md files 
+function! s:UpdatePubDate()
     execute "normal mz"
     execute "normal gg"
     execute "/date"
@@ -150,7 +152,21 @@ function! s:UpdateDateFunction()
 endfunction
 
 "command! UpdateDate execute "normal gg/date<cr>f'di':pu=strftime('%Y-%m-%d ')<cr>"
-command! UpdateDate call s:UpdateDateFunction()
+command! UpdatePubDate call s:UpdatePubDate()
+
+"Following function will find /updateDate word and append current date to it.
+"This function is very specific for my blog .md files 
+function! s:UpdateUpDate()
+    execute "normal mz"
+    execute "normal gg"
+    execute "/updatedDate"
+    execute "normal f'di'"
+    execute ":pu=strftime('%Y-%m-%d')"
+    execute "normal kJF'x$pF x"
+    execute "normal `z"
+endfunction
+
+command! UpdateUpDate call s:UpdateUpDate()
 
 function! TwiddleCase(str)
   if a:str ==# toupper(a:str)

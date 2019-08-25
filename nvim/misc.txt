@@ -37,3 +37,5 @@ zk — cursor is moved to previous fold
 reselecting previously selected text (i use this to fix botched selections):
 gv
 
+Display file from another branch
+Gvsplit develop:%

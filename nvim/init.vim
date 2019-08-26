@@ -143,6 +143,7 @@ Plug 'rakr/vim-one'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'arcticicestudio/nord-vim'
+Plug 'cocopon/iceberg.vim'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -220,7 +221,7 @@ autocmd generalAutoCommand BufNewFile,BufRead *.scss set ft=scss.css
 
 autocmd generalAutoCommand Filetype json let g:indentLine_setConceal = 0
 
-autocmd generalAutoCommand BufRead,BufNewFile *.md setlocal textwidth=80
+"autocmd generalAutoCommand BufRead,BufNewFile *.md setlocal textwidth=80
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Omnifuncs

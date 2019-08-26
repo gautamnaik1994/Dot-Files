@@ -127,6 +127,7 @@ Plug 'yuttie/comfortable-motion.vim'
 Plug 'rhysd/git-messenger.vim'
 Plug 'Shougo/echodoc.vim'
 Plug 'kamykn/spelunker.vim'
+Plug 'rhysd/vim-grammarous'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Themeing

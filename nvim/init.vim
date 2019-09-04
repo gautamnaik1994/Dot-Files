@@ -614,3 +614,38 @@ let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 let g:netrw_altv=1 "open split to right
 let g:netrw_liststyle=3 "Tree view
 let g:netrw_dirhistmax = 0
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-devicons
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:DevIconsEnableFoldersOpenClose = 1
+
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['html'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['json'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['jsx'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['tsx'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['ts'] = 'ﯤ'
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['md'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vim'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['yaml'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['yml'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vue'] = '﵂'
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['py'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['cs'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['scss'] = 'ﳪ'
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['sass'] = 'ﳪ'
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['css'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vim'] = ''
+
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols = {}
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.*vimrc.*'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.*vim.*'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.gitignore'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['package.json'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['package.lock.json'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['node_modules'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['webpack\.'] = 'ﰩ '
+
+let g:NERDTreeHighlightFolders = 1
+let g:NERDTreeHighlightFoldersFullName = 1 

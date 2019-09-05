@@ -38,3 +38,11 @@ set background=dark
 if &diff
     highlight! link DiffText MatchParen
 endif
+
+
+" hi MatchParen ctermfg=yellow guifg=yellow cterm=bold gui=bold guibg=none ctermbg=none
+highlight SignColumn ctermbg=none guibg=none
+
+set fillchars+=vert:│
+
+highlight VertSplit ctermbg=none guibg=none

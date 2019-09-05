@@ -365,9 +365,9 @@ augroup nerd
 augroup end
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeMinimalUI=1
-let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowExpandable = ''
 "let g:NERDTreeDirArrowExpandable = '⯈'
-let g:NERDTreeDirArrowCollapsible = '▾'
+let g:NERDTreeDirArrowCollapsible = ''
 "let g:NERDTreeDirArrowCollapsible = '⯆'
 let NERDTreeIgnore = ['\.meta$','\.asset$','\.csproj$','\.cache$','\.apk$']
 
@@ -625,6 +625,7 @@ let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['html'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['json'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['jsx'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['tsx'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['js'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['ts'] = 'ﯤ'
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['md'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vim'] = ''

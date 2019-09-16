@@ -46,3 +46,4 @@ highlight SignColumn ctermbg=none guibg=none
 set fillchars+=vert:│
 
 highlight VertSplit ctermbg=none guibg=none
+highlight Pmenu ctermbg=gray guibg=gray

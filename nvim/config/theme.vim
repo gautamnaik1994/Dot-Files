@@ -46,3 +46,10 @@ highlight SignColumn ctermbg=none guibg=none
 set fillchars+=vert:│
 
 highlight VertSplit ctermbg=none guibg=none
+
+" Pmenu – normal item
+" PmenuSel – selected item
+" PmenuSbar – scrollbar
+" PmenuThumb – thumb of the scrollbar
+highlight Pmenu ctermbg=gray ctermfg=gray
+"highlight PmenuSel ctermbg=gray ctermfg=gray

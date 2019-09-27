@@ -49,7 +49,7 @@ call plug#begin('~/AppData/Local/nvim/bundle')
 Plug 'moll/vim-node', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 "Plug 'nvie/vim-flake8',{ 'for': [ 'python'] }
-Plug 'OmniSharp/omnisharp-vim',{'for':['cs']}
+"Plug 'OmniSharp/omnisharp-vim',{'for':['cs']}
 Plug 'OrangeT/vim-csharp',{'for':['cs']}
 "Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/xml.vim'
@@ -168,6 +168,7 @@ Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 "Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
 "Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
 "Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
+" Plug 'coc-extensions/coc-omnisharp', {'do': 'yarn install --frozen-lockfile'}
 
 call plug#end()
 set enc=utf-8

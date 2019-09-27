@@ -176,11 +176,6 @@ set fileencodings=ucs-bom,utf8,prc
 "set guifont=Monaco:h11
 set guifontwide=NSimsun:h12
 
-let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
-" after a re-source, fix syntax matching issues (concealing brackets):
-if exists('g:loaded_webdevicons')
-  call webdevicons#refresh()
-endif
 
 "Source files from config folder
 for f in split(glob('~/AppData/Local/nvim/config/*.vim'), '\n')
@@ -349,27 +344,6 @@ if has_key(g:plugs, 'ultisnips')
     "inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
     let g:UltiSnipsSnippetDirectories = ['~/AppData/Local/nvim/UltiSnips', 'UltiSnips']
 endif
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => nerdtree
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-augroup nerd
-    autocmd!
-    autocmd vimenter * NERDTree
-    autocmd StdinReadPre * let s:std_in=1
-    autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-    autocmd VimEnter *
-                \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-                \|   PlugInstall --sync | q
-                \| endif
-augroup end
-map <C-n> :NERDTreeToggle<CR>
-let NERDTreeMinimalUI=1
-let g:NERDTreeDirArrowExpandable = ''
-"let g:NERDTreeDirArrowExpandable = '⯈'
-let g:NERDTreeDirArrowCollapsible = ''
-"let g:NERDTreeDirArrowCollapsible = '⯆'
-let NERDTreeIgnore = ['\.meta$','\.asset$','\.csproj$','\.cache$','\.apk$']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => emmet-vim
@@ -616,9 +590,41 @@ let g:netrw_liststyle=3 "Tree view
 let g:netrw_dirhistmax = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => nerdtree
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+augroup nerd
+    autocmd!
+    autocmd vimenter * NERDTree
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+    autocmd VimEnter *
+                \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+                \|   PlugInstall --sync | q
+                \| endif
+augroup end
+map <C-n> :NERDTreeToggle<CR>
+let NERDTreeMinimalUI=1
+let g:NERDTreeDirArrowExpandable = ''
+"let g:NERDTreeDirArrowExpandable = '⯈'
+let g:NERDTreeDirArrowCollapsible = ''
+"let g:NERDTreeDirArrowCollapsible = '⯆'
+let NERDTreeIgnore = ['\.meta$','\.asset$','\.csproj$','\.cache$','\.apk$']
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-devicons
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
+
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+
 let g:DevIconsEnableFoldersOpenClose = 1
+
+let g:DevIconsEnableFolderExtensionPatternMatching = 1
+
+"let g:WebDevIconsUnicodeDecorateFolderNodesDefaultSymbol = ' '
+" change the default open folder/directory glyph/icon (default is '') 
+"let g:DevIconsDefaultFolderOpenSymbol = ''
 
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['html'] = ''
@@ -645,8 +651,21 @@ let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.*vim.*'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.gitignore'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['package.json'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['package.lock.json'] = ''
-let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['node_modules'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['node_modules'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['images'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['webpack\.'] = 'ﰩ '
+
+let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols = {} " needed
+let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['tags'] =  ''
+
+
+
 
 let g:NERDTreeHighlightFolders = 1
 let g:NERDTreeHighlightFoldersFullName = 1 
+
+" after a re-source, fix syntax matching issues (concealing brackets):
+if exists('g:loaded_webdevicons')
+  call webdevicons#refresh()
+endif
+

@@ -145,6 +145,9 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'arcticicestudio/nord-vim'
 Plug 'cocopon/iceberg.vim'
+Plug 'ajmwagar/vim-deus'
+Plug 'whatyouhide/vim-gotham'
+Plug 'liuchengxu/space-vim-dark'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -475,17 +478,18 @@ endif
 " => omnisharp-vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has_key(g:plugs, 'omnisharp-vim')
-let g:OmniSharp_server_path = 'C:\Neovim\omnisharp-roslyn\artifacts\publish\OmniSharp.Http.Driver\win7-x64\OmniSharp.exe'
+let g:OmniSharp_server_stdio = 1
+let g:OmniSharp_server_path = 'C:\Neovim\omnisharp-roslyn\artifacts\publish\OmniSharp.Stdio.Driver\win7-x64\OmniSharp.exe'
 let g:OmniSharp_server_type = 'roslyn'
 let g:Omnisharp_stop_server = 2
-if !exists('g:deoplete#omni#input_patterns')
-    let g:deoplete#omni#input_patterns = {}
-endif
+" if !exists('g:deoplete#omni#input_patterns')
+"     let g:deoplete#omni#input_patterns = {}
+" endif
 "let g:deoplete#omni#input_patterns.cs = ['\.\w*']
-let g:deoplete#omni#input_patterns.cs = ['\w+']
-let g:deoplete#omni#functions = {}
-let g:deoplete#sources = {}
-let g:deoplete#sources.cs = ['omni', 'file', 'buffer', 'ultisnips','cs']
+" let g:deoplete#omni#input_patterns.cs = ['\w+']
+" let g:deoplete#omni#functions = {}
+" let g:deoplete#sources = {}
+" let g:deoplete#sources.cs = ['omni', 'file', 'buffer', 'ultisnips','cs']
 let g:OmniSharp_selector_ui = 'ctrlp'  " Use ctrlp.vim
 let g:OmniSharp_use_random_port = 1
 endif
@@ -663,7 +667,7 @@ let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['tags'] =  ''
 
 
 let g:NERDTreeHighlightFolders = 1
-let g:NERDTreeHighlightFoldersFullName = 1 
+let g:NERDTreeHighlightFoldersFullName = 1
 
 " after a re-source, fix syntax matching issues (concealing brackets):
 if exists('g:loaded_webdevicons')

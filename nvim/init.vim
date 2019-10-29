@@ -71,20 +71,20 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 "Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'chrisbra/NrrwRgn'
 Plug 'kien/rainbow_parentheses.vim'
-"Plug 'machakann/vim-highlightedyank'
+Plug 'machakann/vim-highlightedyank'
 "Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-signify'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
-Plug 'Yggdroot/indentLine'
+" Plug 'Yggdroot/indentLine'
 Plug 'vim-scripts/indentpython.vim',{ 'for': [ 'python'] }
 Plug 'ncm2/float-preview.nvim'
 Plug 'Shougo/echodoc.vim'
 Plug 'liuchengxu/vista.vim'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 "Plug 'rbong/vim-flog'
-
+Plug 'gautamnaik1994/vim-panda-bt'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Utilities
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -148,6 +148,7 @@ Plug 'cocopon/iceberg.vim'
 Plug 'ajmwagar/vim-deus'
 Plug 'whatyouhide/vim-gotham'
 Plug 'liuchengxu/space-vim-dark'
+Plug 'gruvbox-community/gruvbox'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -218,7 +219,7 @@ autocmd generalAutoCommand BufWritePre * :%s/\s\+$//e
 "autocmd generalAutoCommand BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 autocmd generalAutoCommand BufNewFile,BufRead *.scss set ft=scss.css
-
+"autocmd generalAutoCommand BufNewFile,BufRead *.BT.txt,*.BT.lib.txt set ft=pandabt
 autocmd generalAutoCommand Filetype json let g:indentLine_setConceal = 0
 
 "autocmd generalAutoCommand BufRead,BufNewFile *.md setlocal textwidth=80
@@ -264,8 +265,10 @@ let g:jsx_ext_required = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => indentLine
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has_key(g:plugs, 'indentLine')
 let g:indentLine_char = '│'
 let g:vim_json_syntax_conceal = 0
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => deoplete.nvim

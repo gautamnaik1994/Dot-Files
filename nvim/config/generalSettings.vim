@@ -12,7 +12,10 @@ set nocompatible " be iMproved
 nnoremap <leader>md :!mkdir -p %:p:h<cr>
 " allow moving cursor just after the last chraracter of the line
 set virtualedit=onemore
-set list lcs=tab:\│\             " show vertical lines
+set list
+set list lcs=space:_,tab:\┊\             " show vertical lines  ['|', '¦', '┆', '┊']
+"set listchars=space:_,tab:>~
+" set listchars=tab:␉·
 :filetype on
 filetype plugin on
 syntax enable
@@ -25,8 +28,8 @@ set relativenumber                  " Show the line numbers on the left side.
 set formatoptions+=o           " Continue comment marker in new lines.
 "set expandtab                 " Insert spaces when TAB is pressed.
 set tabstop=2                  " Render TABs using this many spaces.
-set expandtab
-set shiftwidth=4               " Indentation amount for < and > commands.
+"set expandtab
+set shiftwidth=2               " Indentation amount for < and > commands.
 set nojoinspaces
 set t_Co=256
 set encoding=utf-8

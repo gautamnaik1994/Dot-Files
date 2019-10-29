@@ -1,8 +1,8 @@
 
 
 """""""""""""""""""""""""""""""""Airline""""""""""""""""""""""""""""""""""""""""""""
-"let g:airline_theme='base16_spacemacs'
-let g:airline_theme='random'
+let g:airline_theme='base16_spacemacs'
+"let g:airline_theme='random'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 2
 let g:airline#extensions#tabline#fnamemod = ':t'

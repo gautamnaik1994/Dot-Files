@@ -108,3 +108,6 @@ if has('nvim-0.3.2') || has("patch-8.1.0360")
 endif
 
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh','javascript','viml=vim','csharp=cs','css','scss']
+
+"I don't like my cursor line getting too close to the top or the bottom of the screen"
+set scrolloff=3

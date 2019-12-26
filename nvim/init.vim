@@ -123,7 +123,8 @@ Plug 'vim-scripts/indentpython.vim',{ 'for': [ 'python'] }
 "Plug 'w0rp/ale',{ 'for': ['javascript', 'javascript.jsx', 'python','cs'] }
 Plug 'wellle/targets.vim'
 "Plug 'meain/vim-package-info', { 'do': 'npm install' }
-Plug 'yuttie/comfortable-motion.vim'
+" Plug 'yuttie/comfortable-motion.vim'
+Plug 'psliwka/vim-smoothie'
 Plug 'rhysd/git-messenger.vim'
 Plug 'Shougo/echodoc.vim'
 Plug 'kamykn/spelunker.vim'
@@ -435,6 +436,7 @@ endif
 "let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|public\|git\|\.meta$\|\.asset$\|\.cache$\|\.mat$\|\.png$\|\.jpg$\|\.jpeg$'
 "let g:ctrlp_cmd='CtrlP :pwd'
+"let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => SimpylFold

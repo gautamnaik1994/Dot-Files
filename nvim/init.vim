@@ -219,7 +219,7 @@ autocmd generalAutoCommand BufWritePost init.vim source %  "Automatically source
 autocmd generalAutoCommand BufWritePre * :%s/\s\+$//e
 "autocmd generalAutoCommand BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
-autocmd generalAutoCommand BufNewFile,BufRead *.scss set ft=scss.css
+"autocmd generalAutoCommand BufNewFile,BufRead *.scss set ft=scss.css
 "autocmd generalAutoCommand BufNewFile,BufRead *.BT.txt,*.BT.lib.txt set ft=pandabt
 autocmd generalAutoCommand Filetype json let g:indentLine_setConceal = 0
 

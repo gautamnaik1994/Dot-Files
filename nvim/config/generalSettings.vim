@@ -111,3 +111,5 @@ let g:markdown_fenced_languages = ['html', 'python', 'bash=sh','javascript','vim
 
 "I don't like my cursor line getting too close to the top or the bottom of the screen"
 set scrolloff=3
+
+set shortmess=a

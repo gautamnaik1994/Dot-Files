@@ -434,7 +434,8 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:ctrlp_custom_ignore = 'node_modules\DS_Store\|git'
 "let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|public\|git\|\.meta$\|\.asset$\|\.cache$\|\.mat$\|\.png$\|\.jpg$\|\.jpeg$'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|\.meta$\|\.asset$\|\.cache$\|\.mat$\|\.png$\|\.jpg$\|\.jpeg$'
+"let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|public\|git\|\.meta$\|\.asset$\|\.cache$\|\.mat$\|\.png$\|\.jpg$\|\.jpeg$'
 "let g:ctrlp_cmd='CtrlP :pwd'
 "let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 

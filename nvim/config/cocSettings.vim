@@ -101,35 +101,35 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 " use error & warning count of diagnostics form coc.nvim
-let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
-let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
+"let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
+"let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
 
-" create a part for server status.
-function! GetServerStatus()
-    return get(g:, 'coc_status', '')
-endfunction
-call airline#parts#define_function('coc', 'GetServerStatus')
-function! AirlineInit()
-    let g:airline_section_a = airline#section#create(['coc'])
-endfunction
-autocmd User AirlineAfterInit call AirlineInit()
+"" create a part for server status.
+"function! GetServerStatus()
+    "return get(g:, 'coc_status', '')
+"endfunction
+"call airline#parts#define_function('coc', 'GetServerStatus')
+"function! AirlineInit()
+    "let g:airline_section_a = airline#section#create(['coc'])
+"endfunction
+"autocmd User AirlineAfterInit call AirlineInit()
 
-" exclude overwrite statusline of list filetype
-let g:airline_exclude_filetypes = ["list"]
+"" exclude overwrite statusline of list filetype
+"let g:airline_exclude_filetypes = ["list"]
 
-"Change error symbol:
+""Change error symbol:
 
-let airline#extensions#coc#error_symbol = 'Error:'
+"let airline#extensions#coc#error_symbol = 'Error:'
 
-"Change warning symbol:
+""Change warning symbol:
 
-let airline#extensions#coc#warning_symbol = 'Warning:'
+"let airline#extensions#coc#warning_symbol = 'Warning:'
 
-"Change error format:
-let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
+""Change error format:
+"let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
 
-"Change warning format:
-let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
+""Change warning format:
+"let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
 
 
 

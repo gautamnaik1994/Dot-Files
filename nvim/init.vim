@@ -56,7 +56,7 @@ Plug 'othree/xml.vim'
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'posva/vim-vue',{ 'for': ['vue'] }
 "Plug 'ternjs/tern_for_vim', {'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
-"Plug 'vim-python/python-syntax'
+Plug 'vim-python/python-syntax'
 Plug 'jparise/vim-graphql'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
@@ -348,7 +348,7 @@ endif
 if has_key(g:plugs, 'ultisnips')
     let g:UltiSnipsEditSplit="vertical"
     "autocmd generalAutoCommand FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-    let g:UltiSnipsExpandTrigger="<C-j>"
+    let g:UltiSnipsExpandTrigger="<C-l>"
     "inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
     let g:UltiSnipsSnippetDirectories = ['~/AppData/Local/nvim/UltiSnips', 'UltiSnips']
 endif
@@ -434,7 +434,7 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:ctrlp_custom_ignore = 'node_modules\DS_Store\|git'
 "let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|\.meta$\|\.asset$\|\.cache$\|\.mat$\|\.png$\|\.jpg$\|\.jpeg$'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|\.meta$\|\.asset$\|\.cache$\|\.mat$\|\.png$\|\.jpg$\|\.jpeg$\|venv\|__pycache__'
 "let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|public\|git\|\.meta$\|\.asset$\|\.cache$\|\.mat$\|\.png$\|\.jpg$\|\.jpeg$'
 "let g:ctrlp_cmd='CtrlP :pwd'
 "let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
@@ -679,4 +679,12 @@ let g:NERDTreeHighlightFoldersFullName = 1
 if exists('g:loaded_webdevicons')
   call webdevicons#refresh()
 endif
+
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => python-syntax
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:python_highlight_all = 1
 

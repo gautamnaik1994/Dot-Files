@@ -1,11 +1,12 @@
 {
   "suggest.triggerAfterInsertEnter":true,
   "suggest.echodocSupport": true,
-  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact","scss","css"],
+  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact","scss","css","python"],
   "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact"],
-  "diagnostic.errorSign": "•",
-  "diagnostic.warningSign": "•",
-  "diagnostic.infoSign": "•",
+  "diagnostic.errorSign": "ﮊ",
+  "diagnostic.warningSign": "",
+ // "diagnostic.warningSign": "•",
+  "diagnostic.infoSign": "כֿ",
   "prettier.eslintIntegration": true,
   "snippets.extends": {"typescriptreact":["javascript"],"typescript":["javascript"],"javascriptreact":["javascript"]},
   "eslint.autoFixOnSave": true,
@@ -16,6 +17,7 @@
   //"diagnostic.virtualText": true,
   "tsserver.enableJavascript": true,
 	"css.enable": true,
+    "python.jediEnabled":true,
 
 
   // "git.enableGutters": true,

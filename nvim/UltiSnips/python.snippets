@@ -1,0 +1,24 @@
+global !p
+endglobal
+
+snippet pds "python doc string"
+`!p
+words=snip.v.text.split(',')
+string= """
+'''Description
+
+Parameters:
+
+"""
+for i in range(0,len(words)):
+	string=string+"\n" +words[i]+" ( ): Info"
+
+string=string+ """
+
+Returns:
+	ReturnType:Info
+'''
+"""
+snip.rv=string
+`
+endsnippet

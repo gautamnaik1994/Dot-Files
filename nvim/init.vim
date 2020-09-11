@@ -84,7 +84,7 @@ Plug 'Shougo/echodoc.vim'
 Plug 'liuchengxu/vista.vim'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 "Plug 'rbong/vim-flog'
-Plug 'gautamnaik1994/vim-panda-bt'
+" Plug 'gautamnaik1994/vim-panda-bt'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Utilities
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -105,7 +105,7 @@ Plug 'honza/vim-snippets'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'mattn/emmet-vim'
 Plug 'mbbill/undotree'
-Plug 'mileszs/ack.vim' "Install ack(choco install ack) and ag(choco install ag)
+" Plug 'mileszs/ack.vim' "Install ack(choco install ack) and ag(choco install ag)
 Plug 'jremmen/vim-ripgrep' "Install ripgrep (choco install ripgrep)
 Plug 'myusuf3/numbers.vim'
 "Plug 'prettier/vim-prettier', {'do': 'npm install','for': ['javascript', 'css', 'scss', 'json','vue']}
@@ -119,16 +119,16 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 "Plug 'vim-scripts/cream-capitalization'
-Plug 'vim-scripts/indentpython.vim',{ 'for': [ 'python'] }
+" Plug 'vim-scripts/indentpython.vim',{ 'for': [ 'python'] }
 "Plug 'w0rp/ale',{ 'for': ['javascript', 'javascript.jsx', 'python','cs'] }
 Plug 'wellle/targets.vim'
 "Plug 'meain/vim-package-info', { 'do': 'npm install' }
 " Plug 'yuttie/comfortable-motion.vim'
 Plug 'psliwka/vim-smoothie'
-Plug 'rhysd/git-messenger.vim'
+" Plug 'rhysd/git-messenger.vim'
 Plug 'Shougo/echodoc.vim'
 Plug 'kamykn/spelunker.vim'
-Plug 'rhysd/vim-grammarous'
+" Plug 'rhysd/vim-grammarous'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Themeing
@@ -141,21 +141,21 @@ Plug 'rhysd/vim-grammarous'
 "Plug 'NLKNguyen/papercolor-theme'
 Plug 'equalsraf/neovim-gui-shim'
 Plug 'joshdick/onedark.vim'
-Plug 'rakr/vim-one'
+" Plug 'rakr/vim-one'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'arcticicestudio/nord-vim'
-Plug 'cocopon/iceberg.vim'
-Plug 'ajmwagar/vim-deus'
-Plug 'whatyouhide/vim-gotham'
-Plug 'liuchengxu/space-vim-dark'
+" Plug 'arcticicestudio/nord-vim'
+" Plug 'cocopon/iceberg.vim'
+" Plug 'ajmwagar/vim-deus'
+" Plug 'whatyouhide/vim-gotham'
+" Plug 'liuchengxu/space-vim-dark'
 Plug 'gruvbox-community/gruvbox'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Entertainment
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'johngrib/vim-game-code-break'
+" Plug 'johngrib/vim-game-code-break'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

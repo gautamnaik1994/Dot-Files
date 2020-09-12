@@ -163,7 +163,8 @@ Plug 'johngrib/vim-game-code-break'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+"Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
 "Plug 'neoclide/coc-sources', {'do': 'yarn install --frozen-lockfile'}
 "Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}

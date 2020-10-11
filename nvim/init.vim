@@ -223,7 +223,8 @@ autocmd generalAutoCommand BufWritePre * :%s/\s\+$//e
 "autocmd generalAutoCommand BufNewFile,BufRead *.scss set ft=scss.css
 "autocmd generalAutoCommand BufNewFile,BufRead *.BT.txt,*.BT.lib.txt set ft=pandabt
 autocmd generalAutoCommand Filetype json let g:indentLine_setConceal = 0
-
+autocmd generalAutoCommand BufEnter *.{jsx,tsx} :syntax sync fromstart
+autocmd generalAutoCommand BufLeave *.{jsx,tsx} :syntax sync clear
 "autocmd generalAutoCommand BufRead,BufNewFile *.md setlocal textwidth=80
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

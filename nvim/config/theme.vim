@@ -53,5 +53,5 @@ highlight VertSplit ctermbg=none guibg=none
 " PmenuThumb – thumb of the scrollbar
 highlight Pmenu ctermbg=gray ctermfg=gray guibg=gray
 "highlight PmenuSel ctermbg=gray ctermfg=gray
-
+"highlight NonText ctermfg=7 guifg=gray
 

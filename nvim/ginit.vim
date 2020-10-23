@@ -1,5 +1,6 @@
 if exists('g:GuiLoaded')
-	Guifont! Input\ NF:h10
+	Guifont! Cascadia\ Mono\ PL:h10
+	"Guifont! Input\ NF:h10
 	"Guifont! ProFont\ for\ Powerline:h14
 	"Guifont! UbuntuMono\ NF:h11
 	"Guifont! FuraCode\ NF:h10

@@ -55,4 +55,6 @@ highlight Pmenu ctermbg=gray ctermfg=gray guibg=gray
 "highlight PmenuSel ctermbg=gray ctermfg=gray
 highlight Folded guibg=teal
 highlight Folded guifg=white
+"highlight NonText ctermfg=7 guifg=gray
+
 

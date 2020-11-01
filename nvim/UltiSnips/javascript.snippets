@@ -21,13 +21,13 @@ endsnippet
 snippet rccs "Create Stateless React Component"
 import React, {Fragment} from 'react';
 
-const $1 = (props) => (
+const $1 = (props) => {
 		return(
 			<Fragment>
 				<h4> This is $1 </h4>
 			</Fragment>
 		)
-)
+}
 
 export default $1;
 endsnippet
@@ -51,4 +51,22 @@ snippet co "wrap visual selection with react comment"
 {/*
 ${0:${VISUAL: }}
 */}
+endsnippet
+
+snippet styc "Create Styled React Component"
+import React from 'react';
+import styled from 'styled-components';
+
+const $1 = styled.$2``
+
+`;
+
+export default () => {
+		return(
+			<$1>
+				<h4> This is $1 </h4>
+			</$1>
+		)
+}
+
 endsnippet

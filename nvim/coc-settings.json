@@ -36,5 +36,6 @@
   "tsserver.enableJavascript": true,
   "css.enable": true,
   "python.jediEnabled": true,
-  "prettier.disableSuccessMessage": true
+  "prettier.disableSuccessMessage": true,
+  "yaml.format.enable": true
 }

@@ -129,6 +129,7 @@ Plug 'psliwka/vim-smoothie'
 Plug 'Shougo/echodoc.vim'
 Plug 'kamykn/spelunker.vim'
 " Plug 'rhysd/vim-grammarous'
+Plug 'pedrohdz/vim-yaml-folds'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Themeing
@@ -225,6 +226,7 @@ autocmd generalAutoCommand BufWritePre * :%s/\s\+$//e
 autocmd generalAutoCommand Filetype json let g:indentLine_setConceal = 0
 autocmd generalAutoCommand BufEnter *.{jsx,tsx} :syntax sync fromstart
 autocmd generalAutoCommand BufLeave *.{jsx,tsx} :syntax sync clear
+autocmd generalAutoCommand FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 "autocmd generalAutoCommand BufRead,BufNewFile *.md setlocal textwidth=80
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

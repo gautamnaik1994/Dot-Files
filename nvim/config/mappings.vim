@@ -257,3 +257,6 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 " inoremap (,<CR> (<CR>),<ESC>O
 " inoremap [,<CR> [<CR>],<ESC>O
 " inoremap {,<CR> {<CR>},<ESC>O
+
+"If you would like to replace the selected set of characters, you could do so by hitting Ctrl-r
+vnoremap "hy:%s/h//gc<left><left><left>

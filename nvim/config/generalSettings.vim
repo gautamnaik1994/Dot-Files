@@ -113,3 +113,6 @@ let g:markdown_fenced_languages = ['html', 'python', 'bash=sh','javascript','vim
 set scrolloff=3
 
 set shortmess=a
+
+let g:markdown_fenced_languages =
+['html', 'python', 'ruby', 'vim']

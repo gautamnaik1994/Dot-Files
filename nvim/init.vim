@@ -11,13 +11,26 @@
 
 
 set encoding=utf-8
-if empty(glob('~/AppData/Local/nvim/autoload/plug.vim'))
-    silent !curl -fLo ~/AppData/Local/nvim/autoload/plug.vim --create-dirs
-                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+
+if has('win32')
+    if empty(glob('~/AppData/Local/nvim/autoload/plug.vim'))
+        silent !curl -fLo ~/AppData/Local/nvim/autoload/plug.vim --create-dirs
+                    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
+
+    call plug#begin('~/AppData/Local/nvim/bundle')
 endif
 
-call plug#begin('~/AppData/Local/nvim/bundle')
+if has('mac')
+    if empty(glob('~/.config/nvim/autoload/plug.vim'))
+        silent !curl -fLo ~/AppData/Local/nvim/autoload/plug.vim --create-dirs
+                    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
+    call plug#begin('~/.config/nvim/bundle')
+endif
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Autocompletion and Sources
@@ -186,9 +199,17 @@ set guifontwide=NSimsun:h12
 
 
 "Source files from config folder
-for f in split(glob('~/AppData/Local/nvim/config/*.vim'), '\n')
-    exe 'source' f
-endfor
+if has('win32')
+    for f in split(glob('~/AppData/Local/nvim/config/*.vim'), '\n')
+        exe 'source' f
+    endfor  
+endif
+
+if has('mac')
+    for f in split(glob('~/.config/nvim/config/*.vim'), '\n')
+        exe 'source' f
+    endfor 
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Miscellaneous

@@ -1,8 +1,14 @@
-let g:python3_host_prog='C:/ProgramData/Anaconda3/python'
-let g:python_host_prog='C:/ProgramData/Miniconda2/python'
 " if !exists(g:python_host_prog)
 "     let g:python_host_prog='C:/ProgramData/Miniconda2/python'
 " endif
+if has('mac')
+    let g:python3_host_prog='/Users/Shared/anaconda3/bin/python'
+endif
+if has('win32')
+    let g:python3_host_prog='C:/ProgramData/Anaconda3/python'
+    let g:python_host_prog='C:/ProgramData/Miniconda2/python'
+endif
+
 set path+=**
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -114,5 +120,4 @@ set scrolloff=3
 
 set shortmess=a
 
-let g:markdown_fenced_languages =
-['html', 'python', 'ruby', 'vim']
+let g:markdown_fenced_languages = ['html', 'python', 'ruby', 'vim']

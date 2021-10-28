@@ -44,6 +44,7 @@ endif
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "Plug 'tbodt/deoplete-tabnine', { 'do': 'powershell.exe .\install.ps1' }
 "Plug 'deoplete-plugins/deoplete-jedi',{ 'for': [ 'python'] }
+Plug 'github/copilot.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Language Plugins
@@ -644,6 +645,9 @@ let g:NERDTreeDirArrowExpandable = ''
 "let g:NERDTreeDirArrowExpandable = '⯈'
 let g:NERDTreeDirArrowCollapsible = ''
 "let g:NERDTreeDirArrowCollapsible = '⯆'
+let g:NERDTreeDirArrowExpandable="+"
+let g:NERDTreeDirArrowCollapsible="~"
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 let NERDTreeIgnore = ['\.meta$','\.asset$','\.csproj$','\.cache$','\.apk$']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

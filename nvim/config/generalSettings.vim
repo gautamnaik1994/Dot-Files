@@ -3,6 +3,8 @@
 " endif
 if has('mac')
     let g:python3_host_prog='/Users/Shared/anaconda3/bin/python'
+    let g:python_host_prog='/Users/Shared/anaconda3/envs/py2/bin/python'
+		let g:perl_host_prog = '/usr/bin/perl'
 endif
 if has('win32')
     let g:python3_host_prog='C:/ProgramData/Anaconda3/python'
@@ -121,3 +123,5 @@ set scrolloff=3
 set shortmess=a
 
 let g:markdown_fenced_languages = ['html', 'python', 'ruby', 'vim']
+
+set nocursorline

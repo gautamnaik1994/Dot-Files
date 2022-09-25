@@ -44,7 +44,7 @@ endif
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "Plug 'tbodt/deoplete-tabnine', { 'do': 'powershell.exe .\install.ps1' }
 "Plug 'deoplete-plugins/deoplete-jedi',{ 'for': [ 'python'] }
-Plug 'github/copilot.vim'
+"Plug 'github/copilot.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Language Plugins
@@ -144,6 +144,7 @@ Plug 'Shougo/echodoc.vim'
 Plug 'kamykn/spelunker.vim'
 " Plug 'rhysd/vim-grammarous'
 Plug 'pedrohdz/vim-yaml-folds'
+Plug 'AndrewRadev/sideways.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Themeing
@@ -155,16 +156,17 @@ Plug 'pedrohdz/vim-yaml-folds'
 "Plug 'morhetz/gruvbox'
 "Plug 'NLKNguyen/papercolor-theme'
 Plug 'equalsraf/neovim-gui-shim'
+Plug 'sonph/onehalf'
 Plug 'joshdick/onedark.vim'
 " Plug 'rakr/vim-one'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'arcticicestudio/nord-vim'
+Plug 'arcticicestudio/nord-vim'
 " Plug 'cocopon/iceberg.vim'
 " Plug 'ajmwagar/vim-deus'
 " Plug 'whatyouhide/vim-gotham'
 " Plug 'liuchengxu/space-vim-dark'
-Plug 'gruvbox-community/gruvbox'
+"Plug 'gruvbox-community/gruvbox'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -203,13 +205,13 @@ set guifontwide=NSimsun:h12
 if has('win32')
     for f in split(glob('~/AppData/Local/nvim/config/*.vim'), '\n')
         exe 'source' f
-    endfor  
+    endfor
 endif
 
 if has('mac')
     for f in split(glob('~/.config/nvim/config/*.vim'), '\n')
         exe 'source' f
-    endfor 
+    endfor
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -724,3 +726,11 @@ let g:python_highlight_all = 1
 let g:NERDCustomDelimiters={
 	\ 'javascript': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
 \}
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => sideways.vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"nnoremap <c-h> :SidewaysLeft<cr>
+"nnoremap <c-l> :SidewaysRight<cr>
+

@@ -1,5 +1,6 @@
 {
   "suggest.triggerAfterInsertEnter": true,
+  "suggest.noselect": true,
   "suggest.echodocSupport": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
@@ -30,6 +31,7 @@
   "eslint.autoFixOnSave": true,
   "eslint.autoFix": true,
   "suggest.snippetIndicator": "★",
+  "suggest.noselect": true,
   "javascript.validate.enable": false,
   "codeLens.enable": true,
   //"diagnostic.virtualText": true,

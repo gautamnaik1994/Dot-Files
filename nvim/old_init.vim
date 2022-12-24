@@ -64,11 +64,11 @@ Plug 'moll/vim-node', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 "Plug 'nvie/vim-flake8',{ 'for': [ 'python'] }
 "Plug 'OmniSharp/omnisharp-vim',{'for':['cs']}
-Plug 'OrangeT/vim-csharp',{'for':['cs']}
+" Plug 'OrangeT/vim-csharp',{'for':['cs']}
 "Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/xml.vim'
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'posva/vim-vue',{ 'for': ['vue'] }
+" Plug 'posva/vim-vue',{ 'for': ['vue'] }
 "Plug 'ternjs/tern_for_vim', {'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
 Plug 'vim-python/python-syntax'
 Plug 'jparise/vim-graphql'

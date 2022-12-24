@@ -75,7 +75,7 @@ set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.min.js,*.prefab,*.meta,*.unity,*.asset,*.mp4,*.mp3,*.avi,*.mov,*.fbx,*.pdf,*.maya,*.blender,*.user,*.dwlt,*.db,*.pref
 set wildignore+=*/bower_components/*,*/node_modules/*,*/__pycache__/*
 set wildignore+=*/smarty/*,*/vendor/*,*/.git/*,*/.hg/*,*/.svn/*,*/.sass-cache/*,*/log/*,*/tmp/*,*/build/*,*/ckeditor/*,*/doc/*,*/source_maps/*,*/dist/*
-set wildignore+=*/Temp/*,*/Library/*,*/Debug/*,*/Build/*,*/.gradle/*,*/obj/*,*/.idea/*,*/.vs/*,*/.vscode/*
+set wildignore+=*/Temp/*,*/Library/*,*/Debug/*,*/Build/*,*/.gradle/*,*/obj/*,*/.idea/*,*/.vs/*,*/.vscode/*,*/cdk.out/*
 set wildignore+=*/ios/*,*/Android/*
 " Enable folding
 set foldmethod=indent

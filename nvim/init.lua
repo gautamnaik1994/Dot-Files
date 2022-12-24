@@ -31,6 +31,8 @@ require('packer').startup(function(use)
         requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
     }
 
+    use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
+
     use { -- Highlight, edit, and navigate code
         'nvim-treesitter/nvim-treesitter',
         run = function()
@@ -52,6 +54,7 @@ require('packer').startup(function(use)
     use 'lewis6991/gitsigns.nvim'
 
     use 'navarasu/onedark.nvim' -- Theme inspired by Atom
+    use 'nvim-tree/nvim-web-devicons'
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
@@ -59,14 +62,16 @@ require('packer').startup(function(use)
     use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
     use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
     use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
+    use 'tpope/vim-surround'
 
-    -- Fuzzy Finder (files, lsp, etc)
+    --- Fuzzy Finder (files, lsp, etc)-- Fuzzy Finder (files, lsp, etc)- Fuzzy Finder (files, lsp, etc)
     use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
 
     -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
 
     use { 'akinsho/bufferline.nvim', requires = 'nvim-tree/nvim-web-devicons' }
+    use 'mattn/emmet-vim'
     -- use { 'alvarosevilla95/luatab.nvim', requires = 'kyazdani42/nvim-web-devicons' }
     -- use({
     --     'crispgm/nvim-tabline',
@@ -76,6 +81,15 @@ require('packer').startup(function(use)
     -- })
 
     use 'jose-elias-alvarez/null-ls.nvim'
+    use { "nvim-telescope/telescope-file-browser.nvim" }
+    use 'phaazon/hop.nvim'
+
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons', -- optional, for file icons
+        },
+    }
 
     -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
     local has_plugins, plugins = pcall(require, 'custom.plugins')
@@ -309,10 +323,10 @@ require('nvim-treesitter.configs').setup {
 }
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
+-- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+-- vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+-- vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
+-- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
@@ -342,8 +356,8 @@ local on_attach = function(_, bufnr)
     nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
     -- See `:help K` for why this keymap
-    -- nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-    -- nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+    nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
+    nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
     -- Lesser used LSP functionality
     nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
@@ -452,6 +466,7 @@ cmp.setup {
     sources = {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
+        { name = 'cmp_tabnine' },
     },
 }
 
@@ -459,15 +474,15 @@ cmp.setup {
 -- vim: ts=2 sts=2 sw=2 et
 require("autoclose").setup({})
 require("bufferline").setup({
-    -- options = {
-    --     diagnostics = "nvim_lsp",
-    --     diagnostics_indicator = function(count, level, diagnostics_dict, context)
-    --         local icon = level:match("error") and " " or " "
-    --         return " " .. icon .. count
-    --     end,
-    --     color_icons = true,
-    --     show_buffer_icons = true,
-    -- },
+    options = {
+        diagnostics = "nvim_lsp",
+        diagnostics_indicator = function(count, level, diagnostics_dict, context)
+            local icon = level:match("error") and " " or " "
+            return " " .. icon .. count
+        end,
+        color_icons = true,
+        show_buffer_icons = true,
+    },
     -- highlights = {
     --     buffer_selected = {
     --         italic = false,
@@ -504,10 +519,34 @@ require("bufferline").setup({
     --     },
     -- }
 })
--- require('luatab').setup {}
--- require('tabline').setup({})
 
+require("telescope").load_extension "file_browser"
+require("nvim-web-devicons")
+require("nvim-tree").setup({
+    sort_by = "case_sensitive",
+    disable_netrw = false,
+    hijack_netrw = false,
+
+    view = {
+        adaptive_size = true,
+        mappings = {
+            list = {
+                { key = "u", action = "dir_up" },
+            },
+        },
+    },
+    renderer = {
+        group_empty = true,
+    },
+    filters = {
+        dotfiles = true,
+    },
+})
+
+require'hop'.setup()
 
 require('settings')
 require('mappings')
 require('null_ls')
+require('hop_config')
+require('emmet_config')

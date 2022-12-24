@@ -89,10 +89,10 @@ nmap("<leader>bb", "<cmd>Telescope buffers<cr>")
 nmap("<leader>hh", "<cmd>Telescope help_tags<cr>")
 
 -- LSP
-nmap('K', '<cmd>Lspsaga hover_doc<cr>')
-imap('<C-k>', '<cmd>Lspsaga hover_doc<cr>')
-nmap('gh', '<cmd>Lspsaga lsp_finder<cr>')
-nmap('<C-e>', '<cmd>Lspsaga show_line_diagnostics<CR>')
+-- nmap('K', '<cmd>Lspsaga hover_doc<cr>')
+-- imap('<C-k>', '<cmd>Lspsaga hover_doc<cr>')
+-- nmap('gh', '<cmd>Lspsaga lsp_finder<cr>')
+-- nmap('<C-e>', '<cmd>Lspsaga show_line_diagnostics<CR>')
 
 -- git
 -- nmap('<C-g>', '<cmd>GitMessenger<cr>')
@@ -105,10 +105,19 @@ imap('II', '<Esc>I')
 imap('AA', '<Esc>A')
 imap('OO', '<Esc>O')
 
+-- CC change what is on the right of the cursor
+--  SS change the whole line
+--  DD delete the current line (end in normal mode)
+--  UU undo
+imap('CC', '<Esc>C')
+imap('SS', '<Esc>S')
+imap('DD', '<Esc>dd')
+imap('UU', '<Esc>u')
+
 -- use <c-e> and <c-y> to type below and above text
 -- save file
 imap('<leader>s', '<cmd>w<cr>')
-nmap('<leader>s', '<cmd>w<cr>')
+nmap('<leader>s', ':w<cr><esc>')
 
 -- Mappings to move lines"
 
@@ -127,3 +136,12 @@ nmap('<Tab>', '<cmd>bnext<cr>')
 nmap('<S-Tab>', '<cmd>bprev<cr>')
 nmap('gb', '<cmd>buffer #<cr>')
 nmap('<leader>lf', "<cmd>lua vim.lsp.buf.format()<cr>")
+-- nmap('<leader>n', "<cmd>Telescope file_browser<cr>")
+nmap('<C-n>', "<cmd>NvimTreeToggle<cr>")
+
+
+-- Open Vim file
+nmap('<leader>ev', '<cmd>tabedit $MYVIMRC<cr>')
+nmap('<leader><space>', '<cmd>nohl<cr>')
+
+

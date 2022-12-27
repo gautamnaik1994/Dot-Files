@@ -32,7 +32,7 @@ nmap('/', '/\\v')
 vmap('/', '/\\v')
 
 -- don't jump when using *
-nmap('*', '*<c-o>')
+-- nmap('*', '*<c-o>')
 
 -- keep search matches in the middle of the window
 nmap('n', 'nzzzv')
@@ -43,11 +43,11 @@ nmap('g;', 'g;zz')
 --nmap('g', 'g,zz') -- for some reason doesn't work well
 
 -- Open a Quickfix window for the last search.
-nmap("<leader>?", ":execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>")
+-- nmap("<leader>?", ":execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>")
 
 -- Begining & End of line in Normal mode
-nmap('H', '^')
-nmap('L', 'g_')
+-- nmap('H', '^')
+-- nmap('L', 'g_')
 
 -- more natural movement with wrap on
 nmap('j', 'gj')
@@ -66,8 +66,8 @@ vmap('<', '<gv')
 vmap('>', '>gv')
 
 -- home and end line in command mode
-cmap('<C-a>', '<Home>')
-cmap('<C-e>', '<End>')
+-- cmap('<C-a>', '<Home>')
+-- cmap('<C-e>', '<End>')
 
 -- Terminal
 -- ESC to go to normal mode in terminal
@@ -109,9 +109,9 @@ imap('OO', '<Esc>O')
 --  SS change the whole line
 --  DD delete the current line (end in normal mode)
 --  UU undo
-imap('CC', '<Esc>C')
-imap('SS', '<Esc>S')
-imap('DD', '<Esc>dd')
+-- imap('CC', '<Esc>C')
+-- imap('SS', '<Esc>S')
+-- imap('DD', '<Esc>dd')
 imap('UU', '<Esc>u')
 
 -- use <c-e> and <c-y> to type below and above text
@@ -134,7 +134,7 @@ vmap('.', '<cmd>normal.<cr>')
 -- buffer navigation
 nmap('<Tab>', '<cmd>bnext<cr>')
 nmap('<S-Tab>', '<cmd>bprev<cr>')
-nmap('gb', '<cmd>buffer #<cr>')
+-- nmap('gb', '<cmd>buffer #<cr>')
 nmap('<leader>lf', "<cmd>lua vim.lsp.buf.format()<cr>")
 -- nmap('<leader>n', "<cmd>Telescope file_browser<cr>")
 nmap('<C-n>', "<cmd>NvimTreeToggle<cr>")
@@ -145,3 +145,17 @@ nmap('<leader>ev', '<cmd>tabedit $MYVIMRC<cr>')
 nmap('<leader><space>', '<cmd>nohl<cr>')
 
 
+nmap( '<right>' ,'<C-w>5>' )
+nmap( '<left>', '<C-w>5<')
+nmap( '<up>', '<C-w>5+')
+nmap('<down>' ,'<C-w>5-')
+
+-- open preveios edited file
+nmap('<C-6>','<cmd>e#<cr>')
+
+-- add space in normal mode
+nmap('<space>', 'a<space><esc>')
+
+-- add space in normal mode
+nmap('<space>', 'a<space><esc>')
+nmap('<S-space>', 'i<space><esc>')

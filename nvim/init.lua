@@ -31,7 +31,7 @@ require('packer').startup(function(use)
         requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
     }
 
-    use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
+    use { 'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp' }
 
     use { -- Highlight, edit, and navigate code
         'nvim-treesitter/nvim-treesitter',
@@ -45,7 +45,11 @@ require('packer').startup(function(use)
         after = 'nvim-treesitter',
     }
 
-    use 'm4xshen/autoclose.nvim'
+    -- use 'm4xshen/autoclose.nvim'
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
     -- require("nvim-autopairs").setup {}
 
     -- Git related plugins
@@ -63,6 +67,8 @@ require('packer').startup(function(use)
     use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
     use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
     use 'tpope/vim-surround'
+    use 'tpope/vim-repeat'
+    use "rafamadriz/friendly-snippets"
 
     --- Fuzzy Finder (files, lsp, etc)-- Fuzzy Finder (files, lsp, etc)- Fuzzy Finder (files, lsp, etc)
     use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
@@ -188,8 +194,10 @@ require('lualine').setup {
     options = {
         icons_enabled = true,
         theme = 'onedark',
-        component_separators = '|',
-        section_separators = '',
+        -- component_separators = '|',
+        -- section_separators = '',
+        component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
     },
     -- tabline = {
     --     lualine_a = {
@@ -263,7 +271,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
     ensure_installed = { 'lua', 'python', 'html', 'typescript', 'help', 'css', 'dockerfile', 'javascript', 'json',
-        'markdown', 'scss', 'vim', 'tsx' },
+        'markdown', 'scss', 'vim', 'tsx', 'c_sharp' },
 
     highlight = { enable = true },
     indent = { enable = true, disable = { 'python' } },
@@ -470,9 +478,11 @@ cmp.setup {
     },
 }
 
+require("luasnip.loaders.from_vscode").lazy_load()
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
-require("autoclose").setup({})
+-- require("autoclose").setup({})
 require("bufferline").setup({
     options = {
         diagnostics = "nvim_lsp",
@@ -543,10 +553,14 @@ require("nvim-tree").setup({
     },
 })
 
-require'hop'.setup()
+require 'hop'.setup()
 
 require('settings')
 require('mappings')
 require('null_ls')
 require('hop_config')
 require('emmet_config')
+
+
+-- To add a literal <ESC> to your command, while in insert mode, press CTRL+V then <ESC>.
+-- See :help i_CTRL-V.

@@ -10,6 +10,7 @@ end
 require('packer').startup(function(use)
     -- Package manager
     use 'wbthomason/packer.nvim'
+    use 'wakatime/vim-wakatime'
 
     use { -- LSP Configuration & Plugins
         'neovim/nvim-lspconfig',
@@ -96,6 +97,8 @@ require('packer').startup(function(use)
             'nvim-tree/nvim-web-devicons', -- optional, for file icons
         },
     }
+    -- use 'RRethy/vim-illuminate'
+    use 'nvim-treesitter/nvim-treesitter-refactor'
 
     -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
     local has_plugins, plugins = pcall(require, 'custom.plugins')
@@ -196,7 +199,7 @@ require('lualine').setup {
         theme = 'onedark',
         -- component_separators = '|',
         -- section_separators = '',
-        component_separators = { left = '', right = '' },
+        component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
     },
     -- tabline = {
@@ -271,7 +274,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
     ensure_installed = { 'lua', 'python', 'html', 'typescript', 'help', 'css', 'dockerfile', 'javascript', 'json',
-        'markdown', 'scss', 'vim', 'tsx', 'c_sharp' },
+        'markdown', 'scss', 'vim', 'tsx', 'c_sharp', 'markdown_inline' },
 
     highlight = { enable = true },
     indent = { enable = true, disable = { 'python' } },
@@ -396,7 +399,7 @@ local servers = {
     html = {},
     cssls = {},
 
-    sumneko_lua = {
+    lua_ls = {
         Lua = {
             workspace = { checkThirdParty = false },
             telemetry = { enable = false },
@@ -479,6 +482,7 @@ cmp.setup {
 }
 
 require("luasnip.loaders.from_vscode").lazy_load()
+-- require("illuminate").setup()
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
@@ -552,6 +556,17 @@ require("nvim-tree").setup({
         dotfiles = true,
     },
 })
+
+require 'nvim-treesitter.configs'.setup {
+    refactor = {
+        highlight_definitions = {
+            enable = true,
+            -- Set to false if you have an `updatetime` of ~100.
+            clear_on_cursor_move = true,
+        },
+        -- highlight_current_scope = { enable = true },
+    },
+}
 
 require 'hop'.setup()
 

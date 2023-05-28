@@ -9,6 +9,7 @@ local sources = {
     -- formatting.prettier,
     formatting.prettierd,
     formatting.stylelint,
+    formatting.csharpier
 }
 
 null_ls.setup({

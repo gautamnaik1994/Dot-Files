@@ -128,6 +128,7 @@ imap('<A-k>', '<Esc><cmd>m .-2<cr>==gi')
 vmap('<A-j>', "<cmd>m '>+1<cr>gv=gv")
 vmap('<A-k>', "<cmd>m '<-2<cr>gv=gv")
 
+
 -- make . to work with visually selected lines
 vmap('.', '<cmd>normal.<cr>')
 
@@ -145,13 +146,13 @@ nmap('<leader>ev', '<cmd>tabedit $MYVIMRC<cr>')
 nmap('<leader><space>', '<cmd>nohl<cr>')
 
 
-nmap( '<right>' ,'<C-w>5>' )
-nmap( '<left>', '<C-w>5<')
-nmap( '<up>', '<C-w>5+')
-nmap('<down>' ,'<C-w>5-')
+nmap('<right>', '<C-w>5>')
+nmap('<left>', '<C-w>5<')
+nmap('<up>', '<C-w>5+')
+nmap('<down>', '<C-w>5-')
 
 -- open preveios edited file
-nmap('<C-6>','<cmd>e#<cr>')
+nmap('<C-6>', '<cmd>e#<cr>')
 
 -- add space in normal mode
 nmap('<space>', 'a<space><esc>')

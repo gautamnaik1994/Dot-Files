@@ -45,6 +45,7 @@ o.showcmd = true -- display command in bottom bar
 o.incsearch = true -- starts searching as soon as typing, without enter needed
 o.ignorecase = true -- ignore letter case when searching
 o.smartcase = true -- case insentive unless capitals used in search
+o.hlsearch = true -- hihlight all words
 
 o.matchtime = 2 -- delay before showing matching paren
 o.mps = o.mps .. ",<:>"

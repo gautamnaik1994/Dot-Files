@@ -83,10 +83,16 @@ vim.o.splitright = true -- when splitting vertically, mnove coursor to right pan
 -- PLUGINS
 
 -- Find files using Telescope command-line sugar.
-nmap("<C-p>", "<cmd>Telescope find_files<cr>")
-nmap("<leader>f", "<cmd>Telescope live_grep<cr>")
-nmap("<leader>bb", "<cmd>Telescope buffers<cr>")
-nmap("<leader>hh", "<cmd>Telescope help_tags<cr>")
+-- nmap("<C-p>", "<cmd>Telescope find_files<cr>")
+-- nmap("<leader>f", "<cmd>Telescope live_grep<cr>")
+-- nmap("<leader>bb", "<cmd>Telescope buffers<cr>")
+-- nmap("<leader>hh", "<cmd>Telescope help_tags<cr>")
+
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<C-p>', builtin.find_files, {})
+vim.keymap.set('n', '<leader>f', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>bb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>hh', builtin.help_tags, {})
 
 -- LSP
 -- nmap('K', '<cmd>Lspsaga hover_doc<cr>')

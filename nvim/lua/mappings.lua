@@ -91,7 +91,7 @@ vim.o.splitright = true -- when splitting vertically, mnove coursor to right pan
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<C-p>', builtin.find_files, {})
 vim.keymap.set('n', '<leader>f', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>bb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>b', builtin.buffers, {})
 vim.keymap.set('n', '<leader>hh', builtin.help_tags, {})
 
 -- LSP

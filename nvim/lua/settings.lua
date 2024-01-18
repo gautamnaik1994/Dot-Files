@@ -15,9 +15,12 @@ o.history        = 1000
 o.startofline    = true
 
 -- Mapping waiting time
-o.timeout        = false
+o.timeout        = true
 o.ttimeout       = true
-o.ttimeoutlen    = 50
+-- o.ttimeoutlen    = 50
+
+o.timeoutlen     = 1000
+o.ttimeoutlen    = 0
 
 -- Display
 o.showmatch      = true -- show matching brackets
@@ -69,9 +72,9 @@ o.writebackup    = false
 
 vim.cmd([[
   au FileType python                  set ts=2 sw=2
-  au BufRead,BufNewFile *.md          set ft=mkd tw=80 syntax=markdown
-  au BufRead,BufNewFile *.mdx         set ft=mkd tw=80 syntax=markdown
-  au BufRead,BufNewFile *.markdown    set ft=mkd tw=80 syntax=markdown
+  au BufRead,BufNewFile *.md          set ft=markdown tw=80 syntax=markdown
+  au BufRead,BufNewFile *.mdx         set ft=markdown tw=80 syntax=markdown
+  au BufRead,BufNewFile *.markdown    set ft=markdown tw=80 syntax=markdown
   au BufRead,BufNewFile *.slimbars    set syntax=slim
 ]])
 
@@ -103,3 +106,7 @@ g.python_host_prog = "/Users/gautamnaik/anaconda3/bin/python"
 -- vim.cmd [[autocmd BufWritePre <buffer> Format()]]
 -- or
 -- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+
+vim.cmd([[
+  nnoremap <silent> * :let @/= '\<' . expand('<cword>') . '\>' <bar> set hls <cr>
+]])

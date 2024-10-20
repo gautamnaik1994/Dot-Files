@@ -96,7 +96,7 @@ return {
         end
     },
 
-
+    'windwp/nvim-ts-autotag',
 
     --'RRethy/vim-illuminate'
     'nvim-treesitter/nvim-treesitter-refactor',

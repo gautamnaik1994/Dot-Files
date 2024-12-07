@@ -233,7 +233,7 @@ local on_attach = function(_, bufnr)
 
     -- See `:help K` for why this keymap
     nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-    nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+    -- nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
     -- Lesser used LSP functionality
     nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
@@ -259,7 +259,7 @@ local servers = {
     -- gopls = {},
     pyright = {},
     -- rust_analyzer = {},
-    tsserver = {},
+    ts_ls = {},
     -- remark_ls = {},
     html = {},
     cssls = {},
@@ -341,7 +341,7 @@ require 'nvim-treesitter.configs'.setup {
 -- require 'hop'.setup()
 
 require('settings')
-require('mappings')
+
 -- require('null_ls')
 -- require('hop_config')
 require('emmet_config')
@@ -349,3 +349,4 @@ require('emmet_config')
 
 -- To add a literal <ESC> to your command, while in insert mode, press CTRL+V then <ESC>.
 -- See :help i_CTRL-V.
+require('mappings')

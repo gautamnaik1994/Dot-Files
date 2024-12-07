@@ -1,6 +1,9 @@
-return { {
+return {
+    {
     'hrsh7th/nvim-cmp',
-    dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-path', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip', 'tzachar/cmp-tabnine' },
+    -- dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-path', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip', 'tzachar/cmp-tabnine' },
+    dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-path', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
+
     config = function()
         local cmp = require 'cmp'
         local luasnip = require 'luasnip'
@@ -9,7 +12,7 @@ return { {
             buffer = "[Buffer]",
             nvim_lsp = "[LSP]",
             nvim_lua = "[Lua]",
-            cmp_tabnine = "[TN]",
+            -- cmp_tabnine = "[TN]",
             path = "[Path]",
         }
 
@@ -25,17 +28,17 @@ return { {
                     -- in the following line:
                     vim_item.kind = lspkind.symbolic(vim_item.kind, { mode = "symbol" })
                     vim_item.menu = source_mapping[entry.source.name]
-                    if entry.source.name == "cmp_tabnine" then
-                        local detail = (entry.completion_item.labelDetails or {}).detail
-                        vim_item.kind = ""
-                        if detail and detail:find('.*%%.*') then
-                            vim_item.kind = vim_item.kind .. ' ' .. detail
-                        end
+                    -- if entry.source.name == "cmp_tabnine" then
+                    --     local detail = (entry.completion_item.labelDetails or {}).detail
+                    --     vim_item.kind = ""
+                    --     if detail and detail:find('.*%%.*') then
+                    --         vim_item.kind = vim_item.kind .. ' ' .. detail
+                    --     end
 
-                        if (entry.completion_item.data or {}).multiline then
-                            vim_item.kind = vim_item.kind .. ' ' .. '[ML]'
-                        end
-                    end
+                    --     if (entry.completion_item.data or {}).multiline then
+                    --         vim_item.kind = vim_item.kind .. ' ' .. '[ML]'
+                    --     end
+                    -- end
                     local maxwidth = 80
                     vim_item.abbr = string.sub(vim_item.abbr, 1, maxwidth)
                     return vim_item
@@ -70,7 +73,7 @@ return { {
                 end, { 'i', 's' }),
             },
             sources = {
-                { name = 'cmp_tabnine' },
+                -- { name = 'cmp_tabnine' },
                 { name = 'nvim_lsp' },
                 { name = 'luasnip' },
                 { name = 'buffer' },
@@ -101,5 +104,24 @@ return { {
         --     })
         -- end
 
+    },
+    {
+        "github/copilot.vim",
+        -- set keymap to accept completion on right arrow
+        config = function()
+            vim.keymap.set('i', '<Right>', 'copilot#Accept("\\<CR>")', {
+                expr = true,
+                replace_keycodes = false
+              })
+              vim.g.copilot_no_tab_map = true
+        end
     }
+    --  {
+    --     "zbirenbaum/copilot.lua",
+    --     cmd = "Copilot",
+    --     event = "InsertEnter",
+    --     config = function()
+    --       require("copilot").setup({})
+    --     end,
+    --   }
 }

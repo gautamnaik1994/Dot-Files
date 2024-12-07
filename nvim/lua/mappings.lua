@@ -61,6 +61,23 @@ nmap('<C-j>', '<C-w>j')
 nmap('<C-k>', '<C-w>k')
 nmap('<C-l>', '<C-w>l')
 
+-- tnoremap <C-J> <C-W><C-J>
+-- tnoremap <C-K> <C-W><C-K>
+-- tnoremap <C-L> <C-W><C-L>
+-- tnoremap <C-H> <C-W><C-H>
+
+-- 
+-- vim.cmd('nunmap <C-K>')
+
+-- nmap('<C-H>', '<C-W><C-H>')
+-- nmap('<C-J>', '<C-W><C-J>')
+-- nmap('<C-L>', '<C-W><C-L>')
+-- nmap('<C-K>', '<C-W><C-K>')
+
+-- vim.api.nvim_set_keymap('n', '<C-K>', '<C-W><C-K>', { noremap = true, silent = true })
+
+
+
 -- Reselect visual block after indent/outdent
 vmap('<', '<gv')
 vmap('>', '>gv')

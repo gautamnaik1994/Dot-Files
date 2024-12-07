@@ -98,8 +98,8 @@ vim.cmd([[
 -- vim.cmd('colorscheme Tomorrow-Night')
 --g.material_style = "palenight"
 
-g.python3_host_prog = "/Users/gautamnaik/anaconda3/bin/python"
-g.python_host_prog = "/Users/gautamnaik/anaconda3/bin/python"
+g.python3_host_prog ='/opt/miniconda3/bin/python'
+g.python_host_prog ='/opt/miniconda3/bin/python'
 
 -- o.showtabline = 2
 

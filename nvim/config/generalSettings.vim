@@ -2,9 +2,9 @@
 "     let g:python_host_prog='C:/ProgramData/Miniconda2/python'
 " endif
 if has('mac')
-    let g:python3_host_prog='/Users/Shared/anaconda3/bin/python'
-    let g:python_host_prog='/Users/Shared/anaconda3/envs/py2/bin/python'
-		let g:perl_host_prog = '/usr/bin/perl'
+    let g:python3_host_prog='/opt/miniconda3/bin/python'
+"    let g:python_host_prog='/Users/Shared/anaconda3/envs/py2/bin/python'
+"	let g:perl_host_prog = '/usr/bin/perl'
 endif
 if has('win32')
     let g:python3_host_prog='C:/ProgramData/Anaconda3/python'

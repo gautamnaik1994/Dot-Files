@@ -1,12 +1,14 @@
 return {
     -- 'wbthomason/packer.nvim',
     'wakatime/vim-wakatime',
+
     {
         'neovim/nvim-lspconfig',
         dependencies = {
             -- Automatically install LSPs to stdpath for neovim
-            'williamboman/mason.nvim',
-            'williamboman/mason-lspconfig.nvim',
+          "mason-org/mason.nvim",
+            "mason-org/mason-lspconfig.nvim",
+
 
             -- Useful status updates for LSP
             'j-hui/fidget.nvim',
@@ -41,11 +43,11 @@ return {
     -- require("nvim-autopairs").setup {}
 
     -- Git related plugins
-    'tpope/vim-fugitive',
-    'tpope/vim-rhubarb',
+    -- 'tpope/vim-fugitive',
+    -- 'tpope/vim-rhubarb',
     'lewis6991/gitsigns.nvim',
 
-    'navarasu/onedark.nvim', -- Theme inspired by Atom
+    -- 'navarasu/onedark.nvim', -- Theme inspired by Atom
     { "catppuccin/nvim",                          name = "catppuccin" },
     'nvim-tree/nvim-web-devicons',
 
@@ -82,6 +84,7 @@ return {
     -- })
 
 
+    
     { "nvim-telescope/telescope-file-browser.nvim" },
     {
         'smoka7/hop.nvim',
@@ -95,6 +98,7 @@ return {
             end, { remap = true })
         end
     },
+
 
     'windwp/nvim-ts-autotag',
 

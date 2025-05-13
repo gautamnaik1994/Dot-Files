@@ -82,11 +82,11 @@ return {
         }
     end
 },
-    {
+    -- {
 
-        'tzachar/cmp-tabnine',
-        build = './install.sh',
-        dependencies = 'hrsh7th/nvim-cmp',
+    --     'tzachar/cmp-tabnine',
+    --     build = './install.sh',
+    --     dependencies = 'hrsh7th/nvim-cmp',
         -- config = function()
         --     local tabnine = require('cmp_tabnine.config')
         --     tabnine:setup({
@@ -104,12 +104,12 @@ return {
         --     })
         -- end
 
-    },
+    -- },
     {
         "github/copilot.vim",
         -- set keymap to accept completion on right arrow
         config = function()
-            vim.keymap.set('i', '<Right>', 'copilot#Accept("\\<CR>")', {
+            vim.keymap.set('i', '<S-Right>', 'copilot#Accept("\\<CR>")', {
                 expr = true,
                 replace_keycodes = false
               })

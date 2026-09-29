@@ -94,16 +94,31 @@ tmap('<Esc><Esc>', '<C-\\><C-n>')
 -- Easy window split; C-w v -> vv, C-w - s -> ss
 -- nmap('vv', '<C-w>v')
 -- nmap('ss', '<C-w>s')
-
+vim.o.splitbelow = true -- when splitting horizontally, move coursor to lower pane
+vim.o.splitright = true -- when splitting vertically, mnove coursor to right pane
 
 -- PLUGINS
 
--- local builtin = require('telescope.builtin')
--- vim.keymap.set('n', '<C-p>', builtin.find_files, {})
--- vim.keymap.set('n', '<leader>f', builtin.live_grep, {})
--- vim.keymap.set('n', '<leader>b', builtin.buffers, {})
--- vim.keymap.set('n', '<leader>hh', builtin.help_tags, {})
+-- Find files using Telescope command-line sugar.
+-- nmap("<C-p>", "<cmd>Telescope find_files<cr>")
+-- nmap("<leader>f", "<cmd>Telescope live_grep<cr>")
+-- nmap("<leader>bb", "<cmd>Telescope buffers<cr>")
+-- nmap("<leader>hh", "<cmd>Telescope help_tags<cr>")
 
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<C-p>', builtin.find_files, {})
+vim.keymap.set('n', '<leader>f', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>b', builtin.buffers, {})
+vim.keymap.set('n', '<leader>hh', builtin.help_tags, {})
+
+-- LSP
+-- nmap('K', '<cmd>Lspsaga hover_doc<cr>')
+-- imap('<C-k>', '<cmd>Lspsaga hover_doc<cr>')
+-- nmap('gh', '<cmd>Lspsaga lsp_finder<cr>')
+-- nmap('<C-e>', '<cmd>Lspsaga show_line_diagnostics<CR>')
+
+-- git
+-- nmap('<C-g>', '<cmd>GitMessenger<cr>')
 
 
 -- II go to just before the first non-blank text of the line

@@ -57,7 +57,7 @@ local function lsp_on_attach(ev)
 	local opts = { noremap = true, silent = true, buffer = bufnr }
 
 	vim.keymap.set("n", "<leader>gd", function()
-		require("fzf-lua").lsp_definitions({ jump_to_single_result = true })
+		require("fzf-lua").lsp_definitions({ jump1 = true })
 	end, opts)
 
 	vim.keymap.set("n", "<leader>gD", vim.lsp.buf.definition, opts)
@@ -125,13 +125,19 @@ vim.keymap.set("n", "<leader>dl", vim.diagnostic.open_float, { desc = "Show line
 
 cmp.setup({
 	keymap = {
-		preset = "none",
-		["<C-Space>"] = { "show", "hide" },
-        ["<CR>"] = { "accept", "fallback" },
-        ["<C-y>"] = { "accept", "fallback" },
-		["<C-n>"] = { "select_next", "fallback" },
-        ["<C-p>"] = { "select_prev", "fallback" },
-        -- ["Tab"] = {"select_next"}
+		-- preset = "none",
+		-- ["<C-Space>"] = { "show", "hide" },
+		-- ["<CR>"] = { "accept", "fallback" },
+		-- ["<C-y>"] = { "accept", "fallback" },
+		-- ["<C-n>"] = { "select_next", "fallback" },
+		-- ["<C-p>"] = { "select_prev", "fallback" },
+
+		preset = 'enter',
+		['<Tab>'] = { 'snippet_forward', 'select_next', 'fallback' },
+		['<S-Tab>'] = { 'snippet_backward', 'select_prev', 'fallback' },
+
+
+		-- ["Tab"] = {"select_next"}
 		-- ["<Tab>"] = { "snippet_forward", "fallback" },
 		-- ["<S-Tab>"] = { "snippet_backward", "fallback" },
 	},
@@ -141,6 +147,17 @@ cmp.setup({
 			auto_show = function()
 				return vim.bo.filetype ~= "markdown"
 			end,
+		},
+		list = {
+			selection = {
+				preselect = false,
+				auto_insert = true,
+			},
+        },
+		documentation = { auto_show = true, auto_show_delay_ms = 500 },
+
+		trigger = {
+			show_on_trigger_character = true,
 		},
 	},
 	-- -- signature help while typing function calls (was previously unset)
@@ -174,21 +191,21 @@ vim.lsp.config("ts_ls", {})
 
 vim.g.rustaceanvim = {
 	server = {
-        capabilities = require("blink.cmp").get_lsp_capabilities(),
-        default_settings = {
-            ["rust-analyzer"] = {
-              cargo = {
-                allFeatures = true, -- Automatically load feature flags
-                loadOutDirsFromCheck = true,
-              },
-              procMacro = {
-                enable = true, -- Smooth experience with macros like serde
-              },
-            --   checkOnSave = {
-            --     command = "clippy", -- Use clippy instead of cargo check
-            --   },
-            },
-          },
+		capabilities = require("blink.cmp").get_lsp_capabilities(),
+		default_settings = {
+			["rust-analyzer"] = {
+				cargo = {
+					allFeatures = true, -- Automatically load feature flags
+					loadOutDirsFromCheck = true,
+				},
+				procMacro = {
+					enable = true, -- Smooth experience with macros like serde
+				},
+				--   checkOnSave = {
+				--     command = "clippy", -- Use clippy instead of cargo check
+				--   },
+			},
+		},
 	},
 }
 
@@ -273,4 +290,5 @@ vim.g.rustaceanvim = {
 
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('pyright')
+vim.lsp.enable('ts_ls')
 -- vim.lsp.enable('rust_analyzer')

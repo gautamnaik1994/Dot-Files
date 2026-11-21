@@ -39,13 +39,29 @@ vim.diagnostic.config({
 })
 
 do
-	local orig = vim.lsp.util.open_floating_preview
-	function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-		opts = opts or {}
-		opts.border = opts.border or "rounded"
-		return orig(contents, syntax, opts, ...)
-	end
+    local orig = vim.lsp.util.open_floating_preview
+    function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+        opts = opts or {}
+        opts.border = opts.border or "rounded"
+        return orig(contents, syntax, opts, ...)
+    end
 end
+
+-- 1. Native Multi-Liners Base Configuration
+vim.diagnostic.config({
+  -- Disable end-of-line virtual text to avoid duplicate clutter
+  virtual_text = false,
+
+  -- Enable multi-line errors ONLY for the line your cursor is on
+--   virtual_lines = { 
+--     current_line = true 
+--   },
+  
+  -- Keep signs in the left gutter and underlines active
+--   signs = true,
+--   underline = true,
+})
+
 
 local function lsp_on_attach(ev)
 	local client = vim.lsp.get_client_by_id(ev.data.client_id)
@@ -56,11 +72,11 @@ local function lsp_on_attach(ev)
 	local bufnr = ev.buf
 	local opts = { noremap = true, silent = true, buffer = bufnr }
 
-	vim.keymap.set("n", "<leader>gd", function()
+	vim.keymap.set("n", "gd", function()
 		require("fzf-lua").lsp_definitions({ jump1 = true })
 	end, opts)
 
-	vim.keymap.set("n", "<leader>gD", vim.lsp.buf.definition, opts)
+	vim.keymap.set("n", "gD", vim.lsp.buf.definition, opts)
 
 	vim.keymap.set("n", "<leader>gS", function()
 		vim.cmd("vsplit")
@@ -153,7 +169,7 @@ cmp.setup({
 				preselect = false,
 				auto_insert = true,
 			},
-        },
+		},
 		documentation = { auto_show = true, auto_show_delay_ms = 500 },
 
 		trigger = {
@@ -191,7 +207,7 @@ vim.lsp.config("ts_ls", {})
 
 vim.g.rustaceanvim = {
 	server = {
-		capabilities = require("blink.cmp").get_lsp_capabilities(),
+		capabilities = cmp.get_lsp_capabilities(),
 		default_settings = {
 			["rust-analyzer"] = {
 				cargo = {
@@ -204,6 +220,11 @@ vim.g.rustaceanvim = {
 				--   checkOnSave = {
 				--     command = "clippy", -- Use clippy instead of cargo check
 				--   },
+				checkOnSave = true, -- This must be a boolean
+				check = {
+					command = "clippy",
+					extraArgs = { "--no-deps" },
+				},
 			},
 		},
 	},

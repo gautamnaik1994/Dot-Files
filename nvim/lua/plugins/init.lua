@@ -20,7 +20,8 @@ vim.pack.add({
         -- I recommend you set a version range
         version = vim.version.range('^9')
     },
-    { src = "https://github.com/catppuccin/nvim", name = "catppuccin" }
+    { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
+    "https://github.com/folke/tokyonight.nvim"
 })
 
 local function packadd(name)

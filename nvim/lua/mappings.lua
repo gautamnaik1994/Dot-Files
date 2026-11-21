@@ -168,3 +168,24 @@ nmap('<space>', 'a<space><esc>')
 -- add space in normal mode
 nmap('<space>', 'a<space><esc>')
 nmap('<S-space>', 'i<space><esc>')
+
+
+
+vim.keymap.set("n", "<leader>td", function()
+	-- Get the current virtual_text configuration
+	local current_setting = vim.diagnostic.config().virtual_text
+
+	-- If it's a table (custom config), it counts as enabled. Otherwise, grab the boolean.
+	local is_enabled = false
+	if type(current_setting) == "table" then
+		is_enabled = true
+	elseif type(current_setting) == "boolean" then
+		is_enabled = current_setting
+	end
+
+	-- Toggle the state
+	vim.diagnostic.config({ virtual_text = not is_enabled })
+	
+	-- Optional: Print a quick status message in the command line
+	print("Virtual text: " .. (not is_enabled and "Enabled" or "Disabled"))
+end, { desc = "Toggle Diagnostic Virtual Text" })
